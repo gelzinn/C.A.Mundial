@@ -13,7 +13,7 @@ const Home: NextPage = () => {
         ></meta>
       </Head>
 
-      <h1>C.A.Mundial</h1>
+      <h1>Página C.A.Mundial</h1>
     </>
   );
 };

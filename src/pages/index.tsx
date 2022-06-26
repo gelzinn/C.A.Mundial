@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>C.A. Mundial</title>
+        <title>C.A.Mundial</title>
         <meta name="description" content="" />
         <meta
           name="viewport"
@@ -18,7 +18,7 @@ export default function Home() {
       <Header />
       <MainBanner>
         <img
-          src="../assets/images/banners/ccafb2021.png"
+          src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/banners/CCAFB%202021.png"
           alt="C.C.A.F.B. 2021"
         />
       </MainBanner>

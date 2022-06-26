@@ -94,34 +94,43 @@ export const Warnings = styled.div`
   overflow: hidden;
 
   > p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
 
-    margin: 0 1rem;
-    gap: 8px;
+    > a {
+      color: var(--primary);
+      margin-left: 0.25rem;
+    }
 
     &:before,
     &:after {
       content: "🎉";
     }
 
+    &:before {
+      margin-right: 0.5rem;
+    }
+
+    &:after {
+      margin-left: 0.5rem;
+    }
+
     @media (max-width: 450px) {
       &:before,
       &:after {
-        position: absolute;
         content: "🎉";
+        position: absolute;
         font-size: 20vw;
         opacity: 0.1;
+        top: -50%;
+        bottom: -50%;
       }
 
       &:before {
-        left: -20%;
+        left: -15%;
       }
 
       &:after {
-        right: -20%;
+        right: -15%;
         transform: scaleX(-1);
       }
     }

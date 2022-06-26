@@ -7,7 +7,7 @@ export const FooterContainer = styled.footer`
 
   width: 100%;
   background: var(--shape);
-  color: var(--text);
+  color: var(--white);
   padding: 1.5rem;
 
   .container {
@@ -18,6 +18,21 @@ export const FooterContainer = styled.footer`
     width: 100%;
     max-width: 1120px;
     margin: 0 1rem;
+
+    @media (max-width: 768px) {
+      text-align: center;
+      flex-direction: column-reverse;
+      gap: 1rem;
+
+      .follow-us {
+        flex-direction: column;
+        gap: unset;
+
+        > p {
+          display: none;
+        }
+      }
+    }
   }
 
   .follow-us {
@@ -25,12 +40,13 @@ export const FooterContainer = styled.footer`
     justify-content: center;
     align-items: center;
     text-transform: capitalize;
-    gap: 16px;
+    gap: 1rem;
 
     .social-icons {
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 0.5rem;
 
       > a {
         display: flex;
@@ -44,14 +60,13 @@ export const FooterContainer = styled.footer`
         > svg {
           width: 2.5rem;
           height: 2.5rem;
-          padding: 8px;
-          fill: var(--text);
+          padding: 0.5rem;
+          fill: var(--white);
           transition: var(--transition);
           border-radius: 4px;
           cursor: pointer;
 
           &:hover {
-            fill: var(--white);
             background: var(--shape-dark);
           }
         }

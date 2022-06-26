@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <FooterContainer>
       <div className="container">
-        <p>© {actualYear} PIZY House. Todos os direitos reservados.</p>
+        <p>© {actualYear} C.A.Mundial. Todos os direitos reservados.</p>
         <div className="follow-us">
           <p>Nos acompanhe</p>
           <div className="social-icons">

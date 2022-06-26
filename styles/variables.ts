@@ -8,6 +8,15 @@ export const Variables = css`
 
     // Colors
     --background: #fef9ff;
+    --black: #09090a;
+    --white: #fff;
+
+    --primary: #cead00;
+    --primary-hover: #ceaa00;
+
+    --text: #27272a;
+    --text-secondary: #71717a;
+    --text-on-tooltip: #f4f4f5;
 
     // Other Values
     --max-width: 900px;

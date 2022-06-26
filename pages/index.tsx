@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Header from "../components/Header";
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +14,7 @@ const Home: NextPage = () => {
         ></meta>
       </Head>
 
-      <h1>Página C.A.Mundial</h1>
+      <Header />
     </>
   );
 };

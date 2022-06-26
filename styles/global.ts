@@ -16,20 +16,20 @@ export const GlobalStyles = createGlobalStyle`
     height: max-content;
     overflow-x: hidden;
     background: var(--background);
-    color: var(--white);
-    /* &::-webkit-scrollbar {
-      width: 8px;
+    color: var(--text);
+    &::-webkit-scrollbar {
+      width: 6px;
     }
     &::-webkit-scrollbar-track {
-      background: rgba(130, 87, 229, 0.1);
+      background: var(--black);
     }
     &::-webkit-scrollbar-thumb {
       background: var(--primary);
       transition: var(--transition);
     }
     &::-webkit-scrollbar-thumb:hover {
-      background: var(--tertiary);
-    } */
+      background: var(--primary-hover);
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     html {

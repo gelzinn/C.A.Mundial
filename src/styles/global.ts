@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     background: var(--background);
     color: var(--text);
+    -webkit-font-smoothing: antialiased;
     &::-webkit-scrollbar {
       width: 6px;
     }

@@ -7,15 +7,22 @@ export const Variables = css`
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
     // Colors
-    --background: #fef9ff;
+    --background: #fff;
     --black: #09090a;
     --white: #fff;
 
-    --primary: #cead00;
-    --primary-hover: #ceaa00;
+    --shape: #121214;
+    --shape-light: #28282d;
+    --shape-light-lowopacity: #28282d50;
+    --shape-dark: #3c3c42;
+    --shape-dark-lowopacity: #3c3c4225;
+    --shape-hover: #29292e;
 
-    --text: #27272a;
-    --text-secondary: #71717a;
+    --primary: #cead00;
+    --primary-hover: #f5ce00;
+
+    --text: #71717a;
+    --text-secondary: #27272a;
     --text-on-tooltip: #f4f4f5;
 
     // Other Values

@@ -101,8 +101,8 @@ export default function Home() {
                   <a href="./">aqui</a>.
                 </p>
               </div>
-              <div className="bg" />
             </div>
+            <div className="bg" />
           </Subscribe>
         </main>
       </main>

@@ -300,10 +300,10 @@ export const Subscribe = styled.div`
 
   .bg {
     position: absolute;
-    width: 100%;
+    width: 100vw;
     height: 400px;
     background-image: url("https://global-uploads.webflow.com/61d83a2ebb0ae01ab96e841a/629642e4e4b6821da70eac38_blur-rocketseat-plus.png");
-    background-position: 50% 100%, 50% 0;
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.5;

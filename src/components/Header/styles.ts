@@ -45,6 +45,24 @@ export const HeaderContainer = styled.header`
       gap: 2rem;
       list-style-type: none;
 
+      > a {
+        &:not(.subscribe):after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          left: 0;
+          bottom: 0;
+          background: #fbfaff;
+          transform: scale(0, 1);
+          transition: var(--transition);
+        }
+
+        &:hover:after {
+          transform: scale(1, 1);
+        }
+      }
+
       @media (max-width: 900px) {
         display: none;
       }

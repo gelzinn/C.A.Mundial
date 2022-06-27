@@ -1,4 +1,4 @@
-import { createGlobalStyle, keyframes } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { Variables } from "./variables";
 
 export const GlobalStyles = createGlobalStyle`
@@ -9,6 +9,9 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     font-family: var(--font-main);
   }
+  main.space {
+    margin: 2rem auto;
+  }
   html {
     scroll-behavior: smooth;
     box-sizing: inherit;
@@ -16,7 +19,7 @@ export const GlobalStyles = createGlobalStyle`
     height: max-content;
     overflow-x: hidden;
     background: var(--background);
-    color: var(--text);
+    color: var(--black);
     -webkit-font-smoothing: antialiased;
     &::-webkit-scrollbar {
       width: 6px;

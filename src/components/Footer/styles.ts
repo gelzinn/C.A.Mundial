@@ -2,6 +2,52 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.footer``;
 
+export const FastNavigation = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  background: var(--shape);
+  color: var(--white);
+  padding: 1.5rem;
+
+  border: 1px var(--shape-dark);
+  border-style: solid none;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1rem;
+
+    width: 100%;
+    max-width: 1120px;
+
+    text-transform: capitalize;
+
+    > p {
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--text);
+      transition: var(--transition);
+
+      &:hover {
+        color: var(--white);
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+`;
+
 export const RightsAndSocial = styled.div`
   display: flex;
   justify-content: center;
@@ -85,13 +131,10 @@ export const CompanyLegalData = styled.div`
   width: 100%;
   background: var(--shape);
   color: var(--text);
-  border: 1px var(--shape-dark);
-  border-style: solid none;
   padding: 1.5rem;
 
   > p {
     max-width: 1120px;
-    margin: 0 1rem;
     text-align: center;
   }
 `;

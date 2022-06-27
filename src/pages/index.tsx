@@ -1,13 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
-import { MainBanner } from "~/styles/pages/home";
+import { MainBanner, RecentEvent } from "~/styles/pages/home";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>C.A.Mundial</title>
+        <title>C.A.Mundial • Venha ser um craque você também!</title>
         <meta
           name="description"
           content="Organização de eventos esportivos - especializada em futebol - e captação e formação de atletas pelo território brasileiro."
@@ -19,12 +20,25 @@ export default function Home() {
       </Head>
 
       <Header />
-      <MainBanner>
-        <img
-          src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/banners/New%202022%20site.png"
-          alt="C.C.A.F.B. 2021"
-        />
-      </MainBanner>
+      <main>
+        <MainBanner>
+          {/* <div className="actions">
+            <a href="">Saiba mais</a>
+            <a href="">Se inscrever</a>
+          </div> */}
+          <img
+            src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/banners/New%202022%20site.png"
+            alt="New 2022 C.A.Mundial site!"
+          />
+        </MainBanner>
+        <main className="space">
+          <RecentEvent>
+            <div className="info">
+              <h1>C.C.F.A.F.B.</h1>
+            </div>
+          </RecentEvent>
+        </main>
+      </main>
       <Footer />
     </>
   );

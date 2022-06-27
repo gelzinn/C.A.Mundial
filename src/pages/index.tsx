@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
-import { MainBanner, RecentEvent } from "~/styles/pages/home";
+import { MainBanner, ShortDescription } from "~/styles/pages/home";
+import { CircleWavyCheck, Flag, Handshake, Smiley } from "phosphor-react";
 
 export default function Home() {
   return (
@@ -32,11 +33,58 @@ export default function Home() {
           />
         </MainBanner>
         <main className="space">
-          <RecentEvent>
-            <div className="info">
-              <h1>C.C.F.A.F.B.</h1>
-            </div>
-          </RecentEvent>
+          <ShortDescription>
+            <ul className="info">
+              <h1>Por que tão escolhidos?</h1>
+              <li>
+                <div className="icon">
+                  <Handshake />
+                </div>
+                <div className="about">
+                  <span>Parceira</span>
+                  <p>
+                    A C.A.Mundial tem parcerias com vários clubes do futebol
+                    brasileiro.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="icon">
+                  <Smiley />
+                </div>
+                <div className="about">
+                  <span>Receptiva</span>
+                  <p>
+                    Apresentamos um trabalho de captação em várias categorias.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="icon">
+                  <CircleWavyCheck />
+                </div>
+                <div className="about">
+                  <span>Preparada</span>
+                  <p>
+                    Com C.T. próprio, a C.A.Mundial está preparada para receber
+                    os atletas.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="icon">
+                  <Flag />
+                </div>
+                <div className="about">
+                  <span>Nacional</span>
+                  <p>
+                    Também são realizadas avaliações por todo o território
+                    brasileiro.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </ShortDescription>
         </main>
       </main>
       <Footer />

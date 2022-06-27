@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Sobre nós • C.A.Mundial</title>
+        <title>Memórias • C.A.Mundial</title>
         <meta
           name="description"
           content="Organização de eventos esportivos - especializada em futebol - e captação e formação de atletas pelo território brasileiro."
@@ -61,13 +61,6 @@ export default function Home() {
           </div>
           <span>C.C.F.A.F.B. 2021</span>
           <div className="container">
-            <div className="item">
-              <img
-                src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/memories/2.jpg"
-                alt=""
-                loading="lazy"
-              />
-            </div>
             <div className="item">
               <img
                 src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/memories/3.jpg"

@@ -2,7 +2,6 @@
 import Head from "next/head";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
-import { AboutUs } from "~/styles/pages/about-us";
 import { MemoriesDescription, MemoriesLayout } from "~/styles/pages/memories";
 
 export default function Home() {

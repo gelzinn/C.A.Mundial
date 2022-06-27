@@ -283,12 +283,15 @@ export const Subscribe = styled.div`
         font-weight: bold;
         border: 1px solid var(--primary);
         background: unset;
-        width: 50%;
-        padding: 0.5rem 2rem;
-        border-radius: 4px;
+
         color: var(--primary);
         transition: var(--transition);
         text-transform: uppercase;
+
+        width: 100%;
+        max-width: 300px;
+        padding: 0.5rem 2rem;
+        border-radius: 4px;
 
         &:hover {
           background: var(--primary);

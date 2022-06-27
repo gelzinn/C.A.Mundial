@@ -136,6 +136,8 @@ export const Warnings = styled.div`
     }
 
     @media (max-width: 450px) {
+      margin: 0 0.5rem;
+
       &:before,
       &:after {
         display: none;

@@ -62,13 +62,17 @@ export const MemoriesDescription = styled.div`
     }
 
     > video {
+      position: absolute;
       width: 100%;
       max-width: unset;
       min-height: unset;
       height: auto;
-      max-height: 350px;
-      margin-top: 2rem;
-      mask-image: linear-gradient(to bottom, transparent, black, transparent);
+      /* max-height: 400px; */
+
+      top: unset;
+      right: unset;
+      bottom: 0;
+      mask-image: linear-gradient(to bottom, transparent, black);
     }
   }
 `;

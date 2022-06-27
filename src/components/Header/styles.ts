@@ -4,6 +4,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 
   background: var(--black);
   color: var(--white);
@@ -46,7 +47,7 @@ export const HeaderContainer = styled.header`
       list-style-type: none;
 
       > a {
-        &:not(.subscribe):after {
+        /* &:not(.subscribe):after {
           content: "";
           position: absolute;
           width: 100%;
@@ -56,7 +57,7 @@ export const HeaderContainer = styled.header`
           background: #fbfaff;
           transform: scale(0, 1);
           transition: var(--transition);
-        }
+        } */
 
         &:hover:after {
           transform: scale(1, 1);

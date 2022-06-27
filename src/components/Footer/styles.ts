@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const FooterContainer = styled.footer``;
+export const FooterContainer = styled.footer`
+  z-index: 1000;
+`;
 
 export const FastNavigation = styled.div`
   display: flex;

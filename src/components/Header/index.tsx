@@ -15,11 +15,11 @@ export default function Header() {
           </a>
           <ul>
             <a href="./">Início</a>
-            <a href="./">Sobre nós</a>
-            <a href="./">Momentos</a>
-            <a href="./">Avaliações &#38; Competições</a>
-            <a href="./">Contato</a>
-            <a href="./" className="subscribe">
+            <a href="./about-us">Sobre nós</a>
+            <a href="./memories">Memórias</a>
+            <a href="./competitions">Avaliações &#38; Competições</a>
+            <a href="./contact">Contato</a>
+            <a href="./subscribe" className="subscribe">
               Inscrição
             </a>
           </ul>

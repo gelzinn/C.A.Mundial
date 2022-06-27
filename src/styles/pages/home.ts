@@ -4,6 +4,7 @@ export const MainBanner = styled.div`
   width: 100%;
 
   > img {
+    width: 100%;
     max-width: 100%;
     max-height: 100%;
     margin: auto;

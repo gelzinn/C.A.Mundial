@@ -58,7 +58,6 @@ export const HeaderContainer = styled.header`
       position: relative;
       cursor: pointer;
 
-      font-weight: 500;
       text-decoration: none;
       text-transform: capitalize;
       color: var(--white);
@@ -74,13 +73,16 @@ export const HeaderContainer = styled.header`
     }
 
     .subscribe {
-      color: var(--black);
-      background: var(--primary);
-      padding: 0.5rem 1.5rem;
+      font-weight: bold;
+      border: 1px solid var(--primary);
+      background: unset;
+      padding: 0.5rem 2rem;
       border-radius: 4px;
+      color: var(--primary);
 
       &:hover {
         background: var(--primary-hover);
+        color: var(--black);
       }
     }
   }
@@ -117,21 +119,7 @@ export const Warnings = styled.div`
     @media (max-width: 450px) {
       &:before,
       &:after {
-        content: "🎉";
-        position: absolute;
-        font-size: 20vw;
-        opacity: 0.1;
-        top: -50%;
-        bottom: -50%;
-      }
-
-      &:before {
-        left: -15%;
-      }
-
-      &:after {
-        right: -15%;
-        transform: scaleX(-1);
+        display: none;
       }
     }
   }

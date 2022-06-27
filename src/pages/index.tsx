@@ -8,7 +8,10 @@ export default function Home() {
     <>
       <Head>
         <title>C.A.Mundial</title>
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content="Organização de eventos esportivos - especializada em futebol - e captação e formação de atletas pelo território brasileiro."
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
@@ -18,7 +21,7 @@ export default function Home() {
       <Header />
       <MainBanner>
         <img
-          src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/banners/CCAFB%202021.png"
+          src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/banners/New%202022%20site.png"
           alt="C.C.A.F.B. 2021"
         />
       </MainBanner>

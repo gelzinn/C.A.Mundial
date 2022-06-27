@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const FooterContainer = styled.footer`
+export const FooterContainer = styled.footer``;
+
+export const RightsAndSocial = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,5 +74,24 @@ export const FooterContainer = styled.footer`
         }
       }
     }
+  }
+`;
+
+export const CompanyLegalData = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  background: var(--shape);
+  color: var(--text);
+  border: 1px var(--shape-dark);
+  border-style: solid none;
+  padding: 1.5rem;
+
+  > p {
+    max-width: 1120px;
+    margin: 0 1rem;
+    text-align: center;
   }
 `;

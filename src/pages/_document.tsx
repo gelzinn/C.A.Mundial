@@ -51,7 +51,11 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="250"
+          data-aos-delay="0"
+        >
           <Main />
           <NextScript />
         </body>

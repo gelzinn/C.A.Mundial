@@ -26,8 +26,8 @@ export default function Home() {
             <a href="">Se inscrever</a>
           </div> */}
           <img
-            // src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/banners/New%202022%20site.png"
-            src=""
+            src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/banners/New%202022%20site.png"
+            loading="lazy"
             alt="New 2022 C.A.Mundial site!"
           />
         </MainBanner>

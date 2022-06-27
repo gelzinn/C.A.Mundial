@@ -59,7 +59,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <span>C.C.F.A.F.B. 2021</span>
+          <span>Avaliações 2021 - com Aílton Lira</span>
           <div className="container">
             <div className="item">
               <img

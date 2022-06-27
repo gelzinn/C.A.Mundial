@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
   main.space {
-    margin: 2rem auto;
+    margin: 2rem auto 0;
   }
   html {
     scroll-behavior: smooth;

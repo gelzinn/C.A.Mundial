@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
-import { MainBanner, ShortDescription } from "~/styles/pages/home";
+import { MainBanner, ShortDescription, Subscribe } from "~/styles/pages/home";
 import { CircleWavyCheck, Flag, Handshake, Smiley } from "phosphor-react";
 
 export default function Home() {
@@ -55,7 +55,8 @@ export default function Home() {
                 <div className="about">
                   <span>Receptiva</span>
                   <p>
-                    Apresentamos um trabalho de captação em várias categorias.
+                    Apresentamos um trabalho de captação e formação de atletas
+                    em várias categorias.
                   </p>
                 </div>
               </li>
@@ -66,8 +67,8 @@ export default function Home() {
                 <div className="about">
                   <span>Preparada</span>
                   <p>
-                    Com C.T. próprio, a C.A.Mundial está preparada para receber
-                    os atletas.
+                    Com centro de treinamento próprio, estamos preparados para
+                    receber os atletas.
                   </p>
                 </div>
               </li>
@@ -85,6 +86,24 @@ export default function Home() {
               </li>
             </ul>
           </ShortDescription>
+          <Subscribe>
+            <div className="container">
+              <div className="info">
+                <span>Copa dos Campeões de Futebol de Base</span>
+                <p>
+                  A edição da Copa dos Campeões de 2022 acontecerá dos dias{" "}
+                  <b>12 a 15 de novembro</b> na cidade de Mineiros do Tietê -
+                  SP.
+                </p>
+                <a href="/subscribe">Se inscrever</a>
+                <p className="legal-info">
+                  Saiba mais sobre acomodação e outros termos{" "}
+                  <a href="./">aqui</a>.
+                </p>
+              </div>
+              <div className="bg" />
+            </div>
+          </Subscribe>
         </main>
       </main>
       <Footer />

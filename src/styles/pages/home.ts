@@ -160,10 +160,19 @@ export const ShortDescription = styled.div`
         height: 8rem;
         border-radius: 50%;
         padding: 1.5rem;
+        transition: var(--transition);
 
         > svg {
           width: 100%;
           height: 100%;
+        }
+
+        &:hover {
+          background: var(--primary);
+
+          > svg {
+            color: var(--background);
+          }
         }
       }
 
@@ -218,5 +227,87 @@ export const ShortDescription = styled.div`
         }
       }
     }
+  }
+`;
+
+export const Subscribe = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  background: var(--black);
+  height: 400px;
+  margin: 1rem auto 0;
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 1rem;
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      margin: 0 auto;
+      z-index: 1;
+      color: var(--white);
+      width: 100%;
+      max-width: 600px;
+
+      > span {
+        font-weight: 900;
+        font-size: 1.75rem;
+        text-transform: capitalize;
+      }
+
+      .legal-info {
+        color: var(--text);
+        > a {
+          color: var(--text);
+        }
+      }
+
+      > a {
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid var(--primary);
+        background: unset;
+        width: 50%;
+        padding: 0.5rem 2rem;
+        border-radius: 4px;
+        color: var(--primary);
+        transition: var(--transition);
+        text-transform: uppercase;
+
+        &:hover {
+          background: var(--primary);
+          color: var(--black);
+        }
+      }
+    }
+  }
+
+  .bg {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    background-image: url("https://global-uploads.webflow.com/61d83a2ebb0ae01ab96e841a/629642e4e4b6821da70eac38_blur-rocketseat-plus.png");
+    background-position: 50% 100%, 50% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    filter: invert(67%) sepia(98%) saturate(1504%) hue-rotate(8deg)
+      brightness(150%) contrast(104%);
   }
 `;

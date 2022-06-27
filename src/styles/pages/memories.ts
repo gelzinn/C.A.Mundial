@@ -67,7 +67,6 @@ export const MemoriesDescription = styled.div`
       max-width: unset;
       min-height: unset;
       height: auto;
-      /* max-height: 400px; */
 
       top: unset;
       right: unset;
@@ -103,7 +102,6 @@ export const MemoriesLayout = styled.div`
   .item {
     overflow: hidden;
     flex-grow: 1;
-    flex-basis: 500px;
     border-radius: 4px;
 
     > img {
@@ -111,6 +109,7 @@ export const MemoriesLayout = styled.div`
       user-select: none;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 `;

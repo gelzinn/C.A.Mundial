@@ -17,6 +17,7 @@ export const HeaderContainer = styled.header`
     width: 100%;
     max-width: 5rem;
     height: 100%;
+    z-index: 5;
 
     > img {
       width: 100%;
@@ -38,6 +39,51 @@ export const HeaderContainer = styled.header`
     height: 100%;
     max-width: 1120px;
     margin: 0 1rem;
+    z-index: 1000;
+
+    .mobile-menu {
+      display: none;
+      width: 80px;
+      height: 80px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background: unset;
+      border: unset;
+      z-index: 5;
+
+      > div {
+        background: var(--primary);
+        width: 32px;
+        height: 0.15rem;
+        position: relative;
+        transition: background 10ms ease 300ms;
+
+        &:before,
+        &:after {
+          transition: top 300ms ease 350ms, transform 300ms ease 50ms;
+          position: absolute;
+          background: var(--primary);
+          width: 100%;
+          height: 0.15rem;
+          content: "";
+        }
+
+        &:before {
+          top: 0.5rem;
+          left: 0;
+        }
+
+        &:after {
+          bottom: 0.5rem;
+          left: 0;
+        }
+      }
+
+      @media (max-width: 900px) {
+        display: flex;
+      }
+    }
 
     > ul {
       display: flex;
@@ -66,6 +112,23 @@ export const HeaderContainer = styled.header`
 
       @media (max-width: 900px) {
         display: none;
+
+        &.open {
+          position: absolute;
+          display: flex;
+          flex: 0 0 100%;
+          left: 0;
+          top: 0;
+
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          background: var(--black);
+
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
 

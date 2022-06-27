@@ -9,6 +9,14 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     font-family: var(--font-main);
   }
+  body {
+    -webkit-font-smoothing: antialiased;
+
+    &.menu-openned {
+      height: calc(100vh);
+      overflow: hidden;
+    }
+  }
   main.space {
     margin: 2rem auto;
   }
@@ -20,7 +28,6 @@ export const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     background: var(--background);
     color: var(--black);
-    -webkit-font-smoothing: antialiased;
     &::-webkit-scrollbar {
       width: 6px;
     }

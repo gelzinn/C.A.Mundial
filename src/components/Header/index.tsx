@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { HeaderContainer, Warnings } from "./styles";
 
 export default function Header() {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  if (openMenu === true) {
+    document.body.classList.add("menu-openned");
+  } else {
+    document.body.classList.remove("menu-openned");
+  }
+
   return (
     <>
       <HeaderContainer>
@@ -13,7 +21,13 @@ export default function Header() {
               alt="C. A. Mundial"
             />
           </a>
-          <ul>
+          <button
+            className="mobile-menu"
+            onClick={() => setOpenMenu(!openMenu)}
+          >
+            <div />
+          </button>
+          <ul className={openMenu ? "open" : ""}>
             <a href="./">Início</a>
             <a href="./about-us">Sobre nós</a>
             <a href="./memories">Memórias</a>

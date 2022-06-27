@@ -24,8 +24,8 @@ export default function Home() {
           <div className="info">
             <h1>Memórias</h1>
             <p>
-              Reviva nossos brilhantes momentos. Veja todas as edições
-              anteriores de campeonatos, torneios e avaliações.
+              Reviva nossos brilhantes momentos das edições anteriores de
+              campeonatos, torneios e avaliações.
             </p>
           </div>
           <video
@@ -42,30 +42,51 @@ export default function Home() {
           </video>
         </MemoriesDescription>
         <MemoriesLayout>
+          <span>Amistoso S.P.F.C. 2022</span>
+          <div className="container">
+            <div className="item">
+              <img
+                src="https://drive.google.com/uc?id=1VMxWm8751EhglvVgBsKGgxZeJgE88bgK"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <div className="item">
+              <img
+                src="https://drive.google.com/uc?id=1UcX3KJ_R7bajP3lqScH4Tm0BeG7E2TTS"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+          </div>
           <span>C.C.F.A.F.B. 2021</span>
           <div className="container">
             <div className="item">
               <img
                 src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/memories/2.jpg"
                 alt=""
+                loading="lazy"
               />
             </div>
             <div className="item">
               <img
                 src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/memories/3.jpg"
                 alt=""
+                loading="lazy"
               />
             </div>
             <div className="item">
               <img
                 src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/memories/10.jpg"
                 alt=""
+                loading="lazy"
               />
             </div>
             <div className="item">
               <img
                 src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/memories/12.jpg"
                 alt=""
+                loading="lazy"
               />
             </div>
           </div>

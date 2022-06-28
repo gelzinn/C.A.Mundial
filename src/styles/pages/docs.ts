@@ -2,14 +2,6 @@ import styled from "styled-components";
 
 export const MainDocs = styled.main`
   overflow-x: hidden;
-
-  @media screen and (prefers-reduced-motion: no-preference) {
-    scroll-snap-type: y mandatory;
-  }
-
-  > div {
-    scroll-snap-align: center;
-  }
 `;
 
 export const PresentationDocs = styled.div`

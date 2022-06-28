@@ -85,7 +85,7 @@ export const Sponsors = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: scroll hidden;
+    overflow: auto hidden;
 
     width: 100%;
     height: 100%;

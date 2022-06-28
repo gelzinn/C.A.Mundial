@@ -275,6 +275,7 @@ export const Subscribe = styled.div`
   background: var(--black);
   height: 400px;
   margin: 1rem auto 0;
+  position: relative;
 
   .container {
     position: relative;

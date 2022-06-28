@@ -12,9 +12,9 @@ export const GlobalStyles = createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
 
-    &.menu-openned {
-      height: calc(100vh);
-      overflow: hidden;
+    &.menu-opened {
+      height: 100vh;
+      overflow: hidden hidden;
     }
   }
   main.space {

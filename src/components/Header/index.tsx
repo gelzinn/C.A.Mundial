@@ -6,9 +6,9 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState(false);
 
   if (openMenu === true) {
-    document.body.classList.add("menu-openned");
+    document.body.classList.add("menu-opened");
   } else {
-    document.body.classList.remove("menu-openned");
+    document.body.classList.remove("menu-opened");
   }
 
   return (
@@ -22,7 +22,7 @@ export default function Header() {
             />
           </a>
           <button
-            className="mobile-menu"
+            className={openMenu ? "mobile-menu opened" : "mobile-menu"}
             onClick={() => setOpenMenu(!openMenu)}
           >
             <div />

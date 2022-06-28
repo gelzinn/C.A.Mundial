@@ -80,6 +80,27 @@ export const HeaderContainer = styled.header`
         }
       }
 
+      &.opened {
+        > div {
+          background: transparent;
+          transition: top 300ms ease 50ms, transform 300ms ease 350ms;
+          top: 0px;
+
+          &:before,
+          &:after {
+            top: 0;
+          }
+
+          &:before {
+            transform: rotate(45deg);
+          }
+
+          &:after {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
       @media (max-width: 900px) {
         display: flex;
       }

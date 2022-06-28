@@ -1,7 +1,12 @@
 import Head from "next/head";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
-import { MainBanner, ShortDescription, Subscribe } from "~/styles/pages/home";
+import {
+  MainBanner,
+  ShortDescription,
+  Sponsors,
+  Subscribe,
+} from "~/styles/pages/home";
 import { CircleWavyCheck, Flag, Handshake, Smiley } from "phosphor-react";
 
 export default function Home() {
@@ -32,6 +37,14 @@ export default function Home() {
             alt="New 2022 C.A.Mundial site!"
           />
         </MainBanner>
+        <Sponsors>
+          <div className="sponsors">
+            <img
+              src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/sponsors/parelli%20sports.png"
+              alt="Parelli Sports"
+            />
+          </div>
+        </Sponsors>
         <main className="space">
           <ShortDescription>
             <ul className="info">

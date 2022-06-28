@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const sponsorsRotating = keyframes`
+  0% {
+    transform: translateX(0)
+  }
+`;
 
 export const MainBanner = styled.div`
   width: 100%;
@@ -62,6 +68,36 @@ export const MainBanner = styled.div`
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+`;
+
+export const Sponsors = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100px;
+  background: var(--white-dark);
+
+  .sponsors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll hidden;
+
+    width: 100%;
+    height: 100%;
+    /* animation: ${sponsorsRotating} 5s infinite; */
+
+    > img {
+      max-width: 100%;
+      max-height: 150%;
+      pointer-events: none;
+      user-select: none;
+      transition: var(--transition);
+      filter: invert(1);
     }
   }
 `;

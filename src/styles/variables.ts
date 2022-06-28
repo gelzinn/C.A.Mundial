@@ -10,6 +10,7 @@ export const Variables = css`
     --background: #fff;
     --black: #09090a;
     --white: #fff;
+    --white-dark: #f2f2f2;
 
     --shape: #121214;
     --shape-light: #28282d;

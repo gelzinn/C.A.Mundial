@@ -38,11 +38,10 @@ export default function AboutUS() {
               <p>
                 Tudo o que fazemos está enraizado no esporte, que desempenha um
                 papel cada vez mais importante na vida das pessoas, dentro e
-                fora do campo de jogo. É central para todas as culturas e
-                sociedades e é fundamental para a nossa saúde e felicidade.
+                fora do campo.
               </p>
               <p>
-                Somos a C.A.Mundial, estamos no mercado desde 2003 - fazem{" "}
+                Estamos no mercado desde 2003 - fazem{" "}
                 {ageEnterprise("2003/12/03")} anos - com eventos esportivos:
                 captação e formação de atletas. Sempre trabalhando com o maior
                 comprometimento e focando em dar visibilidade aos nossos
@@ -62,11 +61,11 @@ export default function AboutUS() {
             <div>
               <span>Nossa missão</span>
               <p>
-                A C.A.Mundial foi fundada com o propósito de novos atletas
-                surgirem para esse grande mundo do futebol. Com nossos - copas,
-                torneios, avaliações - eventos em geral, a chance de um
-                esportista ser revelados é grande, basta o mesmo desempenhar ao
-                seu máximo.
+                Fundada com o propósito de novos atletas surgirem para esse
+                grande mundo do futebol, a C.A.Mundial promove eventos
+                esportivos - copas, torneios, avaliações - que fazem com que a
+                chance de um esportista ser revelado seja grande, basta o mesmo
+                desempenhar ao seu máximo.
               </p>
               <p>
                 Olheiros e avaliadores de todo o país buscam prodígios e

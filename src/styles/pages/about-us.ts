@@ -12,6 +12,10 @@ export const AboutUsContainer = styled.div`
   margin: 2rem auto 0;
   gap: 5rem;
 
+  @media (max-width: 900px) {
+    gap: 2rem;
+  }
+
   .container {
     display: flex;
     flex-direction: row;

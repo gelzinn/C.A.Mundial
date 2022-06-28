@@ -42,10 +42,7 @@ export default function Header() {
       <Warnings>
         <p>
           Novo site da C.A.Mundial para você acompanhar o{" "}
-          <a href="./">
-            Centro de Captação e Formação de Atletas de Futebol de Base
-          </a>
-          .
+          <a href="./">Centro de Captação e Formação de Atletas</a>.
         </p>
       </Warnings>
     </>

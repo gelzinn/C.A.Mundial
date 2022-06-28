@@ -66,11 +66,11 @@ export default function Footer() {
       <FastNavigation>
         <div className="container">
           <p>Navegação rápida</p>
-          <a href="./">Política de privacidade</a>
-          <a href="./">Termos de uso</a>
-          <a href="./">Locais dos eventos</a>
-          <a href="./">Acomodação para viajantes</a>
-          <a href="./">Reembolso &amp; devolução</a>
+          <a href="https://docs.camundial.com.br/">Política de privacidade</a>
+          <a href="https://docs.camundial.com.br/">Termos de uso</a>
+          <a href="https://docs.camundial.com.br/">Locais dos eventos</a>
+          <a href="https://docs.camundial.com.br/">Acomodação para viajantes</a>
+          <a href="https://docs.camundial.com.br/">Reembolso &amp; devolução</a>
         </div>
       </FastNavigation>
       <CompanyLegalData>

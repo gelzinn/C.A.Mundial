@@ -111,7 +111,7 @@ export default function Home() {
                 <a href="/subscribe">Se inscrever</a>
                 <p className="legal-info">
                   Saiba mais sobre acomodação e outros termos{" "}
-                  <a href="./">aqui</a>.
+                  <a href="https://docs.camundial.com.br/">aqui</a>.
                 </p>
               </div>
             </div>

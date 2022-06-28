@@ -8,6 +8,7 @@ import {
   Subscribe,
 } from "~/styles/pages/home";
 import { CircleWavyCheck, Flag, Handshake, Smiley } from "phosphor-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -108,10 +109,10 @@ export default function Home() {
                   <b>12 a 15 de novembro</b> na cidade de Mineiros do Tietê -
                   SP.
                 </p>
-                <a href="/subscribe">Se inscrever</a>
+                <Link href="/subscribe">Se inscrever</Link>
                 <p className="legal-info">
                   Saiba mais sobre acomodação e outros termos{" "}
-                  <a href="https://docs.camundial.com.br/">aqui</a>.
+                  <Link href="https://docs.camundial.com.br/">aqui</Link>.
                 </p>
               </div>
             </div>

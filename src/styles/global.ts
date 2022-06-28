@@ -8,6 +8,19 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: var(--font-main);
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--black);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      transition: var(--transition);
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-hover);
+    }
   }
   body {
     -webkit-font-smoothing: antialiased;

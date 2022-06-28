@@ -74,6 +74,7 @@ export const MainBanner = styled.div`
 
 export const Sponsors = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 

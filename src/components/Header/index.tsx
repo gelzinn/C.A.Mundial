@@ -11,6 +11,8 @@ export default function Header() {
     document.body.classList.remove("menu-opened");
   }
 
+  const currentUrl = location.pathname;
+
   return (
     <>
       <HeaderContainer>
@@ -39,12 +41,16 @@ export default function Header() {
           </ul>
         </nav>
       </HeaderContainer>
-      <Warnings>
-        <p>
-          Novo site da C.A.Mundial para você acompanhar o{" "}
-          <a href="./">Centro de Captação e Formação de Atletas</a>.
-        </p>
-      </Warnings>
+      {currentUrl == "/" && (
+        <>
+          <Warnings>
+            <p>
+              Novo site da C.A.Mundial para você acompanhar o{" "}
+              <a href="./">Centro de Captação e Formação de Atletas</a>.
+            </p>
+          </Warnings>
+        </>
+      )}
     </>
   );
 }

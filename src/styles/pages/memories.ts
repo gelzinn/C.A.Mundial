@@ -23,6 +23,7 @@ export const MemoriesDescription = styled.div`
     h1 {
       text-transform: uppercase;
       font-weight: 800;
+      font-size: 3rem;
     }
 
     p {
@@ -52,6 +53,10 @@ export const MemoriesDescription = styled.div`
     .info {
       text-align: center;
       margin: 1rem;
+
+      h1 {
+        font-size: 2rem;
+      }
 
       p {
         text-align: center;

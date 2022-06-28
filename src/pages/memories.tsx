@@ -3,7 +3,7 @@ import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import { MemoriesDescription, MemoriesLayout } from "~/styles/pages/memories";
 
-export default function Home() {
+export default function Memories() {
   return (
     <>
       <Head>

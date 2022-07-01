@@ -19,7 +19,7 @@ export const Variables = css`
     --shape-dark-lowopacity: #3c3c4225;
     --shape-hover: #29292e;
 
-    --primary: #cead00;
+    --primary: #f9a826;
     --primary-hover: #f5ce00;
 
     --text: #71717a;

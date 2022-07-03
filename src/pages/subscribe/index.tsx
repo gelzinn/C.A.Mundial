@@ -115,18 +115,16 @@ export default function Subscribe() {
   };
 
   const convertCNPJ = (cnpj: string) => {
-    const cnpjFormatted = cnpj.replace(
-      /(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,
-      "$1.$2.$3/$4-$5"
-    );
+    const cnpjFormatted = cnpj
+      .trim()
+      .replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
     return cnpjFormatted;
   };
 
   const convertCPF = (cpf: string) => {
-    const cpfFormatted = cpf.replace(
-      /(\d{3})(\d{3})(\d{3})(\d{2})/,
-      "$1.$2.$3-$4"
-    );
+    const cpfFormatted = cpf
+      .trim()
+      .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
     return cpfFormatted;
   };
 
@@ -136,6 +134,14 @@ export default function Subscribe() {
       "$1.$2.$3-$4"
     );
     return rgFormatted;
+  };
+
+  const convertPhone = (phoneNumber: string) => {
+    const phoneFormatted = phoneNumber.replace(
+      /(\d{2})(\d{1})(\d{4})(\d{4})$/,
+      "($1) $2 $3-$4"
+    );
+    return phoneFormatted;
   };
 
   const handleImageChange = async (e) => {
@@ -842,17 +848,19 @@ export default function Subscribe() {
                             name="directorPhone"
                             id="directorPhone"
                             required
+                            minLength={11}
+                            maxLength={14}
                             value={directorInfo.phone}
                             onChange={(e) => {
                               setDirectorInfo({
                                 ...directorInfo,
-                                phone: e.target.value,
+                                phone: convertPhone(e.target.value),
                               });
                               setFormData({
                                 ...formData,
                                 director: {
                                   ...directorInfo,
-                                  phone: directorInfo.phone,
+                                  phone: convertPhone(e.target.value),
                                 },
                               });
                             }}

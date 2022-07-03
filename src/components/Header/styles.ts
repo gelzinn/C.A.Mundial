@@ -163,15 +163,19 @@ export const HeaderContainer = styled.header`
 
       text-decoration: none;
       text-transform: capitalize;
-      color: var(--white);
+      color: var(--text);
       transition: var(--transition);
 
-      &:hover:after {
-        content: "";
-        position: absolute;
-        background: var(--white);
-        bottom: 0;
-        width: 100%;
+      &:hover {
+        color: var(--white);
+
+        &:after {
+          content: "";
+          position: absolute;
+          background: var(--white);
+          bottom: 0;
+          width: 100%;
+        }
       }
     }
 

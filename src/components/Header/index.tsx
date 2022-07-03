@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 import { HeaderContainer, Warnings } from "./styles";
@@ -30,14 +31,14 @@ export default function Header() {
             <div />
           </button>
           <ul className={openMenu ? "open" : ""}>
-            <a href="./">Início</a>
-            <a href="./about-us">Sobre nós</a>
-            <a href="./memories">Memórias</a>
-            <a href="./competitions">Avaliações &#38; Competições</a>
-            <a href="./contact">Contato</a>
-            <a href="./subscribe" className="subscribe">
-              Inscrição
-            </a>
+            <Link href="/">Início</Link>
+            <Link href="/about-us">Sobre nós</Link>
+            <Link href="/memories">Memórias</Link>
+            <Link href="/competitions">Avaliações &#38; Competições</Link>
+            <Link href="/contact">Contato</Link>
+            <Link href="/subscribe">
+              <a className="subscribe">Inscrição</a>
+            </Link>
           </ul>
         </nav>
       </HeaderContainer>

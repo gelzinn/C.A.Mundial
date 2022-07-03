@@ -26,6 +26,12 @@ export const Variables = css`
     --text-secondary: #27272a;
     --text-on-tooltip: #f4f4f5;
 
+    --red: #ce4a4a;
+    --error: var(--red);
+
+    --green: #04d361;
+    --success: var(--green);
+
     // Other Values
     --max-width: 900px;
     --transition: 0.2s ease;

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const SubscribeContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 50fr 50fr;
 
   height: 100vh;
+  overflow: hidden auto;
 
   .illustration {
     display: flex;
@@ -16,6 +16,8 @@ export const SubscribeContainer = styled.div`
     max-width: calc(100% / 2);
     height: 100vh;
 
+    position: fixed;
+    left: 0;
     background: var(--black);
     color: var(--white);
     overflow: hidden;
@@ -41,20 +43,19 @@ export const SubscribeContainer = styled.div`
     align-items: center;
     position: relative;
 
-    margin: 0 auto;
-    padding: 0 1rem;
-    width: calc(100% / 2);
-    max-width: 650px;
-    height: 100vh;
+    margin-left: 50vw;
+    width: 100%;
+    max-width: 50vw;
     background: var(--background);
+    overflow: hidden auto;
 
     .actions {
       display: flex;
       justify-content: center;
       align-items: center;
 
-      gap: 1rem;
       width: 100%;
+      gap: 0.5rem;
 
       > button {
         font-weight: bold;
@@ -113,7 +114,8 @@ export const SubscribeContainer = styled.div`
       }
 
       input,
-      textarea {
+      textarea,
+      select {
         width: 100%;
         border: 1.5px solid var(--black);
         color: var(--black);
@@ -123,15 +125,46 @@ export const SubscribeContainer = styled.div`
         border-radius: 4px;
       }
 
+      > div {
+        display: flex;
+        width: 100%;
+        gap: 0.5rem;
+
+        > select {
+          width: 100%;
+          max-width: 100px;
+        }
+
+        @media (max-width: 500px) {
+          flex-direction: column;
+
+          > select {
+            max-width: unset;
+          }
+        }
+      }
+
       label {
         display: flex;
+        flex-wrap: wrap;
+        text-align: left;
         gap: 0.25rem;
-      }
-    }
 
-    @media (max-width: 768px) {
-      width: 100%;
-      max-width: unset;
+        > p#not-required {
+          color: var(--error);
+          margin-left: 0.25rem;
+
+          &:before,
+          &:after {
+            content: "*";
+          }
+        }
+      }
+
+      &.starter {
+        align-items: center;
+        text-align: center;
+      }
     }
   }
 
@@ -142,12 +175,13 @@ export const SubscribeContainer = styled.div`
     align-items: center;
 
     bottom: 0;
+    left: 0;
 
     padding: 0.5rem 1rem;
     background: var(--black);
     color: var(--text);
 
-    width: 50vw;
+    width: 100%;
     height: 35px;
     font-size: 1rem;
 
@@ -155,8 +189,12 @@ export const SubscribeContainer = styled.div`
       font-weight: bold;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
+      position: fixed;
       width: 100vw;
+      bottom: unset;
+
+      top: 0;
     }
   }
 
@@ -169,9 +207,10 @@ export const SubscribeContainer = styled.div`
     overflow-y: auto;
 
     height: 100%;
-    max-height: 90vh;
     width: 100%;
     text-align: center;
+    padding: 6rem 1rem 3rem;
+    position: relative;
 
     .title {
       display: flex;
@@ -186,17 +225,21 @@ export const SubscribeContainer = styled.div`
 
     .logo-preview {
       display: flex;
-      gap: 1rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      gap: 0.5rem;
 
       > img {
-        min-width: 128px;
-        width: 100%;
-        max-width: 128px;
         min-height: 128px;
         height: 100%;
         max-height: 128px;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 4px;
+
+        pointer-events: none;
+        user-select: none;
       }
     }
   }
@@ -210,8 +253,8 @@ export const SubscribeContainer = styled.div`
     background: unset;
     border: unset;
 
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
     width: 32px;
     height: 32px;
 
@@ -249,15 +292,35 @@ export const SubscribeContainer = styled.div`
         transform: rotate(-45deg);
       }
     }
+
+    @media (max-width: 968px) {
+      top: 3rem;
+      right: 1rem;
+    }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
     .illustration {
       display: none;
     }
 
-    .form {
+    .info {
+      overflow: hidden;
+      padding: 2rem 0 0;
+    }
+
+    form {
       width: 100%;
+      max-width: unset;
+      height: 100%;
+
+      padding: 1rem;
+      margin-left: unset;
     }
   }
 `;

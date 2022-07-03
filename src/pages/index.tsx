@@ -16,10 +16,6 @@ export default function Home() {
       <Head>
         <title>C.A.Mundial • Venha ser um craque você também!</title>
         <meta
-          name="description"
-          content="Organização de eventos esportivos - especializada em futebol - e captação e formação de atletas pelo território brasileiro."
-        />
-        <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>

@@ -18,7 +18,7 @@ export default function AboutUS() {
   return (
     <>
       <Head>
-        <title>Sobre nós • C.A.Mundial</title>
+        <title>Sobre Nós • C.A.Mundial</title>
         <meta
           name="description"
           content="Organização de eventos esportivos - especializada em futebol - e captação e formação de atletas pelo território brasileiro."

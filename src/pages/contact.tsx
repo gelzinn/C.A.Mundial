@@ -1,13 +1,12 @@
 import Head from "next/head";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
-import { CompetitionsContainer } from "~/styles/pages/competitions";
 
-export default function Competitions() {
+export default function Contact() {
   return (
     <>
       <Head>
-        <title>Avaliações e Competições • C.A.Mundial</title>
+        <title>Contato • C.A.Mundial</title>
         <meta
           name="description"
           content="Organização de eventos esportivos - especializada em futebol - e captação e formação de atletas pelo território brasileiro."
@@ -19,9 +18,7 @@ export default function Competitions() {
       </Head>
 
       <Header />
-      <main>
-        <CompetitionsContainer></CompetitionsContainer>
-      </main>
+      <main></main>
       <Footer />
     </>
   );

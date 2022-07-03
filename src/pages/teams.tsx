@@ -17,6 +17,19 @@ export default function Teams() {
       );
   }, []);
 
+  function convertToSlug(teamName: string) {
+    var teamName = teamName
+      .trim()
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/[^\w\-]+/g, "")
+      .replace(/\-\-+/g, "-");
+
+    return teamName;
+  }
+
   return (
     <>
       <Head>
@@ -35,24 +48,44 @@ export default function Teams() {
       <main>
         {teams ? (
           <TeamsContainer>
-            <p>Times que já passaram pelos nossos eventos.</p>
+            <span>Times registrados</span>
             <>
               {teams.map((team) => {
                 return (
-                  <li key={team.id}>
+                  <a
+                    key={team.id}
+                    href={`team/${convertToSlug(team.teamName)}`}
+                    id={convertToSlug(team.teamName)}
+                  >
                     <div>
                       {team.logo ? (
-                        <img src={team.logo} alt={team.teamName} />
+                        <div className="logo">
+                          <img
+                            src={team.logo}
+                            alt={team.teamName}
+                            loading="lazy"
+                          />
+                        </div>
                       ) : (
                         <LoadingCircle />
                       )}
                       <div className="info">
                         <b>{team.teamName}</b>
-                        <p>{team.directorName}</p>
+                        <p>{team.director.name}</p>
                       </div>
                     </div>
-                    <p>{team.location}</p>
-                  </li>
+
+                    {team.location &&
+                      team.location.city &&
+                      team.location.state && (
+                        <div className="location">
+                          <span>Localidade</span>
+                          <p>
+                            {team.location.city} - {team.location.state}
+                          </p>
+                        </div>
+                      )}
+                  </a>
                 );
               })}
             </>

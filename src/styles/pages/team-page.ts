@@ -21,8 +21,29 @@ export const TeamInfoContainer = styled.div`
 
   gap: 1rem;
 
-  > h1 {
+  > header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    width: 100%;
+    padding: 0 1rem;
+
     text-align: center;
+
+    > svg {
+      position: absolute;
+      width: 100%;
+      max-width: 2rem;
+      height: 100%;
+      max-height: 2rem;
+
+      cursor: pointer;
+
+      left: 0;
+      margin: 0 1rem;
+    }
   }
 
   > .about-team {
@@ -31,8 +52,12 @@ export const TeamInfoContainer = styled.div`
     align-items: flex-start;
 
     width: 100%;
-    gap: 2rem;
+    gap: 1rem;
     padding: 0 1rem;
+
+    > div {
+      min-height: 550px;
+    }
 
     > .logo {
       display: flex;
@@ -45,7 +70,7 @@ export const TeamInfoContainer = styled.div`
       width: 100%;
       max-width: 20rem;
       height: 100%;
-      min-height: 480px;
+      max-height: 550px;
 
       border-radius: 4px;
 
@@ -67,17 +92,17 @@ export const TeamInfoContainer = styled.div`
 
         width: 100%;
         height: 100%;
-        min-height: calc(480px - 52px);
-        padding: 1rem;
-        border-radius: 4px;
+        min-height: calc(550px - 52px);
+        padding: 2rem;
 
         > img {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
 
           pointer-events: none;
           user-select: none;
+          border-radius: 4px;
         }
       }
     }
@@ -85,6 +110,7 @@ export const TeamInfoContainer = styled.div`
     > .team-info {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
 
       width: 100%;
       gap: 1rem;
@@ -127,6 +153,11 @@ export const TeamInfoContainer = styled.div`
       flex-direction: column;
       align-items: center;
 
+      .team-info {
+        justify-content: flex-start;
+        min-height: unset;
+      }
+
       > .logo {
         justify-content: center;
         width: 100%;
@@ -139,7 +170,8 @@ export const TeamInfoContainer = styled.div`
 
         img {
           width: 100%;
-          max-width: 20rem;
+          height: 100%;
+          max-height: 20rem;
         }
       }
     }

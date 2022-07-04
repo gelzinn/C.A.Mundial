@@ -15,10 +15,6 @@ export default function Home() {
     <>
       <Head>
         <title>C.A.Mundial • Venha ser um craque você também!</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
       </Head>
 
       <Header />

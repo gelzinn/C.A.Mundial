@@ -4,6 +4,9 @@ import { db, storage } from "~/services/firebase";
 import { SubscribeContainer } from "~/styles/pages/subscribe";
 import filesize from "filesize";
 
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+
 const formInitialValues = {
   teamName: "",
   bornAt: "",
@@ -155,17 +158,23 @@ export default function Subscribe() {
           setTeamLogoSize(e.target.files[0].size);
 
           if (e.target.files[0].size <= 2097152) {
-            uploadFiles(e.target.files[0]);
-
-            storage
+            const timeExistent = storage
               .ref(`teams-logos/logo-${formData.slug}`)
-              .getDownloadURL()
-              .then((url) => {
-                setFormData({
-                  ...formData,
-                  logo: url,
+              .getDownloadURL();
+
+            if (timeExistent) {
+              uploadFiles(e.target.files[0]);
+
+              storage
+                .ref(`teams-logos/logo-${formData.slug}`)
+                .getDownloadURL()
+                .then((url) => {
+                  setFormData({
+                    ...formData,
+                    logo: url,
+                  });
                 });
-              });
+            }
           }
         } else {
           e.target.value = null;
@@ -185,35 +194,42 @@ export default function Subscribe() {
   };
 
   const uploadFiles = (file) => {
-    const timeExistent = storage
-      .ref(`teams-logos/logo-${formData.slug}`)
-      .getDownloadURL();
+    if (formData.slug) {
+      const checkExistsTeam = db.collection("teams").doc(formData.slug);
 
-    const uploadTask = storage
-      .ref(`teams-logos/logo-${formData.slug}`)
-      .put(file);
+      checkExistsTeam.get().then((docSnapshot) => {
+        if (!docSnapshot.exists) {
+          const uploadTask = storage
+            .ref(`teams-logos/logo-${formData.slug}`)
+            .put(file);
 
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const prog = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setLogoProgress(prog);
-      },
-      (error) => console.log(error),
-      () => {
-        storage
-          .ref(`teams-logos/logo-${formData.slug}`)
-          .getDownloadURL()
-          .then((url) => {
-            setFormData({
-              ...formData,
-              logo: url,
-            });
-          });
-      }
-    );
+          uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+              const prog = Math.round(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+              );
+              setLogoProgress(prog);
+            },
+            (error) => console.log(error),
+            () => {
+              storage
+                .ref(`teams-logos/logo-${formData.slug}`)
+                .getDownloadURL()
+                .then((url) => {
+                  setFormData({
+                    ...formData,
+                    logo: url,
+                  });
+                });
+            }
+          );
+        } else {
+          alert("Time já existente nos registros.");
+          window.location.href = `/teams#:~:text=${formData.teamName}`;
+        }
+      });
+    }
   };
 
   const cancelUploadedFile = () => {
@@ -300,14 +316,6 @@ export default function Subscribe() {
     <>
       <Head>
         <title>Inscrição • C.A.Mundial</title>
-        <meta
-          name="description"
-          content="Organização de eventos esportivos - especializada em futebol - e captação e formação de atletas pelo território brasileiro."
-        />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
       </Head>
 
       <main>
@@ -353,7 +361,7 @@ export default function Subscribe() {
             })()}
           </div>
           <form id="subscription-form" onSubmit={handleSubmitForm}>
-            <div className="info">
+            <div className={formPage == 1 ? "info starter" : "info"}>
               {(() => {
                 if (formPage < 4) {
                   return <span className="title">Enviar</span>;
@@ -563,7 +571,12 @@ export default function Subscribe() {
                                         logoProgress > 0 &&
                                         logoProgress < 100
                                       ) {
-                                        return <p>{logoProgress}%</p>;
+                                        return (
+                                          <CircularProgressbar
+                                            value={logoProgress}
+                                            text={`${logoProgress}%`}
+                                          />
+                                        );
                                       }
 
                                       return (

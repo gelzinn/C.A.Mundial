@@ -10,6 +10,8 @@ import {
   PlayersContainer,
   TeamInfoContainer,
 } from "~/styles/pages/team-page";
+import { ArrowLeft } from "phosphor-react";
+import Link from "next/link";
 
 export default function Teams() {
   const [teamInfo, setTeamInfo] = useState<any>();
@@ -27,14 +29,6 @@ export default function Teams() {
     <>
       <Head>
         <title>{teamInfo?.teamName} • C.A.Mundial</title>
-        <meta
-          name="description"
-          content="Organização de eventos esportivos - especializada em futebol - e captação e formação de atletas pelo território brasileiro."
-        />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
       </Head>
 
       <Header />
@@ -43,7 +37,12 @@ export default function Teams() {
           <main>
             <AboutTeamContainer>
               <TeamInfoContainer>
-                <h1>{teamInfo.teamName}</h1>
+                <header>
+                  <Link href="/teams">
+                    <ArrowLeft weight="bold" />
+                  </Link>
+                  <h1>{teamInfo.teamName}</h1>
+                </header>
                 <div className="about-team">
                   <div className="logo">
                     <span>Logo ou Escudo</span>
@@ -59,6 +58,10 @@ export default function Teams() {
                     <ul className="info">
                       <span>Informações legais</span>
                       <ul>
+                        <li>
+                          <span>Nome</span>
+                          <p>{teamInfo.teamName}</p>
+                        </li>
                         <li>
                           <span>Localidade</span>
                           <p>

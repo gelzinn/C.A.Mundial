@@ -15,6 +15,7 @@ import Link from "next/link";
 
 export default function Teams() {
   const [teamInfo, setTeamInfo] = useState<any>();
+  const [teamPlayers, setTeamPlayers] = useState<any>();
   const { query } = useRouter();
 
   useEffect(() => {
@@ -23,12 +24,23 @@ export default function Teams() {
       .get()
       .then((response) => response.data())
       .then((data) => setTeamInfo(data));
+
+    db.collection("teams")
+      .doc(`${query.slug}`)
+      .collection("players")
+      .get()
+      .then((response) =>
+        setTeamPlayers(
+          response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        )
+      );
   }, [query.slug]);
 
   return (
     <>
       <Head>
         <title>{teamInfo?.teamName} • C.A.Mundial</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <Header />
@@ -63,39 +75,14 @@ export default function Teams() {
                           <p>{teamInfo.teamName}</p>
                         </li>
                         <li>
-                          <span>Localidade</span>
-                          <p>
-                            {teamInfo.location.city} - {teamInfo.location.state}{" "}
-                            • {teamInfo.address}
-                          </p>
-                        </li>
-                        <li>
-                          <span>CNPJ</span>
-                          <p>{teamInfo.cnpj}</p>
-                        </li>
-                      </ul>
-                    </ul>
-                    <ul className="about-director">
-                      <span>Informações do responsável</span>
-                      <ul>
-                        <li>
                           <span>Presidente ou Diretor Responsável</span>
                           <p>{teamInfo.director.name}</p>
                         </li>
                         <li>
-                          <span>RG - Registro Geral</span>
-                          <p>{teamInfo.director.rg}</p>
-                        </li>
-                        <li>
-                          <span>CPF - Cadrastro de Pessoa Física</span>
-                          <p>{teamInfo.director.cpf}</p>
-                        </li>
-                        <li>
                           <span>Localidade</span>
                           <p>
-                            {teamInfo.director.location.city} -{" "}
-                            {teamInfo.director.location.state} •{" "}
-                            {teamInfo.director.address}
+                            {teamInfo.location.city} - {teamInfo.location.state}{" "}
+                            • {teamInfo.address}
                           </p>
                         </li>
                       </ul>
@@ -103,9 +90,52 @@ export default function Teams() {
                   </div>
                 </div>
               </TeamInfoContainer>
-              <PlayersContainer>
-                <span>Jogadores</span>
-              </PlayersContainer>
+              {teamPlayers && (
+                <PlayersContainer>
+                  <div>
+                    <span>Jogadores</span>
+                    {teamPlayers.length > 0 ? (
+                      <div className="players">
+                        <div className="table">
+                          <p id="number">n°</p>
+                          <p id="left">Identificação</p>
+                          <p>Posição</p>
+                          <p>Predominante</p>
+                        </div>
+                        {teamPlayers.map((player: any) => {
+                          return (
+                            <div className="player" key={player.number}>
+                              <p id="number">{player.number}</p>
+                              <div className="info">
+                                {player.image && (
+                                  <img src={player.image} alt={player.name} />
+                                )}
+                                <span>{player.name}</span>
+                                {player.captain && <p>Capitão</p>}
+                              </div>
+                              <p>{player.position}</p>
+                              <p>
+                                {player.predominantLeg === "Esquerda" &&
+                                  "Canhoto"}
+                                {player.predominantLeg === "Direita" &&
+                                  "Destro"}
+                              </p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div className="warn">
+                        <span>Nenhum jogador encontrado</span>
+                        <p>
+                          {teamInfo.director.name} ainda não adicionou nenhum
+                          jogador.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </PlayersContainer>
+              )}
             </AboutTeamContainer>
           </main>
         </>

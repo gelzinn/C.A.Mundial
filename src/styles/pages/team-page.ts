@@ -55,10 +55,6 @@ export const TeamInfoContainer = styled.div`
     gap: 1rem;
     padding: 0 1rem;
 
-    > div {
-      min-height: 550px;
-    }
-
     > .logo {
       display: flex;
       flex-direction: column;
@@ -70,7 +66,7 @@ export const TeamInfoContainer = styled.div`
       width: 100%;
       max-width: 20rem;
       height: 100%;
-      max-height: 550px;
+      /* max-height: 550px; */
 
       border-radius: 4px;
 
@@ -92,7 +88,7 @@ export const TeamInfoContainer = styled.div`
 
         width: 100%;
         height: 100%;
-        min-height: calc(550px - 52px);
+        min-height: calc(350px - 52px);
         padding: 2rem;
 
         > img {
@@ -109,10 +105,12 @@ export const TeamInfoContainer = styled.div`
 
     > .team-info {
       display: flex;
+      flex: 1;
       flex-direction: column;
       justify-content: space-between;
 
       width: 100%;
+      height: 100%;
       gap: 1rem;
 
       span {
@@ -182,15 +180,144 @@ export const PlayersContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
-
-  > span {
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    text-transform: uppercase;
+    border: 1px dashed #e6e6e6;
+    border-radius: 4px;
+    > span {
+      width: 100%;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      background: #e6e6e675;
+      border-bottom: 1px dashed #e6e6e6;
+      padding: 1rem 0;
+    }
+  }
+  .players {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .table {
+      text-align: left;
+    }
+  }
+  .warn {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    gap: 1rem;
+    margin: 1rem;
+    > svg {
+      width: 100%;
+      max-width: 3rem;
+      height: 100%;
+    }
+    > span {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+  .player,
+  .table {
+    display: grid;
+    grid-template-columns: 3rem 50fr 30fr 20fr;
+    align-items: center;
+    width: 100%;
+    padding: 0 1rem;
+    overflow: hidden auto;
+    input {
+      width: 100%;
+      max-width: 300px;
+      border: 1.5px solid var(--black);
+      color: var(--black);
+      padding: 5px;
+      font-size: 18px;
+      border-radius: 4px;
+      background: transparent;
+    }
+    .info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      > span {
+        text-transform: capitalize;
+      }
+      > p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        font-size: 0.75rem;
+        text-align: center;
+        width: 100%;
+        max-width: 5rem;
+        height: 2rem;
+        text-transform: uppercase;
+        background: var(--black);
+        color: var(--white);
+        cursor: default;
+        pointer-events: none;
+        user-select: none;
+      }
+      > img {
+        width: 100%;
+        max-width: 4rem;
+        height: 100%;
+        max-height: 4rem;
+        border-radius: 0.15rem;
+        /* border: 1px solid var(--black); */
+        object-fit: contain;
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+  }
+  .player {
+    gap: 1rem;
+    > p {
+      text-align: right;
+      text-transform: capitalize;
+    }
+    > #number {
+      text-align: left;
+    }
+    > #left {
+      text-align: left;
+    }
+    &:nth-child(even) {
+      background: #e6e6e675;
+    }
+    @media (max-width: 1120px) {
+    }
+  }
+  .table {
+    margin: 1rem 0;
     font-weight: bold;
-
-    background: #e6e6e675;
-    border-bottom: 1px dashed #e6e6e6;
-    padding: 1rem 0;
+    > p {
+      text-align: right;
+      text-transform: capitalize;
+    }
+    > div {
+      display: flex;
+      gap: 3rem;
+    }
+    > #number {
+      text-align: left;
+    }
+    > #left {
+      text-align: left;
+    }
   }
 `;

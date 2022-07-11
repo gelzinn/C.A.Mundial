@@ -34,7 +34,7 @@ export default function Header() {
             <Link href="/">Início</Link>
             <Link href="/about-us">Sobre nós</Link>
             <Link href="/memories">Memórias</Link>
-            <Link href="/competitions">Avaliações &#38; Competições</Link>
+            <Link href="/events">Avaliações &#38; Competições</Link>
             <Link href="/contact">Contato</Link>
             <Link href="/subscribe">
               <a className="subscribe">Inscrição</a>

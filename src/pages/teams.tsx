@@ -34,6 +34,7 @@ export default function Teams() {
     <>
       <Head>
         <title>Times que passaram pelos nossos eventos • C.A.Mundial</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <Header />

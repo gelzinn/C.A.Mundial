@@ -1,11 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-const sponsorsRotating = keyframes`
-  0% {
-    transform: translateX(0)
-  }
-`;
-
 export const MainBanner = styled.div`
   width: 100%;
   /* background: var(--black); */
@@ -72,7 +66,7 @@ export const MainBanner = styled.div`
   }
 `;
 
-export const Sponsors = styled.div`
+export const SponsorsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,19 +80,55 @@ export const Sponsors = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: auto hidden;
+    overflow: hidden;
 
-    width: 100%;
+    position: relative;
     height: 100%;
-    /* animation: ${sponsorsRotating} 5s infinite; */
+    width: 100%;
 
-    > img {
-      max-width: 100%;
-      max-height: 150%;
-      pointer-events: none;
-      user-select: none;
-      transition: var(--transition);
-      filter: invert(1);
+    list-style-type: none;
+    gap: 1rem;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > img {
+        padding: 1rem 0;
+        max-height: 100px;
+        min-height: 100px;
+        width: 100%;
+        object-fit: scale-down;
+        border-radius: 4px;
+
+        pointer-events: none;
+        user-select: none;
+        transition: var(--transition);
+      }
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+
+      background: linear-gradient(to right, var(--white-dark), transparent);
+
+      width: 30%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    &:before {
+      left: 0;
+      top: 0;
+    }
+
+    &:after {
+      right: 0;
+      top: 0;
+      transform: scaleX(-1);
     }
   }
 `;

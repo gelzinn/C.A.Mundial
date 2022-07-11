@@ -4,17 +4,31 @@ import Footer from "~/components/Footer";
 import {
   MainBanner,
   ShortDescription,
-  Sponsors,
+  SponsorsContainer,
   Subscribe,
 } from "~/styles/pages/home";
 import { CircleWavyCheck, Flag, Handshake, Smiley } from "phosphor-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { db } from "~/services/firebase";
+import LoadingCircle from "~/components/LoadingCircle";
 
 export default function Home() {
+  const [sponsors, setSponsors] = useState([]);
+
+  useEffect(() => {
+    db.collection("sponsors")
+      .get()
+      .then((response) =>
+        setSponsors(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      );
+  }, []);
+
   return (
     <>
       <Head>
         <title>C.A.Mundial • Venha ser um craque você também!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <Header />
@@ -30,14 +44,28 @@ export default function Home() {
             alt="New 2022 C.A.Mundial site!"
           />
         </MainBanner>
-        <Sponsors>
-          <div className="sponsors">
-            <img
-              src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/sponsors/parelli%20sports.png"
-              alt="Parelli Sports"
-            />
-          </div>
-        </Sponsors>
+        {sponsors && (
+          <SponsorsContainer>
+            <ul className="sponsors">
+              <>
+                {sponsors.length > 0 ? (
+                  sponsors.map((sponsor, i: number) => {
+                    return (
+                      <li
+                        key={i}
+                        title={`${sponsor.name} • ${sponsor.description}`}
+                      >
+                        <img src={sponsor.image} alt={sponsor.name} />
+                      </li>
+                    );
+                  })
+                ) : (
+                  <LoadingCircle />
+                )}
+              </>
+            </ul>
+          </SponsorsContainer>
+        )}
         <main className="space">
           <ShortDescription>
             <ul className="info">

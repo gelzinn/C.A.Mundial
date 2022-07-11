@@ -105,6 +105,11 @@ export const SponsorsContainer = styled.div`
         pointer-events: none;
         user-select: none;
         transition: var(--transition);
+
+        @media (max-width: 600px) {
+          max-height: 5rem;
+          min-height: 5rem;
+        }
       }
     }
 
@@ -118,6 +123,10 @@ export const SponsorsContainer = styled.div`
       width: 30%;
       height: 100%;
       z-index: 2;
+
+      @media (max-width: 600px) {
+        width: 10%;
+      }
     }
 
     &:before {

@@ -68,63 +68,61 @@ export default function Competitions() {
                       <>
                         <div className="info">
                           <span>{highlightedEvent.info.name}</span>
-                          <p>
-                            {highlightedEvent.info.date.startAt
-                              .replace(/-/g, "")
-                              .slice(4)
-                              .slice(0, -2) ===
-                            highlightedEvent.info.date.endAt
-                              .replace(/-/g, "")
-                              .slice(4)
-                              .slice(0, -2) ? (
-                              <p>
-                                {highlightedEvent.info.date.startAt
-                                  .replace(/-/g, "")
-                                  .slice(6)}{" "}
-                                a{" "}
-                                {format(
-                                  new Date(
-                                    highlightedEvent.info.date.endAt.replace(
-                                      /-/g,
-                                      "/"
-                                    )
-                                  ),
-                                  "d' de 'MMMM'",
-                                  {
-                                    locale: ptBR,
-                                  }
-                                )}
-                              </p>
-                            ) : (
-                              <p>
-                                {format(
-                                  new Date(
-                                    highlightedEvent.info.date.startAt.replace(
-                                      /-/g,
-                                      "/"
-                                    )
-                                  ),
-                                  "d' de 'MMMM",
-                                  {
-                                    locale: ptBR,
-                                  }
-                                )}{" "}
-                                a $
-                                {format(
-                                  new Date(
-                                    highlightedEvent.info.date.endAt.replace(
-                                      /-/g,
-                                      "/"
-                                    )
-                                  ),
-                                  "d' de 'MMMM",
-                                  {
-                                    locale: ptBR,
-                                  }
-                                )}
-                              </p>
-                            )}
-                          </p>
+                          {highlightedEvent.info.date.startAt
+                            .replace(/-/g, "")
+                            .slice(4)
+                            .slice(0, -2) ===
+                          highlightedEvent.info.date.endAt
+                            .replace(/-/g, "")
+                            .slice(4)
+                            .slice(0, -2) ? (
+                            <p>
+                              {highlightedEvent.info.date.startAt
+                                .replace(/-/g, "")
+                                .slice(6)}{" "}
+                              a{" "}
+                              {format(
+                                new Date(
+                                  highlightedEvent.info.date.endAt.replace(
+                                    /-/g,
+                                    "/"
+                                  )
+                                ),
+                                "d' de 'MMMM'",
+                                {
+                                  locale: ptBR,
+                                }
+                              )}
+                            </p>
+                          ) : (
+                            <p>
+                              {format(
+                                new Date(
+                                  highlightedEvent.info.date.startAt.replace(
+                                    /-/g,
+                                    "/"
+                                  )
+                                ),
+                                "d' de 'MMMM",
+                                {
+                                  locale: ptBR,
+                                }
+                              )}{" "}
+                              a{" "}
+                              {format(
+                                new Date(
+                                  highlightedEvent.info.date.endAt.replace(
+                                    /-/g,
+                                    "/"
+                                  )
+                                ),
+                                "d' de 'MMMM",
+                                {
+                                  locale: ptBR,
+                                }
+                              )}
+                            </p>
+                          )}
                           <button>Ver mais</button>
                           <p>Clique para saber mais sobre o evento.</p>
                         </div>
@@ -217,63 +215,55 @@ export default function Competitions() {
                                 <>
                                   <div className="info">
                                     <span>{event.name}</span>
-                                    <p>
-                                      {event.date.startAt
-                                        .replace(/-/g, "")
-                                        .slice(4)
-                                        .slice(0, -2) ===
-                                      event.date.endAt
-                                        .replace(/-/g, "")
-                                        .slice(4)
-                                        .slice(0, -2) ? (
-                                        <p>
-                                          {event.date.startAt
-                                            .replace(/-/g, "")
-                                            .slice(6)}{" "}
-                                          a{" "}
-                                          {format(
-                                            new Date(
-                                              event.date.endAt.replace(
-                                                /-/g,
-                                                "/"
-                                              )
-                                            ),
-                                            "d' de 'MMMM'",
-                                            {
-                                              locale: ptBR,
-                                            }
-                                          )}
-                                        </p>
-                                      ) : (
-                                        <p>
-                                          {format(
-                                            new Date(
-                                              event.date.startAt.replace(
-                                                /-/g,
-                                                "/"
-                                              )
-                                            ),
-                                            "d' de 'MMMM",
-                                            {
-                                              locale: ptBR,
-                                            }
-                                          )}{" "}
-                                          a $
-                                          {format(
-                                            new Date(
-                                              event.date.endAt.replace(
-                                                /-/g,
-                                                "/"
-                                              )
-                                            ),
-                                            "d' de 'MMMM",
-                                            {
-                                              locale: ptBR,
-                                            }
-                                          )}
-                                        </p>
-                                      )}
-                                    </p>
+                                    {event.date.startAt
+                                      .replace(/-/g, "")
+                                      .slice(4)
+                                      .slice(0, -2) ===
+                                    event.date.endAt
+                                      .replace(/-/g, "")
+                                      .slice(4)
+                                      .slice(0, -2) ? (
+                                      <p>
+                                        {event.date.startAt
+                                          .replace(/-/g, "")
+                                          .slice(6)}{" "}
+                                        a{" "}
+                                        {format(
+                                          new Date(
+                                            event.date.endAt.replace(/-/g, "/")
+                                          ),
+                                          "d' de 'MMMM'",
+                                          {
+                                            locale: ptBR,
+                                          }
+                                        )}
+                                      </p>
+                                    ) : (
+                                      <p>
+                                        {format(
+                                          new Date(
+                                            event.date.startAt.replace(
+                                              /-/g,
+                                              "/"
+                                            )
+                                          ),
+                                          "d' de 'MMMM",
+                                          {
+                                            locale: ptBR,
+                                          }
+                                        )}{" "}
+                                        a $
+                                        {format(
+                                          new Date(
+                                            event.date.endAt.replace(/-/g, "/")
+                                          ),
+                                          "d' de 'MMMM",
+                                          {
+                                            locale: ptBR,
+                                          }
+                                        )}
+                                      </p>
+                                    )}
                                   </div>
                                   <img src={event.image} alt={event.name} />
                                 </>
@@ -281,63 +271,55 @@ export default function Competitions() {
                                 <>
                                   <div className="info">
                                     <span>{event.name}</span>
-                                    <p>
-                                      {event.date.startAt
-                                        .replace(/-/g, "")
-                                        .slice(4)
-                                        .slice(0, -2) ===
-                                      event.date.endAt
-                                        .replace(/-/g, "")
-                                        .slice(4)
-                                        .slice(0, -2) ? (
-                                        <p>
-                                          {event.date.startAt
-                                            .replace(/-/g, "")
-                                            .slice(6)}{" "}
-                                          a{" "}
-                                          {format(
-                                            new Date(
-                                              event.date.endAt.replace(
-                                                /-/g,
-                                                "/"
-                                              )
-                                            ),
-                                            "d' de 'MMMM'",
-                                            {
-                                              locale: ptBR,
-                                            }
-                                          )}
-                                        </p>
-                                      ) : (
-                                        <p>
-                                          {format(
-                                            new Date(
-                                              event.date.startAt.replace(
-                                                /-/g,
-                                                "/"
-                                              )
-                                            ),
-                                            "d' de 'MMMM",
-                                            {
-                                              locale: ptBR,
-                                            }
-                                          )}{" "}
-                                          a $
-                                          {format(
-                                            new Date(
-                                              event.date.endAt.replace(
-                                                /-/g,
-                                                "/"
-                                              )
-                                            ),
-                                            "d' de 'MMMM",
-                                            {
-                                              locale: ptBR,
-                                            }
-                                          )}
-                                        </p>
-                                      )}
-                                    </p>
+                                    {event.date.startAt
+                                      .replace(/-/g, "")
+                                      .slice(4)
+                                      .slice(0, -2) ===
+                                    event.date.endAt
+                                      .replace(/-/g, "")
+                                      .slice(4)
+                                      .slice(0, -2) ? (
+                                      <p>
+                                        {event.date.startAt
+                                          .replace(/-/g, "")
+                                          .slice(6)}{" "}
+                                        a{" "}
+                                        {format(
+                                          new Date(
+                                            event.date.endAt.replace(/-/g, "/")
+                                          ),
+                                          "d' de 'MMMM'",
+                                          {
+                                            locale: ptBR,
+                                          }
+                                        )}
+                                      </p>
+                                    ) : (
+                                      <p>
+                                        {format(
+                                          new Date(
+                                            event.date.startAt.replace(
+                                              /-/g,
+                                              "/"
+                                            )
+                                          ),
+                                          "d' de 'MMMM",
+                                          {
+                                            locale: ptBR,
+                                          }
+                                        )}{" "}
+                                        a{" "}
+                                        {format(
+                                          new Date(
+                                            event.date.endAt.replace(/-/g, "/")
+                                          ),
+                                          "d' de 'MMMM",
+                                          {
+                                            locale: ptBR,
+                                          }
+                                        )}
+                                      </p>
+                                    )}
                                   </div>
                                 </>
                               )}

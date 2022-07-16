@@ -12,7 +12,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { EventContainer } from "~/styles/pages/event-page";
 import LoadingCircle from "~/components/LoadingCircle";
 
-export default function Home() {
+export default function Home({ aboutEvent }) {
   const { query } = useRouter();
   const [counter, setCounter] = useState<any>([]);
 
@@ -25,11 +25,10 @@ export default function Home() {
     const getEventData = async () =>
       await db
         .collection("events")
-        .doc(`${query.id}`)
+        .doc(`${aboutEvent}`)
         .get()
         .then((response) => response.data())
         .then((data) => setEvent(data));
-
     getEventData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query.id]);
@@ -173,10 +172,8 @@ export default function Home() {
                                       {
                                         locale: ptBR,
                                       }
-                                    )}
-                                  </p>
-                                  a
-                                  <p>
+                                    )}{" "}
+                                    a{" "}
                                     {format(
                                       new Date(
                                         event.date.endAt.replace(/-/g, "/")
@@ -847,43 +844,40 @@ export default function Home() {
   );
 }
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   let events = [];
+export const getStaticPaths: GetStaticPaths = async () => {
+  let events = [];
 
-//   await db
-//     .collection("events")
-//     .get()
-//     .then((response) =>
-//       events.push(response.docs.map((doc) => ({ id: doc.id })))
-//     );
+  await db
+    .collection("events")
+    .orderBy("time", "asc")
+    .get()
+    .then((response) => {
+      response.docs.map((doc) => events.push(doc.id));
+    });
 
-//   const paths = events.map((event) => ({
-//     params: { id: event.id },
-//   }));
+  return {
+    paths: events.map((event) => ({
+      params: { id: event },
+    })),
+    fallback: false,
+  };
+};
 
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
+export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
+  let aboutEvent = [];
 
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   let eventInfo = [];
+  await db
+    .collection("events")
+    .doc(`${id}`)
+    .get()
+    .then((response) => {
+      aboutEvent.push(response.data());
+    });
 
-//   try {
-//     await db
-//       .collection("events")
-//       .doc(`${params.id}`)
-//       .get()
-//       .then((response) => response.data())
-//       .then((data) => eventInfo.push(data));
-//   } catch (e) {
-//     console.log(e);
-//   }
-
-//   return {
-//     props: {
-//       eventInfo,
-//     },
-//   };
-// };
+  return {
+    props: {
+      aboutEvent: id,
+    },
+    revalidate: 600,
+  };
+};

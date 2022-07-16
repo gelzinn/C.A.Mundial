@@ -96,8 +96,8 @@ export const SponsorsContainer = styled.div`
 
       > img {
         padding: 1rem 0;
-        max-height: 100px;
-        min-height: 100px;
+        max-height: 80px;
+        min-height: 80px;
         width: 100%;
         object-fit: scale-down;
         border-radius: 4px;
@@ -107,8 +107,8 @@ export const SponsorsContainer = styled.div`
         transition: var(--transition);
 
         @media (max-width: 600px) {
-          max-height: 5rem;
-          min-height: 5rem;
+          max-height: 4rem;
+          min-height: 4rem;
         }
       }
     }
@@ -288,6 +288,7 @@ export const ShortDescription = styled.div`
         .icon {
           width: 100%;
           max-width: 8rem;
+          height: 100%;
         }
 
         .about {
@@ -297,6 +298,12 @@ export const ShortDescription = styled.div`
 
       @media (max-width: 500px) {
         flex-direction: column;
+
+        .icon {
+          width: 100%;
+          max-width: 6rem;
+          height: 100%;
+        }
 
         .about {
           text-align: center;

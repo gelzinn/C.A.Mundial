@@ -315,7 +315,7 @@ export default function Subscribe() {
   return (
     <>
       <Head>
-        <title>Inscrição • C.A.Mundial</title>
+        <title>Cadastrar uma equipe ou organização • C.A.Mundial</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -364,7 +364,10 @@ export default function Subscribe() {
           <form id="subscription-form" onSubmit={handleSubmitForm}>
             <div className={formPage == 1 ? "info starter" : "info"}>
               {(() => {
-                if (formPage < 4) {
+                if (formPage === 1) {
+                  return <span className="title">Aviso</span>;
+                }
+                if (formPage > 1 && formPage < 4) {
                   return <span className="title">Enviar</span>;
                 }
                 if (formPage == 4) {
@@ -377,19 +380,26 @@ export default function Subscribe() {
                     return (
                       <>
                         <div className="form-group starter">
-                          <span>Antes de se inscrever, lembre-se:</span>
                           <p>
-                            A inscrição da avaliação somente será concluída após
-                            o pagamento identificado. Caso contrário, a
-                            inscrição será cancelada e o clube removido do
-                            evento.
+                            Este cadastro tem a finalidade de apenas inserir um
+                            time ou organização no sistema da C.A.Mundial. Após
+                            o cadastro, você estará liberado e apto para
+                            inscrever o seu time ou o qual você representa em
+                            alguma competição.
                           </p>
                           <p>
-                            As informações <u>não obrigatórias</u> são úteis ao
-                            ser preenchidas e apenas devem ser deixadas em
-                            branco caso não existam.
+                            Com o time ou organização cadastrado, o mesmo poderá
+                            se inscrever em outras competições sem passar pelo
+                            mesmo processo burocrático de colocar todas as
+                            informações da equipe.
                           </p>
                           <p>
+                            As informações <u>&quot;não obrigatórias&quot;</u>{" "}
+                            são importantes e apenas devem ser deixadas em
+                            branco caso não há possibilidade.
+                          </p>
+                          <p>
+                            A C.A.Mundial preza pelo compromisso e a lealdade.
                             Por favor, preencha esse formulário corretamente.
                           </p>
                           <div className="actions">
@@ -434,7 +444,7 @@ export default function Subscribe() {
                           />
                           <label htmlFor="cnpj">
                             <b>CNPJ</b>
-                            <p id="not-required">não obrigatório</p>
+                            {/* <p id="not-required">não obrigatório</p> */}
                           </label>
                           <input
                             type="text"
@@ -619,7 +629,7 @@ export default function Subscribe() {
                               )}
                             </>
                           ) : (
-                            <p>
+                            <p style={{ textAlign: "left" }}>
                               Preencha o nome do Clube ou da Associação para
                               inserir um Logo ou Escudo.
                             </p>

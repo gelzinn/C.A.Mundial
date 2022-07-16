@@ -37,7 +37,7 @@ export default function Header() {
             <Link href="/events">Avaliações &#38; Competições</Link>
             <Link href="/contact">Contato</Link>
             <Link href="/subscribe">
-              <a className="subscribe">Inscrição</a>
+              <a className="subscribe">Cadastrar</a>
             </Link>
           </ul>
         </nav>

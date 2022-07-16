@@ -162,8 +162,8 @@ export const SubscribeContainer = styled.div`
       }
 
       &.starter {
-        align-items: center;
-        text-align: center;
+        text-align: justify;
+        text-align-last: center;
         gap: 1.5rem;
       }
     }
@@ -242,10 +242,6 @@ export const SubscribeContainer = styled.div`
         pointer-events: none;
         user-select: none;
       }
-    }
-
-    &.starter {
-      height: calc(100vh - 35px);
     }
   }
 

@@ -12,17 +12,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { db } from "~/services/firebase";
 import LoadingCircle from "~/components/LoadingCircle";
+import { GetStaticProps } from "next";
 
-export default function Home() {
+export default function Home(sponsorsList) {
   const [sponsors, setSponsors] = useState([]);
 
   useEffect(() => {
-    db.collection("sponsors")
-      .get()
-      .then((response) =>
-        setSponsors(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      );
-  }, []);
+    setSponsors(sponsorsList.sponsors[0]);
+  }, [sponsorsList]);
 
   return (
     <>
@@ -47,22 +44,20 @@ export default function Home() {
         {sponsors && (
           <SponsorsContainer>
             <ul className="sponsors">
-              <>
-                {sponsors.length > 0 ? (
-                  sponsors.map((sponsor, i: number) => {
-                    return (
-                      <li
-                        key={i}
-                        title={`${sponsor.name} • ${sponsor.description}`}
-                      >
-                        <img src={sponsor.image} alt={sponsor.name} />
-                      </li>
-                    );
-                  })
-                ) : (
-                  <LoadingCircle />
-                )}
-              </>
+              {sponsors.length > 0 ? (
+                sponsors.map((sponsor, i: number) => {
+                  return (
+                    <li
+                      key={i}
+                      title={`${sponsor.name} • ${sponsor.description}`}
+                    >
+                      <img src={sponsor.image} alt={sponsor.name} />
+                    </li>
+                  );
+                })
+              ) : (
+                <LoadingCircle />
+              )}
             </ul>
           </SponsorsContainer>
         )}
@@ -144,3 +139,26 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  let sponsors = [];
+
+  try {
+    await db
+      .collection("sponsors")
+      .get()
+      .then((response) =>
+        sponsors.push(
+          response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        )
+      );
+  } catch (e) {
+    console.log(e);
+  }
+
+  return {
+    props: {
+      sponsors,
+    },
+  };
+};

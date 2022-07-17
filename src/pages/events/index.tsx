@@ -217,12 +217,10 @@ export default function Competitions() {
                                     <span>{event.name}</span>
                                     {event.date.startAt
                                       .replace(/-/g, "")
-                                      .slice(4)
-                                      .slice(0, -2) ===
+                                      .slice(6) ===
                                     event.date.endAt
                                       .replace(/-/g, "")
-                                      .slice(4)
-                                      .slice(0, -2) ? (
+                                      .slice(6) ? (
                                       <p>
                                         {event.date.startAt
                                           .replace(/-/g, "")
@@ -252,7 +250,7 @@ export default function Competitions() {
                                             locale: ptBR,
                                           }
                                         )}{" "}
-                                        a $
+                                        a{" "}
                                         {format(
                                           new Date(
                                             event.date.endAt.replace(/-/g, "/")
@@ -273,17 +271,11 @@ export default function Competitions() {
                                     <span>{event.name}</span>
                                     {event.date.startAt
                                       .replace(/-/g, "")
-                                      .slice(4)
-                                      .slice(0, -2) ===
+                                      .slice(6) ===
                                     event.date.endAt
                                       .replace(/-/g, "")
-                                      .slice(4)
-                                      .slice(0, -2) ? (
+                                      .slice(6) ? (
                                       <p>
-                                        {event.date.startAt
-                                          .replace(/-/g, "")
-                                          .slice(6)}{" "}
-                                        a{" "}
                                         {format(
                                           new Date(
                                             event.date.endAt.replace(/-/g, "/")

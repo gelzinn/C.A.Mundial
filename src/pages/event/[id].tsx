@@ -772,23 +772,12 @@ export default function Home({ aboutEvent }) {
                         {event.name}
                         {(() => {
                           if (
-                            event.date.startAt
-                              .replace(/-/g, "")
-                              .slice(4)
-                              .slice(0, -2) ===
-                            event.date.endAt
-                              .replace(/-/g, "")
-                              .slice(4)
-                              .slice(0, -2)
+                            event.date.startAt.replace(/-/g, "").slice(6) ===
+                            event.date.endAt.replace(/-/g, "").slice(6)
                           ) {
                             return (
                               <>
                                 <p>
-                                  de{" "}
-                                  {event.date.startAt
-                                    .replace(/-/g, "")
-                                    .slice(6)}{" "}
-                                  a{" "}
                                   {format(
                                     new Date(
                                       event.date.endAt.replace(/-/g, "/")
@@ -821,33 +810,27 @@ export default function Home({ aboutEvent }) {
                             );
                           } else {
                             return (
-                              <>
+                              <p>
                                 de{" "}
-                                <p>
-                                  {format(
-                                    new Date(
-                                      event.date.startAt.replace(/-/g, "/")
-                                    ),
-                                    "d' de 'MMMM'",
-                                    {
-                                      locale: ptBR,
-                                    }
-                                  )}
-                                </p>
-                                a
-                                <p>
-                                  {format(
-                                    new Date(
-                                      event.date.endAt.replace(/-/g, "/")
-                                    ),
-                                    "d' de 'MMMM'",
-                                    {
-                                      locale: ptBR,
-                                    }
-                                  )}
-                                  .
-                                </p>
-                              </>
+                                {format(
+                                  new Date(
+                                    event.date.startAt.replace(/-/g, "/")
+                                  ),
+                                  "d",
+                                  {
+                                    locale: ptBR,
+                                  }
+                                )}{" "}
+                                a{" "}
+                                {format(
+                                  new Date(event.date.endAt.replace(/-/g, "/")),
+                                  "d' de 'MMMM'",
+                                  {
+                                    locale: ptBR,
+                                  }
+                                )}
+                                .
+                              </p>
                             );
                           }
                         })()}

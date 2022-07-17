@@ -883,7 +883,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   await db
     .collection("events")
-    .orderBy("time", "asc")
     .get()
     .then((response) => {
       response.docs.map((doc) => events.push(doc.id));

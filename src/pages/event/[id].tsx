@@ -283,7 +283,7 @@ export default function Home({ aboutEvent }) {
                 {event.date.startAt != today && (
                   <div className="subscribe">
                     <div className="invite">
-                      <span>As inscrições estão abertas</span>
+                      <span>Inscrições abertas</span>
                       <p>
                         Aproveite e traga sua equipe ou organização para
                         brilhar.
@@ -302,16 +302,16 @@ export default function Home({ aboutEvent }) {
                         <b>Artigo 1º.</b> - Este regulamento é o conjunto das
                         disposições que regem a {event.name} -{" "}
                         {event.date.startAt.replace(/-/g, "").slice(0, -4)},
-                        promovido pela C.AMUNDIAL - PROMOÇÃO E ORGANIZAÇÃO DE
-                        EVENTOS ESPORTIVOS LTDA.
+                        promovido pela C.A.Mundial - Promoção e organização de
+                        eventos esportivos LTDA.
                       </li>
                       <li>
                         <b>Artigo 2º.</b> - A Copa tem a finalidade de unir
-                        povos e raças em todo o território Nacional, e
-                        internacional, e proporcionar o intercâmbio social,
-                        cultural, esportivo e educativo, oferecendo a
-                        oportunidade única para que novos talentos possam
-                        surgir.
+                        povos e raças em todo o território nacional e
+                        internacional, além de proporcionar o intercâmbio
+                        social, cultural, esportivo, educativo e turístico,
+                        oferecendo a oportunidade única para que novos talentos
+                        possam surgir.
                       </li>
                       <li>
                         <b>Artigo 3º.</b> - Os clubes e entidades que
@@ -319,7 +319,7 @@ export default function Home({ aboutEvent }) {
                         {event.date.startAt.replace(/-/g, "").slice(0, -4)},
                         serão consideradas conhecedoras deste regulamento e
                         assim se submeterão sem reserva alguma, a todas as
-                        conseqüências que dele possa emanar.
+                        consequências que dele possa emanar.
                       </li>
                     </ul>
                     <ul>
@@ -341,16 +341,18 @@ export default function Home({ aboutEvent }) {
                         })}
                       </ul>
                       <p id="pu">
-                        Parágrafo Único: O atleta só poderá participar do
-                        evento, na categoria correspondente à sua faixa etária,
-                        e o mesmo deve portar atestado médico original.
+                        Parágrafo Único: O atleta apenas poderá participar do
+                        evento, na categoria correspondente à sua faixa etária.
+                        O mesmo deve portar atestado médico original e termo de
+                        responsabilidade datado e assinado pelo responsável.
                       </p>
                     </ul>
                     <ul>
                       <span>III - DA PARTICIPAÇÃO</span>
                       <li>
                         <b>Artigo 5º.</b> - Poderão participar da Copa, somente
-                        Clubes ou entidades convidadas.
+                        clubes ou entidades que se inscreverem na sistema da
+                        C.A.Mundial.
                       </li>
                       <li>
                         <b>Artigo 6º.</b> - Para participação na Copa, é
@@ -366,8 +368,15 @@ export default function Home({ aboutEvent }) {
                           regulamento;
                         </li>
                         <li>
-                          Estar devidamente inscrito na ficha nominal cedida
-                          pela organização;
+                          Estar devidamente inscrito na ficha nominal cedida no
+                          site pela organização;
+                        </li>
+                        <li>
+                          Para a categoria Sub 10 e 12 - serãp aceitos: Cédula
+                          de identidade ou Passaporte ou RA - Registro do Aluno
+                          - escolar assinado pela direção da escola onde estuda.
+                          Os documentos serão analisados no congresso técnico
+                          pela organização.
                         </li>
                         <li>
                           Ter e portar os seguintes documentos originais: Cédula
@@ -377,33 +386,31 @@ export default function Home({ aboutEvent }) {
                         </li>
                         <li>
                           Em todas as partidas os documentos dos atletas e
-                          dirigentes deveram estar em posse do observador da
-                          partida e somente ao final de cada partida o mesmo
-                          será entregue aos seus respectivos responsáveis, as
-                          mesmas deveram ser entregues no congresso técnico.
+                          dirigentes deveram estar em posse do quarto árbitro e
+                          somente ao final de cada partida o mesmo será entregue
+                          aos seus respectivos responsáveis.
                         </li>
                       </ul>
                       <li>
                         <b>Artigo 8º.</b> - É obrigatória a assinatura do atleta
-                        na súmula do jogo, que deverá. ser semelhante a
-                        constante na ficha nominal de inscrição.
+                        na súmula do jogo, que deverá ser semelhante a constante
+                        na ficha nominal de inscrição.
                       </li>
                       <p id="pu">
                         Parágrafo único: em todas as partidas as fichas nominais
-                        dos atletas e dirigentes estará de posse do observador
-                        para sua conferência.
+                        dos atletas e dirigentes estará de posse do quarto
+                        árbitro para a conferência.
                       </p>
                     </ul>
                     <ul>
                       <span>IV - DAS INSCRIÇÕES</span>
                       <li>
-                        <b>Artigo 9º.</b> - Deverão ser feitas em ofício
-                        firmadas pelo dirigente responsável e encaminhadas a C.A
-                        Mundial via e-mail- fax ou correio.
+                        <b>Artigo 9º.</b> - Deverão ser feitas no site da
+                        C.A.Mundial.
                       </li>
                       <li>
                         <b>Artigo 10º.</b> - Cada clube ou entidade poderá
-                        inscrever uma ou mais equipe por Categoria desde que
+                        inscrever uma ou mais equipe por categoria desde que
                         figure equipe (A) e equipe (B), etc.
                       </li>
                       <li>
@@ -416,18 +423,18 @@ export default function Home({ aboutEvent }) {
                         coordenação da C.A Mundial.
                       </li>
                       <li>
-                        <b>Artigo 13º.</b> - Após a realização da I - fase os
-                        Clubes ou Entidades não poderão inscrever Novos
+                        <b>Artigo 13º.</b> - Após a realização da primera fase
+                        os Clubes ou Entidades não poderão inscrever novos
                         jogadores.
                       </li>
                       <li>
-                        <b>Artigo 14º.</b> - O clube ou Entidade será
+                        <b>Artigo 14º.</b> - O clube ou entidade será
                         responsável pela idoneidade dos documentos apresentados.
                       </li>
                       <li>
                         <b>Artigo 15º.</b> - O atleta que comprovadamente for
-                        inscrito por mais de um Clube ou entidade, mesmo que não
-                        tenha participado terá sua inscrição cancelada.
+                        inscrito por mais de um clube ou entidade, terá sua
+                        inscrição cancelada.
                       </li>
                     </ul>
                     <ul>
@@ -442,8 +449,22 @@ export default function Home({ aboutEvent }) {
                             <li key={age}>
                               <p>Categoria SUB {age}</p>
                               <p>
-                                A duração de cada jogo será de {age * 2}X
-                                {age * 2} minutos e bola oficial.
+                                A duração de cada jogo será de{" "}
+                                {(() => {
+                                  if (age >= 17) {
+                                    return <u>45x45</u>;
+                                  }
+                                  if (age > 15 && age < 17) {
+                                    return <u>30x30</u>;
+                                  }
+                                  if (age > 13 && age <= 15) {
+                                    return <u>25x25</u>;
+                                  }
+                                  if (age <= 13) {
+                                    return <u>20x20</u>;
+                                  }
+                                })()}{" "}
+                                minutos e bola oficial.
                               </p>
                             </li>
                           );
@@ -451,34 +472,34 @@ export default function Home({ aboutEvent }) {
                       </ul>
                       <p>
                         Obs: Cada equipe deverá portar no momento do início de
-                        cada partida duas bolas (novas), oficiais que deverão
-                        permanecer junto ao delegado da partida (4º. Árbitro), e
-                        as equipes serão responsáveis pela permanência delas em
-                        campo durante a partida.
+                        cada partida duas bolas - em perfeitas condições de jogo
+                        - oficiais que deverão permanecer junto ao quarto
+                        árbitro. As equipes serão responsáveis pela permanência
+                        delas em campo durante a partida.
                       </p>
                       <p id="pu">
-                        Parágrafo Único: haverá um intervalo de 5 (cinco
-                        minutos) entre os dois períodos.
+                        Parágrafo Único: haverá um intervalo de cinco minutos
+                        entre os dois períodos.
                       </p>
                     </ul>
                     <ul>
                       <span>VI - DAS SUBSTITUIÇÕES</span>
                       <li>
-                        <b>Artigo 17º.</b> - Em todas as categorias cada equipe
-                        poderá fazer até 7 (sete) substituições.
+                        <b>Artigo 17º.</b> - Para as categorias acima de 16
+                        anos, as substituições terão o limite máximo relacionado
+                        a quantidade de atletas que estão no banco de reservas.
+                        Já para as anteriores, as substituições serão volantes.
                       </li>
                       <li>
                         <b>Artigo 18º.</b> - Poderão permanecer no banco de
-                        reservas Todos os atletas devidamente uniformizados,
-                        além do técnico, massagista, devidamente documentados.
+                        reservas todos os atletas devidamente uniformizados,
+                        além do técnico, massagista, preparador físico e
+                        diretor, devidamente uniformizados e documentados.
                       </li>
                       <p id="pu">
-                        Parágrafo único: o técnico e o massagista não poderão
-                        permanecer no banco de reservas se não estiverem
-                        devidamente uniformizados ou seja; calça,camisa e sapato
-                        ou tênis, ou bermuda, camisa, meia e tênis, não seguindo
-                        as exigências impostas os mesmo serão convidados pelo
-                        observador da partida a si retirarem de campo.
+                        Parágrafo único: não seguindo as exigências impostas, os
+                        mesmo serão convidados pelo quarto árbitro a se
+                        retirarem de campo.
                       </p>
                     </ul>
                     <ul>
@@ -488,37 +509,36 @@ export default function Home({ aboutEvent }) {
                         distintas, a saber:
                       </li>
                       <ul>
-                        <li>FASE CLASSIFICATÓRIA (03 jogos)</li>
-                        <li>QUARTAS DE FINAIS</li>
-                        <li>FASE SEMIFINAL</li>
-                        <li>FASE FINAL</li>
+                        <li>Fase classificatória;</li>
+                        <li>Quartas de finais;</li>
+                        <li>Fase Semifinal;</li>
+                        <li>Fase Final.</li>
                       </ul>
                     </ul>
                     <ul>
                       <span>VIII - DAS TABELAS E HORÁRIOS DOS JOGOS</span>
                       <li>
                         <b>Artigo 20º.</b> - Os locais e horários dos jogos
-                        serão determinados pela Organização da C.A Mundial.
+                        serão determinados pela organização da C.A Mundial.
                       </li>
                       <li>
                         <b>Artigo 21º.</b> - Depois de elaborada as tabelas, não
-                        será permitida alterações.
+                        serão permitida alterações.
                       </li>
                       <li>
                         <b>Artigo 22º.</b> - Os jogos terão início de acordo com
-                        a programação sendo considerada perdedora, por não
-                        comparecimento, a equipe que não se apresentar no local,
-                        observando 15 (quinze) minutos de tolerância somente
-                        para horário previsto da primeira partida da rodada.
+                        a programação. A equipe que não se apresentar no local
+                        em até quinze minutos de tolerância, será considerada
+                        perdedora do confronto.
                       </li>
                       <li>
                         <b>Artigo 23º.</b> - As equipes que abandonarem a
                         disputa serão desclassificadas e todos os resultados
-                        serão considerados nulos na fase em que configurou o
+                        serão considerados nulos na fase em que se configurou o
                         abandono, ficando ainda sujeitas as penalidades que
                         poderão ser aplicadas pela comissão disciplinar.
                       </li>
-                      <p>
+                      <p id="pu">
                         Parágrafo Primeiro: Configurarão o abandono as seguintes
                         situações:
                       </p>
@@ -535,10 +555,9 @@ export default function Home({ aboutEvent }) {
                         <li>Desistir oficialmente da competição.</li>
                       </ul>
                       <p id="pu">
-                        Parágrafo Segundo: Configurado o abandono à equipe
-                        deverá justificar-se por ofício fundamentado, até as
-                        17:00 horas do segundo dia útil, da configuração do
-                        abandono.
+                        Parágrafo Segundo: Configurado o abandono, a equipe
+                        deverá justificar-se por ofício fundamentado até as
+                        17:00 horas mesmo dia.
                       </p>
                     </ul>
                     <ul>
@@ -548,15 +567,19 @@ export default function Home({ aboutEvent }) {
                         efeito de classificação será:
                       </li>
                       <ul>
-                        <li>Vitória.............. 3 (três) pontos</li>
-                        <li>Empate............. 1 (um) pontos</li>
-                        <li>Derrota............. 0 (zero) pontos</li>
+                        <li>Vitória: 3 (três) pontos;</li>
+                        <li>Empate: 1 (um) pontos;</li>
+                        <li>Derrota: 0 (zero) pontos.</li>
                       </ul>
                       <li>
                         <b>Artigo 25º.</b> - Em caso de empate na fase de
-                        classificação serão adotados os seguintes critérios para
-                        desempate:
+                        classificação, será imposta uma cobrança alternada de
+                        pênaltis para definição do ponto extra.
                       </li>
+                      <p>
+                        Ainda assim empatadas na pontuação, serão adotados os
+                        seguintes critérios para desempate:
+                      </p>
                       <ul>
                         <li>ENTRE DUAS EQUIPES:</li>
                         <ul>
@@ -607,19 +630,19 @@ export default function Home({ aboutEvent }) {
                       </li>
                       <li>
                         <b>Artigo 29º.</b> - Os atletas punidos disciplinarmente
-                        com cartão disciplinarmente com cartão Vermelho ficará
-                        suspenso da partida seguinte, independente das demais
-                        penas que poderão ser aplicadas pela comissão
-                        disciplinar permanente.
+                        com cartão vermelho ficarão suspenso da partida
+                        seguinte. Independente das demais penas que poderão ser
+                        aplicadas pela comissão disciplinar permanente.
                       </li>
                     </ul>
                     <ul>
                       <span>XI - DO APROVEITAMENTO ESCOLAR</span>
                       <li>
-                        <b>Artigo 30º.</b> - Todo atleta inscrito na Copa dos
-                        campeões 2009 deverá sido aprovado no ano de 2008 e
-                        estar matriculado; e constando os dados escolares na
-                        ficha nominal, e no dia do congresso técnico haverá
+                        <b>Artigo 30º.</b> - Todo atleta inscrito no evento{" "}
+                        {event.name} deverá sido aprovado no ano de{" "}
+                        {event.date.startAt.replace(/-/g, "").slice(0, -4) - 1}{" "}
+                        e estar matriculado e constando os dados escolares na
+                        ficha nominal. No dia do congresso técnico haverá
                         conferência dos documentos originais, juntamente com as
                         fichas nominais.
                       </li>
@@ -627,11 +650,11 @@ export default function Home({ aboutEvent }) {
                     <ul>
                       <span>XII - DA PREMIAÇÃO</span>
                       <li>
-                        <b>Artigo 31º.</b> - A C.A Mundial - Promoção e
-                        Organização de Eventos Esportivos Ltda,oferecerá troféus
+                        <b>Artigo 31º.</b> - A C.A Mundial Promoção e
+                        Organização de eventos esportivos LTDA oferecerá troféus
                         e medalhas aos dois primeiros colocados de cada
-                        categoria. medalha destaque de cada categoria e medalha
-                        melhor goleiro de cada categoria.
+                        categoria, além das medalhas: jogador destaque e melhor
+                        goleiro, ambas de cada categoria.
                       </li>
                     </ul>
                     <ul>
@@ -647,7 +670,7 @@ export default function Home({ aboutEvent }) {
                       <li>
                         <b>Artigo 33º.</b> - Não serão apreciadas
                         representações/recursos que não forem firmados pelos
-                        dirigentes responsáveis junto a C.C.O/C.A. MUNDIAL e
+                        dirigentes responsáveis junto a C.C.O/C.A.MUNDIAL e
                         posteriormente sem provas.
                       </li>
                       <li>
@@ -657,7 +680,7 @@ export default function Home({ aboutEvent }) {
                       </li>
                       <li>
                         <b>Artigo 35º.</b> - As representações/recursos deverão
-                        ser apresentadas, até (duas) horas depois de seu Jogo,
+                        ser apresentadas, até duas horas depois de seu Jogo,
                         após este prazo o resultado estará automaticamente
                         homologado, não cabendo mais representações.
                       </li>
@@ -668,15 +691,17 @@ export default function Home({ aboutEvent }) {
                       </li>
                       <li>
                         <b>Artigo 37º.</b> - A participação dos atletas será de
-                        inteira responsabilidade de quem os inscrever.
+                        inteira responsabilidade do responsável do clube ou
+                        entidade.
                       </li>
                       <p id="pu">
                         Parágrafo Único: O dirigente responsável deverá
                         apresentar os documentos originais de todos os atletas e
-                        dirigentes inscritos na Ficha Nominal no Congresso
-                        Técnico onde terá uma equipe de organizadores que irá
+                        dirigentes inscritos na ficha nominal no congresso
+                        técnico onde terá uma equipe de organizadores que irá
                         conferir a documentação será dado o visto da
-                        C.A.MUNDIAL.
+                        C.A.Mundial. Juntamente com o atestado médico único
+                        original assinado por um profissional na área.
                       </p>
                       <li>
                         <b>Artigo 38º.</b> - A equipe em que o atleta participar
@@ -687,14 +712,14 @@ export default function Home({ aboutEvent }) {
                       </li>
                       <li>
                         <b>Artigo 39º.</b> - O atleta da equipe desclassificada
-                        não poderá ser inscrito para outra equipe Classificada
+                        não poderá ser inscrito para outra equipe classificada
                         em nenhuma fase.
                       </li>
                       <li>
                         <b>Artigo 40º.</b> - Será considerada mandante a equipe
-                        que se encontrar à esquerda na programação dos jogos;
-                        caso haja coincidência na cor dos uniformes caberá a
-                        esta a troca dos mesmos no prazo de 15 (quinze) minutos.
+                        que se encontrar à esquerda na programação dos jogos.
+                        Caso haja coincidência na cor dos uniformes caberá a
+                        esta a troca dos mesmos no prazo de quinze minutos.
                       </li>
                       <li>
                         <b>Artigo 41º.</b> - A caneleira faz parte do uniforme,
@@ -708,10 +733,10 @@ export default function Home({ aboutEvent }) {
                       </li>
                       <li>
                         <b>Artigo 43º.</b> - Os árbitros serão designados pelo
-                        Coordenador Geral da Copa.
+                        coordenador geral da copa.
                       </li>
                       <li>
-                        <b>Artigo 44º.</b> - O Coordenador Geral da Copa poderá
+                        <b>Artigo 44º.</b> - O coordenador geral da copa poderá
                         a qualquer momento, realizar diligências para apurar
                         irregularidade, devendo, se comprovadas, tomar medidas
                         administrativas.
@@ -721,24 +746,30 @@ export default function Home({ aboutEvent }) {
                         momento de sua apresentação no desfile de abertura
                         somente{" "}
                         <u>
-                          18 (dezoito) atletas, 1 (um) técnico, 1 (um)
+                          10 (dezoito) atletas, 1 (um) técnico, 1 (um)
                           massagista e 1 (um) dirigente
                         </u>
                         .
                       </li>
                       <li>
                         <b>Artigo 46º.</b> - Será de responsabilidade dos clubes
-                        e entidades ter seu próprio transporte durante toda
+                        ou entidades ter seu próprio transporte durante toda
                         competição não cabendo reclamações sobre este fato.
                       </li>
                       <li>
                         <b>Artigo 47º.</b> - Os casos omissos deste regulamento
-                        serão resolvidos pelo Coordenador Geral da Copa e a
-                        Comissão Disciplina.
+                        serão resolvidos pelo coordenador geral da copa e a
+                        comissão disciplina.
+                      </li>
+                      <li>
+                        <b>Artigo 48º.</b> - Os locais fornecidos para
+                        alojamento deverão ser entregues da mesma maneira que
+                        foram recebidos pelas equipes ou entidades.
                       </li>
                     </ul>
                     {event.date && (
                       <div className="dates">
+                        {event.name}
                         {(() => {
                           if (
                             event.date.startAt
@@ -753,7 +784,7 @@ export default function Home({ aboutEvent }) {
                             return (
                               <>
                                 <p>
-                                  De{" "}
+                                  de{" "}
                                   {event.date.startAt
                                     .replace(/-/g, "")
                                     .slice(6)}{" "}
@@ -791,7 +822,7 @@ export default function Home({ aboutEvent }) {
                           } else {
                             return (
                               <>
-                                De{" "}
+                                de{" "}
                                 <p>
                                   {format(
                                     new Date(
@@ -830,8 +861,8 @@ export default function Home({ aboutEvent }) {
                     </div>
                     <footer>
                       <p>
-                        Regulamento Geral alterado pela última vez em:{" "}
-                        <b>terça-feira 15 de julho de 2022</b>.
+                        Regulamento Geral alterado pela última vez em{" "}
+                        <b>domingo 17 de julho de 2022</b>.
                       </p>
                     </footer>
                   </div>

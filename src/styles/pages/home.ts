@@ -73,8 +73,15 @@ export const SponsorsContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 100px;
+  height: calc(100px + 3rem);
+  padding: 2rem 0 0;
   background: var(--white-dark);
+
+  > span {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
 
   .sponsors {
     display: flex;
@@ -140,6 +147,15 @@ export const SponsorsContainer = styled.div`
       transform: scaleX(-1);
     }
   }
+
+  @media (max-width: 600px) {
+    height: 100px;
+    padding: unset;
+
+    > span {
+      display: none;
+    }
+  }
 `;
 
 export const ShortDescription = styled.div`
@@ -150,13 +166,18 @@ export const ShortDescription = styled.div`
   width: 100%;
   height: 100%;
   max-width: 1120px;
-  margin: 0 auto;
+  margin: 4rem auto;
   overflow: hidden;
 
   h1 {
     text-transform: uppercase;
     text-align: center;
-    margin: 1rem;
+    margin: 1rem 0;
+    line-height: 100%;
+
+    @media (max-width: 500px) {
+      font-size: 1.5rem;
+    }
   }
 
   > ul {
@@ -187,7 +208,7 @@ export const ShortDescription = styled.div`
       &:before {
         content: "";
         position: absolute;
-        left: 64px;
+        left: 4rem;
         bottom: 2rem;
         width: 0.15rem;
         height: 80%;
@@ -281,7 +302,7 @@ export const ShortDescription = styled.div`
         .icon,
         .about {
           position: relative;
-          text-align: left;
+          text-align: justify;
           margin: unset;
         }
 

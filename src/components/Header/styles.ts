@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -19,6 +19,8 @@ export const HeaderContainer = styled.header`
     height: 100%;
     z-index: 5;
 
+    padding: 1rem 0;
+
     > img {
       width: 100%;
       height: 100%;
@@ -35,9 +37,11 @@ export const HeaderContainer = styled.header`
     align-items: center;
     gap: 1rem;
 
+    position: relative;
+
     width: 100%;
-    height: 100%;
     max-width: 1120px;
+    height: 6.25rem;
     margin: 0 1rem;
     z-index: 1000;
 
@@ -106,29 +110,28 @@ export const HeaderContainer = styled.header`
       }
     }
 
-    > ul {
+    > .menu {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 2rem;
       list-style-type: none;
 
-      > a {
-        /* &:not(.subscribe):after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 1px;
-          left: 0;
-          bottom: 0;
-          background: #fbfaff;
-          transform: scale(0, 1);
-          transition: var(--transition);
-        } */
+      height: 100%;
 
-        &:hover:after {
-          transform: scale(1, 1);
+      > a {
+        padding: 0 1rem;
+        height: 100%;
+        transition: var(--transition);
+
+        &:hover {
+          border-bottom: 0.15rem solid var(--primary);
         }
+      }
+      @media (min-width: 900px) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       @media (max-width: 900px) {
@@ -137,18 +140,31 @@ export const HeaderContainer = styled.header`
         &.open {
           position: absolute;
           display: flex;
-          flex: 0 0 100%;
-          left: 0;
+          left: -1rem;
           top: 0;
 
-          width: 100%;
-          height: 100%;
+          padding: 0 2rem;
+
+          width: 100vw;
+          height: 100vh;
           z-index: 2;
           background: var(--black);
 
           flex-direction: column;
           justify-content: center;
           align-items: center;
+
+          > a {
+            height: 100%;
+            max-height: 5rem;
+            width: 100%;
+
+            &:hover:not(.subscribe) {
+              background: var(--shape);
+              border-radius: 4px;
+              border-bottom: unset;
+            }
+          }
         }
       }
     }
@@ -179,7 +195,29 @@ export const HeaderContainer = styled.header`
       }
     }
 
+    > .account-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: 1rem;
+
+      > a {
+        padding: 12px 24px;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+      }
+
+      @media (max-width: 900px) {
+        display: none;
+      }
+    }
+
     .subscribe {
+      width: 100%;
+      height: 100%;
+      max-height: 40px;
+
       font-weight: bold;
       border: 1px solid var(--primary);
       background: unset;
@@ -195,15 +233,30 @@ export const HeaderContainer = styled.header`
   }
 `;
 
+const fadeInBanner = keyframes`
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }   
+`;
+
 export const Warnings = styled.div`
   background: var(--shape);
   color: var(--white);
   padding: 0.5rem;
   text-align: center;
+
+  z-index: 2;
   overflow: hidden;
 
   > p {
     position: relative;
+
+    animation: ${fadeInBanner} 1s ease-in-out;
 
     > a {
       color: var(--primary);

@@ -24,22 +24,26 @@ export default function Header() {
               alt="C. A. Mundial"
             />
           </a>
+          <ul className={`menu ${openMenu ? "open" : ""}`}>
+            <Link href="/">Início</Link>
+            <Link href="/about-us">Sobre</Link>
+            <Link href="/memories">Memórias</Link>
+            <Link href="/events">Eventos</Link>
+          </ul>
+          <ul className="account-actions">
+            <Link href="/signin">
+              <a className="signin">Entrar</a>
+            </Link>
+            <Link href="/subscribe">
+              <a className="subscribe">Cadastrar</a>
+            </Link>
+          </ul>
           <button
             className={openMenu ? "mobile-menu opened" : "mobile-menu"}
             onClick={() => setOpenMenu(!openMenu)}
           >
             <div />
           </button>
-          <ul className={openMenu ? "open" : ""}>
-            <Link href="/">Início</Link>
-            <Link href="/about-us">Sobre nós</Link>
-            <Link href="/memories">Memórias</Link>
-            <Link href="/events">Avaliações &#38; Competições</Link>
-            <Link href="/contact">Contato</Link>
-            <Link href="/subscribe">
-              <a className="subscribe">Cadastrar</a>
-            </Link>
-          </ul>
         </nav>
       </HeaderContainer>
       {currentUrl == "/" && (

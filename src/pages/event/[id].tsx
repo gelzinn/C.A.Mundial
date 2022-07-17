@@ -283,8 +283,11 @@ export default function Home({ aboutEvent }) {
                 {event.date.startAt != today && (
                   <div className="subscribe">
                     <div className="invite">
-                      <span>Que tal participar?</span>
-                      <p>As inscrições estão abertas!</p>
+                      <span>As inscrições estão abertas</span>
+                      <p>
+                        Aproveite e traga sua equipe ou organização para
+                        brilhar.
+                      </p>
                     </div>
                     <button>Inscrever minha equipe</button>
                     <p>Informações legais e sobre a participação abaixo.</p>

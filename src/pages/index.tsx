@@ -12,14 +12,34 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { db } from "~/services/firebase";
 import LoadingCircle from "~/components/LoadingCircle";
+import { format } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
 import { GetStaticProps } from "next";
 
 export default function Home(sponsorsList) {
+  const [highlightedEvent, setHighlightedEvent] = useState<any | undefined>([]);
   const [sponsors, setSponsors] = useState([]);
 
   useEffect(() => {
     setSponsors(sponsorsList.sponsors[0]);
   }, [sponsorsList]);
+
+  useEffect(() => {
+    db.collection("events")
+      .orderBy("time", "asc")
+      .get()
+      .then((response) => {
+        response.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+          ...doc.ref.get().then((response) => {
+            if (response.data().isHighlighted)
+              setHighlightedEvent({ info: response.data(), id: doc.id });
+          }),
+        }));
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -31,10 +51,6 @@ export default function Home(sponsorsList) {
       <Header />
       <main>
         <MainBanner>
-          {/* <div className="actions">
-            <a href="">Saiba mais</a>
-            <a href="">Se inscrever</a>
-          </div> */}
           <img
             src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/banners/New%202022%20site.png"
             loading="lazy"
@@ -43,6 +59,7 @@ export default function Home(sponsorsList) {
         </MainBanner>
         {sponsors && (
           <SponsorsContainer>
+            <span>Patrocinadores</span>
             <ul className="sponsors">
               {sponsors.length > 0 ? (
                 sponsors.map((sponsor, i: number) => {
@@ -64,7 +81,7 @@ export default function Home(sponsorsList) {
         <main className="space">
           <ShortDescription>
             <ul className="info">
-              <h1>Por que tão escolhidos?</h1>
+              <h1>Por que nos escolher?</h1>
               <li>
                 <div className="icon">
                   <Handshake />
@@ -115,24 +132,76 @@ export default function Home(sponsorsList) {
               </li>
             </ul>
           </ShortDescription>
-          <Subscribe>
-            <div className="container">
-              <div className="info">
-                <span>Copa dos Campeões de Futebol de Base</span>
-                <p>
-                  A edição da Copa dos Campeões de 2022 acontecerá dos dias{" "}
-                  <b>12 a 15 de novembro</b> na cidade de Mineiros do Tietê -
-                  SP.
-                </p>
-                <Link href="/subscribe">Se inscrever</Link>
-                <p className="legal-info">
-                  Saiba mais sobre acomodação e outros termos{" "}
-                  <Link href="https://docs.camundial.com.br/">aqui</Link>.
-                </p>
+          {highlightedEvent.info && (
+            <Subscribe>
+              <div className="container">
+                <div className="info">
+                  <span>{highlightedEvent.info.name}</span>
+                  <p>
+                    A edição {highlightedEvent.info.name} acontecerá dos dias{" "}
+                    {highlightedEvent.info.date.startAt
+                      .replace(/-/g, "")
+                      .slice(4)
+                      .slice(0, -2) ===
+                    highlightedEvent.info.date.endAt
+                      .replace(/-/g, "")
+                      .slice(4)
+                      .slice(0, -2) ? (
+                      <b>
+                        {highlightedEvent.info.date.startAt
+                          .replace(/-/g, "")
+                          .slice(6)}{" "}
+                        a{" "}
+                        {format(
+                          new Date(
+                            highlightedEvent.info.date.endAt.replace(/-/g, "/")
+                          ),
+                          "d' de 'MMMM'",
+                          {
+                            locale: ptBR,
+                          }
+                        )}
+                      </b>
+                    ) : (
+                      <b>
+                        {format(
+                          new Date(
+                            highlightedEvent.info.date.startAt.replace(
+                              /-/g,
+                              "/"
+                            )
+                          ),
+                          "d' de 'MMMM",
+                          {
+                            locale: ptBR,
+                          }
+                        )}{" "}
+                        a{" "}
+                        {format(
+                          new Date(
+                            highlightedEvent.info.date.endAt.replace(/-/g, "/")
+                          ),
+                          "d' de 'MMMM",
+                          {
+                            locale: ptBR,
+                          }
+                        )}
+                      </b>
+                    )}{" "}
+                    na cidade de {highlightedEvent.info.location}.
+                  </p>
+                  <Link href={`/event/${highlightedEvent.id}`}>
+                    Sobre o evento
+                  </Link>
+                  <p className="legal-info">
+                    Saiba mais sobre acomodação e outros termos{" "}
+                    <Link href="https://docs.camundial.com.br/">aqui</Link>.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="bg" />
-          </Subscribe>
+              <div className="bg" />
+            </Subscribe>
+          )}
         </main>
       </main>
       <Footer />

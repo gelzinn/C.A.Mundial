@@ -12,40 +12,93 @@ export const FastNavigation = styled.div`
   width: 100%;
   background: var(--shape);
   color: var(--white);
-  padding: 1.5rem;
+  padding: 2rem;
 
-  border: 1px var(--shape-dark);
+  border: 1px solid var(--shape-dark);
   border-style: solid none;
 
   .container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 
-    gap: 1rem;
+    gap: 2rem;
 
     width: 100%;
     max-width: 1120px;
 
-    text-transform: capitalize;
+    > ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
 
-    > p {
-      font-weight: bold;
-    }
+      gap: 1rem;
 
-    a {
-      text-decoration: none;
-      color: var(--text);
-      transition: var(--transition);
+      img {
+        width: 100%;
+        max-width: 5rem;
 
-      &:hover {
-        color: var(--white);
+        user-select: none;
+        pointer-events: none;
+      }
+
+      > p {
+        color: var(--text);
+      }
+
+      > span {
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: default;
+      }
+
+      &:not(:first-child) {
+        a {
+          position: relative;
+          text-decoration: none;
+          transition: var(--transition);
+          color: var(--text);
+          line-height: 2rem;
+
+          &:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.6s cubic-bezier(0.25, 0.5, 0.5, 1);
+          }
+
+          &:hover {
+            color: var(--white);
+
+            &:before {
+              left: 0;
+              right: 0;
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &:first-child {
+        width: 100%;
+        max-width: 260px;
       }
     }
 
     @media (max-width: 768px) {
       flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      > ul {
+        align-items: center;
+        width: 100%;
+      }
     }
   }
 `;

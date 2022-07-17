@@ -30,9 +30,6 @@ export const GlobalStyles = createGlobalStyle`
       overflow: hidden hidden;
     }
   }
-  main.space {
-    margin: 2rem auto 0;
-  }
   html {
     scroll-behavior: smooth;
     box-sizing: inherit;

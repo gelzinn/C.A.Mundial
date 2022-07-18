@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import {
   CompanyLegalData,
@@ -29,7 +30,7 @@ export default function Footer() {
             <span>Dúvidas</span>
             <a href="https://docs.camundial.com.br/">Suporte</a>
             <a href="https://docs.camundial.com.br/">Instruções</a>
-            <a href="/help">Central de ajuda</a>
+            <Link href="/help">Central de ajuda</Link>
           </ul>
           <ul>
             <span>Navegação rápida</span>
@@ -44,7 +45,7 @@ export default function Footer() {
             <a href="https://docs.camundial.com.br/">
               Reembolso &amp; devolução
             </a>
-            <a href="/sitemap">Mapa do site</a>
+            <Link href="/sitemap">Mapa do site</Link>
             <a href="https://docs.camundial.com.br/">Preferência dos cookies</a>
           </ul>
         </div>

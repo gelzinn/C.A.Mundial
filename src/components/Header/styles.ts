@@ -149,10 +149,13 @@ export const HeaderContainer = styled.header`
           }
         }
 
+        &:hover {
+          color: var(--white);
+        }
+
         @media (min-width: 900px) {
           &:hover {
             border-bottom: 0.15rem solid var(--primary);
-            color: var(--white);
           }
         }
 
@@ -190,6 +193,8 @@ export const HeaderContainer = styled.header`
           width: 100vw;
           height: 100vh;
           z-index: 2;
+          overflow: hidden auto;
+
           background: var(--black);
 
           flex-direction: column;
@@ -218,6 +223,10 @@ export const HeaderContainer = styled.header`
 
             height: 100%;
             max-height: 8rem;
+
+            a:not(.subscribe):hover {
+              color: var(--white);
+            }
 
             @media (min-height: 480px) {
               max-height: 10rem;
@@ -259,6 +268,10 @@ export const HeaderContainer = styled.header`
         padding: 12px 24px;
         text-transform: uppercase;
         font-size: 0.75rem;
+
+        &:not(.subscribe):hover {
+          color: var(--white);
+        }
       }
 
       @media (max-width: 900px) {

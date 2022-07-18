@@ -352,7 +352,7 @@ export default function Subscribe() {
                         <img src={formData.logo} alt={formData.teamName} />
                       ) : (
                         <img
-                          src="https://img.wallpapersafari.com/desktop/1920/1080/78/24/0bpJe1.jpg"
+                          src="https://storyset.com/images/attribution/3.svg"
                           alt=""
                         />
                       )}

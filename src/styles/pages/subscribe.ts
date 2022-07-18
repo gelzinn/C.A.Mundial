@@ -243,6 +243,11 @@ export const SubscribeContainer = styled.div`
         user-select: none;
       }
     }
+
+    @media (min-width: 968px) {
+      padding: 0 1rem;
+      margin-bottom: 70px;
+    }
   }
 
   .return {

@@ -162,6 +162,13 @@ export const HeaderContainer = styled.header`
           max-height: 4rem;
         }
       }
+
+      > .account-actions {
+        @media (min-width: 900px) {
+          display: none;
+        }
+      }
+
       @media (min-width: 900px) {
         position: absolute;
         top: 50%;

@@ -291,7 +291,9 @@ export const EventsHistory = styled.div`
         pointer-events: none;
         transition: var(--transition);
 
-        filter: brightness(50%) grayscale(1);
+        @media (min-width: 900px) {
+          filter: brightness(50%) grayscale(1);
+        }
       }
 
       .info {
@@ -314,9 +316,11 @@ export const EventsHistory = styled.div`
         }
       }
 
-      &:hover {
-        > img {
-          filter: unset;
+      @media (min-width: 900px) {
+        &:hover {
+          > img {
+            filter: unset;
+          }
         }
       }
     }

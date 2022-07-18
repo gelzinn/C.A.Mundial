@@ -78,7 +78,7 @@ export default function Home(sponsorsList) {
             </ul>
           </SponsorsContainer>
         )}
-        <main className="space">
+        <main>
           <ShortDescription>
             <ul className="info">
               <h1>Por que nos escolher?</h1>

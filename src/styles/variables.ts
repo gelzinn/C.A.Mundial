@@ -13,9 +13,9 @@ export const Variables = css`
     --white-dark: #f2f2f2;
 
     --shape: #121214;
-    --shape-light: #28282d;
+    --shape-light: #1e1e21;
     --shape-light-lowopacity: #28282d50;
-    --shape-dark: #3c3c42;
+    --shape-dark: #060607;
     --shape-dark-lowopacity: #3c3c4225;
     --shape-hover: #29292e;
 

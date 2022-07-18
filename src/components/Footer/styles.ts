@@ -14,7 +14,7 @@ export const FastNavigation = styled.div`
   color: var(--white);
   padding: 2rem;
 
-  border: 1px solid var(--shape-dark);
+  border: 1px solid var(--shape-light);
   border-style: solid none;
 
   .container {

@@ -29,7 +29,7 @@ export default function Footer() {
             <span>Dúvidas</span>
             <a href="https://docs.camundial.com.br/">Suporte</a>
             <a href="https://docs.camundial.com.br/">Instruções</a>
-            <a href="https://docs.camundial.com.br/">Central de ajuda</a>
+            <a href="/help">Central de ajuda</a>
           </ul>
           <ul>
             <span>Navegação rápida</span>
@@ -44,7 +44,7 @@ export default function Footer() {
             <a href="https://docs.camundial.com.br/">
               Reembolso &amp; devolução
             </a>
-            <a href="https://docs.camundial.com.br/">Mapa do site</a>
+            <a href="/sitemap">Mapa do site</a>
             <a href="https://docs.camundial.com.br/">Preferência dos cookies</a>
           </ul>
         </div>

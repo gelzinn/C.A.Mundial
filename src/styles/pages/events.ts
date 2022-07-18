@@ -246,3 +246,79 @@ export const CompetitionsContainer = styled.div`
 
   list-style-type: none;
 `;
+
+export const EventsHistory = styled.div`
+  margin: 1rem auto;
+  max-width: 1120px;
+  padding: 0 1rem;
+
+  .title {
+    text-align: center;
+    margin: 2rem 1rem;
+
+    > h1 {
+      text-transform: uppercase;
+      line-height: 100%;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    list-style-type: none;
+
+    li {
+      width: 100%;
+      height: auto;
+
+      flex-basis: 350px;
+      flex-grow: 1;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: var(--transition);
+
+      > img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+
+        user-select: none;
+        pointer-events: none;
+        transition: var(--transition);
+
+        filter: brightness(50%) grayscale(1);
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1rem;
+        background: var(--black);
+
+        height: calc(100% - 300px);
+
+        text-align: center;
+
+        gap: 1rem;
+
+        > span {
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+      }
+
+      &:hover {
+        > img {
+          filter: unset;
+        }
+      }
+    }
+  }
+`;

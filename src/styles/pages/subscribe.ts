@@ -23,13 +23,13 @@ export const SubscribeContainer = styled.div`
     overflow: hidden;
 
     > img {
-      width: 100%;
-      height: 100%;
+      width: 150%;
+      height: 150%;
       transform: scaleX(-1);
       object-fit: cover;
       mask-image: linear-gradient(to right, transparent, black);
       opacity: 0.1;
-      /* filter: grayscale(1); */
+      filter: grayscale(1);
 
       pointer-events: none;
       user-select: none;

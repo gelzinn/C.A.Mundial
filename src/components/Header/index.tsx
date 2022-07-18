@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CaretRight } from "phosphor-react";
 import React, { useState } from "react";
 
 import { HeaderContainer, Warnings } from "./styles";
@@ -25,17 +26,27 @@ export default function Header() {
             />
           </a>
           <ul className={`menu ${openMenu ? "open" : ""}`}>
-            <Link href="/">Início</Link>
-            <Link href="/about-us">Sobre</Link>
-            <Link href="/memories">Memórias</Link>
-            <Link href="/events">Eventos</Link>
+            <Link href="/">
+              <li>Início</li>
+            </Link>
+            <Link href="/about-us">
+              <li>Sobre</li>
+            </Link>
+            <Link href="/memories">
+              <li>Memórias</li>
+            </Link>
+            <Link href="/events">
+              <li className="new">Eventos</li>
+            </Link>
           </ul>
           <ul className="account-actions">
             <Link href="/signin">
               <a className="signin">Entrar</a>
             </Link>
             <Link href="/subscribe">
-              <a className="subscribe">Cadastrar</a>
+              <a className="subscribe">
+                Cadastrar <CaretRight weight="bold" />
+              </a>
             </Link>
           </ul>
           <button

@@ -118,13 +118,45 @@ export const HeaderContainer = styled.header`
 
       height: 100%;
 
-      > a {
-        padding: 0 1rem;
+      > li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+        color: var(--text);
+
+        padding: 0.15rem 1rem 0;
         height: 100%;
         transition: var(--transition);
+        border-bottom: 0.15rem solid transparent;
 
-        &:hover {
-          border-bottom: 0.15rem solid var(--primary);
+        &.new {
+          gap: 0.5rem;
+
+          &:after {
+            content: "Novo";
+            text-transform: uppercase;
+            font-size: 0.75rem;
+
+            color: var(--green);
+            border: 1px solid var(--green);
+            border-radius: 4px;
+            padding: 0.25rem 0.5rem;
+          }
+        }
+
+        @media (min-width: 900px) {
+          &:hover {
+            border-bottom: 0.15rem solid var(--primary);
+            color: var(--white);
+          }
+        }
+
+        @media (max-width: 900px) {
+          width: 100%;
+          height: 100%;
+          max-height: 4rem;
         }
       }
       @media (min-width: 900px) {
@@ -141,12 +173,12 @@ export const HeaderContainer = styled.header`
           position: absolute;
           display: flex;
           left: -1rem;
-          top: 0;
+          top: 100px;
 
-          padding: 0 2rem;
+          padding: 2rem;
 
           width: 100vw;
-          height: 100vh;
+          height: calc(100vh - 100px);
           z-index: 2;
           background: var(--black);
 
@@ -169,7 +201,7 @@ export const HeaderContainer = styled.header`
       }
     }
 
-    a {
+    a:not(.subscribe) {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -181,18 +213,6 @@ export const HeaderContainer = styled.header`
       text-transform: capitalize;
       color: var(--text);
       transition: var(--transition);
-
-      &:hover {
-        color: var(--white);
-
-        &:after {
-          content: "";
-          position: absolute;
-          background: var(--white);
-          bottom: 0;
-          width: 100%;
-        }
-      }
     }
 
     > .account-actions {
@@ -214,10 +234,15 @@ export const HeaderContainer = styled.header`
     }
 
     .subscribe {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       width: 100%;
       height: 100%;
       max-height: 40px;
 
+      text-decoration: none;
       font-weight: bold;
       border: 1px solid var(--primary);
       background: unset;
@@ -225,9 +250,30 @@ export const HeaderContainer = styled.header`
       border-radius: 4px;
       color: var(--primary);
 
+      > svg {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100%);
+
+        width: 100%;
+        height: 100%;
+        max-height: 0;
+
+        transition: max-height 1s ease-in-out;
+        transition: var(--transition);
+      }
+
       &:hover {
         background: var(--primary-hover);
         color: var(--black);
+
+        > svg {
+          margin-left: 0.5rem;
+          max-height: 12px;
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(0);
+        }
       }
     }
   }

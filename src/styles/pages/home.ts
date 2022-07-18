@@ -340,9 +340,10 @@ export const Subscribe = styled.div`
   align-items: center;
 
   width: 100%;
+  min-height: 400px;
+  height: 100%;
   background: var(--black);
-  height: 400px;
-  margin: 1rem auto 0;
+  margin: 0 auto;
   position: relative;
 
   .container {
@@ -355,6 +356,7 @@ export const Subscribe = styled.div`
     width: 100%;
     max-width: 1120px;
     margin: 0 1rem;
+    padding: 10rem 0;
 
     .info {
       display: flex;
@@ -409,7 +411,7 @@ export const Subscribe = styled.div`
   .bg {
     position: absolute;
     width: 100vw;
-    height: 400px;
+    height: 100%;
     background-image: url("https://global-uploads.webflow.com/61d83a2ebb0ae01ab96e841a/629642e4e4b6821da70eac38_blur-rocketseat-plus.png");
     background-position: center center;
     background-size: cover;

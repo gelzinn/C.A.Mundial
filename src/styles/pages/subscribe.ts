@@ -304,7 +304,7 @@ export const SubscribeContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: auto;
 
     .illustration {
       display: none;

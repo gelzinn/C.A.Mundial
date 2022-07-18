@@ -126,10 +126,13 @@ export const HeaderContainer = styled.header`
         cursor: pointer;
         color: var(--text);
 
-        padding: 0.15rem 1rem 0;
         height: 100%;
         transition: var(--transition);
         border-bottom: 0.15rem solid transparent;
+
+        @media (min-width: 900px) {
+          padding: 0.15rem 1rem 0;
+        }
 
         &.new {
           gap: 0.5rem;
@@ -173,12 +176,12 @@ export const HeaderContainer = styled.header`
           position: absolute;
           display: flex;
           left: -1rem;
-          top: 100px;
+          top: 0;
 
           padding: 2rem;
 
           width: 100vw;
-          height: calc(100vh - 100px);
+          height: 100vh;
           z-index: 2;
           background: var(--black);
 
@@ -196,6 +199,28 @@ export const HeaderContainer = styled.header`
               border-radius: 4px;
               border-bottom: unset;
             }
+          }
+
+          > .account-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            gap: 1rem;
+
+            height: 100%;
+            max-height: 8rem;
+
+            @media (min-height: 480px) {
+              max-height: 10rem;
+            }
+          }
+
+          @media (max-height: 480px) {
+            padding: 1rem 0;
+            top: 50px;
+            height: calc(100vh - 50px);
           }
         }
       }
@@ -219,6 +244,7 @@ export const HeaderContainer = styled.header`
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
 
       gap: 1rem;
 

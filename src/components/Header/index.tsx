@@ -38,6 +38,16 @@ export default function Header() {
             <Link href="/events">
               <li className="new">Eventos</li>
             </Link>
+            <ul className="account-actions">
+              <Link href="/signin">
+                <a className="signin">Entrar</a>
+              </Link>
+              <Link href="/subscribe">
+                <a className="subscribe">
+                  Cadastrar <CaretRight weight="bold" />
+                </a>
+              </Link>
+            </ul>
           </ul>
           <ul className="account-actions">
             <Link href="/signin">

@@ -201,7 +201,8 @@ export default function HelpCenter() {
                     </li>
                     <li>
                       <span>
-                        Posso me inscrever estar relacionado a alguma equipe?
+                        Posso me inscrever sem estar relacionado a alguma
+                        equipe?
                       </span>
                       <p>
                         Infelizmente, nos eventos organizados pela C.A.Mundial,

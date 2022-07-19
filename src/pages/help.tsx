@@ -61,7 +61,7 @@ export default function HelpCenter() {
                         <p>
                           <b>Como usuário:</b> caso você não tenha nenhuma
                           relação com qualquer equipe ou organização, é possível
-                          ainda assim acompanhar os eventos, vendos os
+                          ainda assim acompanhar os eventos, vendo os
                           resultados, estatísticas e tabelas do mesmo na página
                           de cada um.
                         </p>

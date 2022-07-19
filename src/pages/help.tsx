@@ -154,8 +154,8 @@ export default function HelpCenter() {
                           C.A.Mundial. Será obrigatória a inserção de
                           informações importantes, como CNPJ da equipe, RG e CPF
                           do presidente ou diretor responsável e endereços, além
-                          de outros dados não tão sigilosos, como nome e logo da
-                          equipe.
+                          de outros dados não tão sigilosos, como nome e
+                          logotipo da equipe.
                         </p>
                       </p>
                     </li>
@@ -167,7 +167,7 @@ export default function HelpCenter() {
                       <p>
                         Uma equipe ou organização uma vez inscrita, pode
                         permanecer o tempo que quiser no sistema da C.A.Mundial,
-                        assim facilitando a particapação em diversos eventos.
+                        assim facilitando a participação em diversos eventos.
                       </p>
                       <p>
                         A permanência de dados não será uma opção e a exclusão

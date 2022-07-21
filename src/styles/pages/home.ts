@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const MainBanner = styled.div`
   width: 100%;
-  /* background: var(--black); */
+  background: var(--black);
+  height: 656px;
   position: relative;
 
   img {
@@ -14,7 +15,7 @@ export const MainBanner = styled.div`
     pointer-events: none;
     user-select: none;
     transition: var(--transition);
-    /* mask-image: linear-gradient(black, black, transparent); */
+    mask-image: linear-gradient(black, black, transparent);
   }
 
   .actions {
@@ -419,5 +420,26 @@ export const Subscribe = styled.div`
     opacity: 0.5;
     filter: invert(67%) sepia(98%) saturate(1504%) hue-rotate(8deg)
       brightness(150%) contrast(104%);
+  }
+`;
+
+export const LittleAboutUs = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  max-width: 1120px;
+  margin: 4rem auto;
+  overflow: hidden;
+
+  > h1 {
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (max-width: 500px) {
+      font-size: 1.5rem;
+    }
   }
 `;

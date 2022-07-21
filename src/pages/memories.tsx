@@ -29,7 +29,7 @@ export default function Memories() {
             loop
           >
             <source
-              src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/memories/praying-video.mp4"
+              src="../../assets/memories/praying-video.mp4"
               title="Nossas memórias"
             />
           </video>

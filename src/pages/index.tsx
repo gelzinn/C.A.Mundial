@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import {
+  LittleAboutUs,
   MainBanner,
   ShortDescription,
   SponsorsContainer,
@@ -52,7 +53,7 @@ export default function Home(sponsorsList) {
       <main>
         <MainBanner>
           <img
-            src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/banners/New%202022%20site.png"
+            src="../../assets/images/banners/New2022.png"
             loading="lazy"
             alt="New 2022 C.A.Mundial site!"
           />
@@ -78,131 +79,130 @@ export default function Home(sponsorsList) {
             </ul>
           </SponsorsContainer>
         )}
-        <main>
-          <ShortDescription>
-            <ul className="info">
-              <h1>Por que nos escolher?</h1>
-              <li>
-                <div className="icon">
-                  <Handshake />
-                </div>
-                <div className="about">
-                  <span>Parceira</span>
-                  <p>
-                    A C.A.Mundial tem parcerias com vários clubes do futebol
-                    brasileiro.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="icon">
-                  <Smiley />
-                </div>
-                <div className="about">
-                  <span>Receptiva</span>
-                  <p>
-                    Apresentamos um trabalho de captação e formação de atletas
-                    em várias categorias.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="icon">
-                  <CircleWavyCheck />
-                </div>
-                <div className="about">
-                  <span>Preparada</span>
-                  <p>
-                    Com centro de treinamento próprio, estamos preparados para
-                    receber os atletas.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="icon">
-                  <Flag />
-                </div>
-                <div className="about">
-                  <span>Nacional</span>
-                  <p>
-                    Também são realizadas avaliações por todo o território
-                    brasileiro.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </ShortDescription>
-          {highlightedEvent.info && (
-            <Subscribe>
-              <div className="container">
-                <div className="info">
-                  <span>{highlightedEvent.info.name}</span>
-                  <p>
-                    A edição {highlightedEvent.info.name} acontecerá dos dias{" "}
-                    {highlightedEvent.info.date.startAt
-                      .replace(/-/g, "")
-                      .slice(4)
-                      .slice(0, -2) ===
-                    highlightedEvent.info.date.endAt
-                      .replace(/-/g, "")
-                      .slice(4)
-                      .slice(0, -2) ? (
-                      <b>
-                        {highlightedEvent.info.date.startAt
-                          .replace(/-/g, "")
-                          .slice(6)}{" "}
-                        a{" "}
-                        {format(
-                          new Date(
-                            highlightedEvent.info.date.endAt.replace(/-/g, "/")
-                          ),
-                          "d' de 'MMMM'",
-                          {
-                            locale: ptBR,
-                          }
-                        )}
-                      </b>
-                    ) : (
-                      <b>
-                        {format(
-                          new Date(
-                            highlightedEvent.info.date.startAt.replace(
-                              /-/g,
-                              "/"
-                            )
-                          ),
-                          "d' de 'MMMM",
-                          {
-                            locale: ptBR,
-                          }
-                        )}{" "}
-                        a{" "}
-                        {format(
-                          new Date(
-                            highlightedEvent.info.date.endAt.replace(/-/g, "/")
-                          ),
-                          "d' de 'MMMM",
-                          {
-                            locale: ptBR,
-                          }
-                        )}
-                      </b>
-                    )}{" "}
-                    na cidade de {highlightedEvent.info.location}.
-                  </p>
-                  <Link href={`/event/${highlightedEvent.id}`}>
-                    Sobre o evento
-                  </Link>
-                  <p className="legal-info">
-                    Saiba mais sobre acomodação e outros termos{" "}
-                    <Link href="https://docs.camundial.com.br/">aqui</Link>.
-                  </p>
-                </div>
+
+        <ShortDescription>
+          <ul className="info">
+            <h1>Por que nos escolher?</h1>
+            <li>
+              <div className="icon">
+                <Handshake />
               </div>
-              <div className="bg" />
-            </Subscribe>
-          )}
-        </main>
+              <div className="about">
+                <span>Parceira</span>
+                <p>
+                  A C.A.Mundial tem parcerias com vários clubes do futebol
+                  brasileiro.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div className="icon">
+                <Smiley />
+              </div>
+              <div className="about">
+                <span>Receptiva</span>
+                <p>
+                  Apresentamos um trabalho de captação e formação de atletas em
+                  várias categorias.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div className="icon">
+                <CircleWavyCheck />
+              </div>
+              <div className="about">
+                <span>Preparada</span>
+                <p>
+                  Com centro de treinamento próprio, estamos preparados para
+                  receber os atletas.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div className="icon">
+                <Flag />
+              </div>
+              <div className="about">
+                <span>Nacional</span>
+                <p>
+                  Também são realizadas avaliações por todo o território
+                  brasileiro.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </ShortDescription>
+        {highlightedEvent.info && (
+          <Subscribe>
+            <div className="container">
+              <div className="info">
+                <span>{highlightedEvent.info.name}</span>
+                <p>
+                  A edição {highlightedEvent.info.name} acontecerá dos dias{" "}
+                  {highlightedEvent.info.date.startAt
+                    .replace(/-/g, "")
+                    .slice(4)
+                    .slice(0, -2) ===
+                  highlightedEvent.info.date.endAt
+                    .replace(/-/g, "")
+                    .slice(4)
+                    .slice(0, -2) ? (
+                    <b>
+                      {highlightedEvent.info.date.startAt
+                        .replace(/-/g, "")
+                        .slice(6)}{" "}
+                      a{" "}
+                      {format(
+                        new Date(
+                          highlightedEvent.info.date.endAt.replace(/-/g, "/")
+                        ),
+                        "d' de 'MMMM'",
+                        {
+                          locale: ptBR,
+                        }
+                      )}
+                    </b>
+                  ) : (
+                    <b>
+                      {format(
+                        new Date(
+                          highlightedEvent.info.date.startAt.replace(/-/g, "/")
+                        ),
+                        "d' de 'MMMM",
+                        {
+                          locale: ptBR,
+                        }
+                      )}{" "}
+                      a{" "}
+                      {format(
+                        new Date(
+                          highlightedEvent.info.date.endAt.replace(/-/g, "/")
+                        ),
+                        "d' de 'MMMM",
+                        {
+                          locale: ptBR,
+                        }
+                      )}
+                    </b>
+                  )}{" "}
+                  na cidade de {highlightedEvent.info.location}.
+                </p>
+                <Link href={`/event/${highlightedEvent.id}`}>
+                  Sobre o evento
+                </Link>
+                <p className="legal-info">
+                  Saiba mais sobre acomodação e outros termos{" "}
+                  <Link href="https://docs.camundial.com.br/">aqui</Link>.
+                </p>
+              </div>
+            </div>
+            <div className="bg" />
+          </Subscribe>
+        )}
+        <LittleAboutUs>
+          <h1>Por que nos escolher?</h1>
+        </LittleAboutUs>
       </main>
       <Footer />
     </>

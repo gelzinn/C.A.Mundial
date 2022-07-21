@@ -13,6 +13,8 @@ export const HeaderContainer = styled.header`
   max-height: 6.25rem;
   width: 100%;
 
+  transition: var(--transition);
+
   .logo {
     width: 100%;
     max-width: 5rem;
@@ -323,6 +325,14 @@ export const HeaderContainer = styled.header`
       }
     }
   }
+
+  /* &.scrolled {
+    position: sticky;
+    top: 0;
+    background: unset;
+    backdrop-filter: saturate(180%) blur(15px);
+    transition: translateX(0);
+  } */
 `;
 
 const fadeInBanner = keyframes`
@@ -341,6 +351,8 @@ export const Warnings = styled.div`
   color: var(--white);
   padding: 0.5rem;
   text-align: center;
+
+  /* filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2)); */
 
   z-index: 2;
   overflow: hidden;

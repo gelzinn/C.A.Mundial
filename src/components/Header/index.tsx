@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { CaretRight } from "phosphor-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { HeaderContainer, Warnings } from "./styles";
 
 export default function Header() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrolledNavbar, setScrolledNavbar] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
 
   if (openMenu === true) {
@@ -15,13 +17,25 @@ export default function Header() {
 
   const currentUrl = location.pathname;
 
+  window.addEventListener("scroll", (event) => {
+    setScrollPosition(scrollY);
+  });
+
+  useEffect(() => {
+    if (scrollPosition >= 200) {
+      setScrolledNavbar(true);
+    } else {
+      setScrolledNavbar(false);
+    }
+  }, [scrollPosition]);
+
   return (
     <>
-      <HeaderContainer>
+      <HeaderContainer className={scrolledNavbar ? "scrolled" : ""}>
         <nav>
           <a href="./" className="logo">
             <img
-              src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/logo-camundial.png"
+              src="../../assets/images/logo-camundial.png"
               alt="C. A. Mundial"
             />
           </a>

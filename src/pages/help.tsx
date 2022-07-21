@@ -232,7 +232,7 @@ export default function HelpCenter() {
                   <span id="sponsors">Patrocínio</span>
                   <ul>
                     <li>
-                      <span>Onde vejos os patrocinadores atuais?</span>
+                      <span>Onde encontro os patrocinadores atuais?</span>
                       <p>
                         Você pode conferir todos nossos parceiros na{" "}
                         <Link href="/">página inicial</Link> do site, logo após
@@ -247,7 +247,7 @@ export default function HelpCenter() {
                       <p>
                         Entre em{" "}
                         <Link href="/contact">contato com o suporte</Link> e nos
-                        assustos selecione &quot;Patrocínio&quot;. Lá você pode
+                        assuntos selecione &quot;Patrocínio&quot;. Lá você pode
                         nos descrever a situação e nós iremos entrar num acordo.
                       </p>
                     </li>

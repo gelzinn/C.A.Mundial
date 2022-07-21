@@ -17,7 +17,7 @@ export default function Footer() {
           <ul>
             <a href="./" className="logo">
               <img
-                src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/logo-camundial.png"
+                src="../../assets/images/logo-camundial.png"
                 alt="C. A. Mundial"
               />
             </a>

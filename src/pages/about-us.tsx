@@ -46,7 +46,7 @@ export default function AboutUS() {
               </p>
             </div>
             <img
-              src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/01e9ce495255634de5d7f6dc38070472acccd06f/src/assets/images/illustrations/undraw_stand_out_-1-oag.svg"
+              src="../../illustrations/undraw_stand_out_-1-oag.svg"
               alt="C. A. Mundial"
             />
           </div>
@@ -72,7 +72,7 @@ export default function AboutUS() {
               </p>
             </div>
             <img
-              src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/c8d039bbb2134930de2003a686f0bcfc46a70aa4/src/assets/images/illustrations/undraw_fans_re_cri3.svg"
+              src="../../illustrations/undraw_fans_re_cri3.svg"
               alt="C. A. Mundial"
             />
           </div>
@@ -82,7 +82,7 @@ export default function AboutUS() {
               breve.
             </p>
             <img
-              src="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/6c5670e5c189150cc6507bc61668da41fb23b2d1/src/assets/images/illustrations/undraw_goal_-0-v5v.svg"
+              src="../../illustrations/undraw_goal_-0-v5v.svg"
               alt="C. A. Mundial"
             />
           </div>

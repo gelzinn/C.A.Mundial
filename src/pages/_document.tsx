@@ -64,11 +64,11 @@ export default class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/logo-camundial.png"
+            content="../../assets/images/logo-camundial.png"
           />
           <meta
             property="og:image:secure_url"
-            content="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/logo-camundial.png"
+            content="../../assets/images/logo-camundial.png"
           />
           <meta property="og:image:alt" content="avatar" />
           <meta property="og:image:height" content="400" />
@@ -89,20 +89,20 @@ export default class MyDocument extends Document {
           <meta name="twitter:url" content="camundial.com.br" />
           <meta
             name="twitter:image"
-            content="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/logo-camundial.png"
+            content="../../assets/images/logo-camundial.png"
           />
           <meta
             name="twitter:image:src"
-            content="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/logo-camundial.png"
+            content="../../assets/images/logo-camundial.png"
           />
           <link
-            href="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/logo-camundial.png"
+            href="../../assets/images/logo-camundial.png"
             rel="shortcut icon"
             type="image/x-icon"
           />
           <link
             rel="apple-touch-icon"
-            href="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/logo-camundial.png"
+            href="../../assets/images/logo-camundial.png"
           />
           <meta name="theme-color" content="#ffffff" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -111,10 +111,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
             rel="stylesheet"
           />
-          <link
-            rel="icon"
-            href="https://raw.githubusercontent.com/gelzinn/C.A.Mundial/main/src/assets/images/logo-camundial.png"
-          />
+          <link rel="icon" href="../../assets/images/logo-camundial.png" />
         </Head>
         <body>
           <Main />

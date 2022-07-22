@@ -75,6 +75,48 @@ export default function AboutUS() {
               alt="C. A. Mundial"
             />
           </div>
+          <div className="our-team-container">
+            <span>Nossa equipe</span>
+            <ul className="our-team">
+              <li>
+                <picture>
+                  <img
+                    src="https://pps.whatsapp.net/v/t61.24694-24/265430272_120426717096331_1812860507787573229_n.jpg?ccb=11-4&oh=01_AVyXGhrPHMlvcIR4Y609p4hHnTBge28vC9cGDySCD1dCKA&oe=62E825D6"
+                    alt="Marcelo Domingos photo"
+                  />
+                </picture>
+                <div className="info">
+                  <span>Marcelo Domingos</span>
+                  <p>Coordenador Geral</p>
+                </div>
+              </li>
+              <li>
+                <picture>
+                  <img
+                    src="https://scontent.fbau3-2.fna.fbcdn.net/v/t1.6435-9/53483687_1899606490149307_7387477704854994944_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHVHd2V14TCpRTpk6Kw7tXb192JgxwFiMfX3YmDHAWIxzl-GExx_HRYGCbQzH63AOmBfld99oELoGlmjUH2xAqu&_nc_ohc=WWy1RViTEBQAX8_6NGE&tn=uCgf8mqIIDwpLGj1&_nc_ht=scontent.fbau3-2.fna&oh=00_AT9ZxlS4KjPsbemJoBOdj1xn0hvBGGnPfZrjmLIJjubTAQ&oe=630213C6"
+                    alt="Vandecleide Angelica Coradi photo"
+                  />
+                </picture>
+                <div className="info">
+                  <span>Vandecleide Angelica Coradi</span>
+                  <p>Diretora Financeira e Organizadora </p>
+                </div>
+              </li>
+              <li>
+                <picture>
+                  <img
+                    className="zoom-image"
+                    src="https://scontent.fbau3-2.fna.fbcdn.net/v/t39.30808-6/246058340_400670328206196_7193136681473457082_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHK83zCU5hCpBg7L_RxXDdzEk4cUMbotGESThxQxui0YRw0k6GM0P6VrtRjz-TFxVg8HZ67XzcPLLgJfB6r1-jb&_nc_ohc=EbZ9u0nqDYMAX8LosIc&_nc_ht=scontent.fbau3-2.fna&oh=00_AT-IHeyJ3kYxbKx2UH_N_4IdZaCkRvGIMoMwDUgwDsXNxQ&oe=62E0943B"
+                    alt="Carlos Alexandre Alavasse photo"
+                  />
+                </picture>
+                <div className="info">
+                  <span>Carlos Alexandre Alavasse</span>
+                  <p>Preparador Físico</p>
+                </div>
+              </li>
+            </ul>
+          </div>
           <div className="slogan">
             <div>
               <span>Venha ser um craque!</span>

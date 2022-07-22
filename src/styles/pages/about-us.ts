@@ -21,6 +21,7 @@ export const AboutUsContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 
     &.container-vertical {
       flex-direction: column;
@@ -46,6 +47,138 @@ export const AboutUsContainer = styled.div`
     }
   }
 
+  .our-team-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+
+    > span {
+      text-transform: uppercase;
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 100%;
+    }
+
+    .our-team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      list-style-type: none;
+      width: 100%;
+      gap: 1rem;
+      padding: 0 1rem;
+
+      > li {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+        flex-basis: 350px;
+
+        width: 100%;
+        height: auto;
+        color: var(--black);
+        border-radius: 4px;
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+
+          background: var(--white-dark);
+          width: 100%;
+          max-width: 350px;
+          padding: 1rem 0;
+          /* border-radius: 0 0 4px 4px; */
+
+          > span {
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+
+          > p {
+            color: var(--text);
+          }
+        }
+
+        picture {
+          width: 100%;
+          max-width: 350px;
+          min-height: 350px;
+          height: 100%;
+          max-height: 350px;
+          /* border-radius: 4px 4px 0 0; */
+
+          overflow: hidden;
+
+          > img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            pointer-events: none;
+            user-select: none;
+
+            transition: var(--transition);
+
+            @media (min-width: 768px) {
+              filter: grayscale(1);
+            }
+
+            &.zoom-image {
+              transform: scale(1.15);
+            }
+          }
+
+          @media (max-width: 768px) {
+            min-height: unset;
+
+            > img {
+              max-height: 50%;
+
+              &.zoom-image {
+                transform: scale(1.15);
+                transform-origin: top;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          > picture > img {
+            transform: scale(1.05);
+
+            @media (min-width: 768px) {
+              filter: unset;
+            }
+
+            &.zoom-image {
+              transform: scale(1.2);
+            }
+          }
+        }
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+
+          > .info {
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+
   > div:not(.slogan) {
     > div {
       display: flex;
@@ -55,6 +188,7 @@ export const AboutUsContainer = styled.div`
       text-align: justify;
       gap: 1rem;
       width: 100%;
+      max-width: 600px;
 
       > span {
         text-transform: uppercase;

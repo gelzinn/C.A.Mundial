@@ -200,9 +200,6 @@ export default function Home(sponsorsList) {
             <div className="bg" />
           </Subscribe>
         )}
-        <LittleAboutUs>
-          <h1>Por que nos escolher?</h1>
-        </LittleAboutUs>
       </main>
       <Footer />
     </>

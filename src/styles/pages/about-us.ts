@@ -26,10 +26,6 @@ export const AboutUsContainer = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      img {
-        max-width: 600px;
-      }
     }
 
     @media (min-width: 900px) {
@@ -50,40 +46,84 @@ export const AboutUsContainer = styled.div`
     }
   }
 
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 0 1rem;
-    gap: 1rem;
-    width: 100%;
-    text-align: justify;
+  > div:not(.slogan) {
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: justify;
+      gap: 1rem;
+      width: 100%;
 
-    > span {
-      text-transform: uppercase;
-      font-size: 2.5rem;
-      font-weight: 900;
-      line-height: 100%;
+      > span {
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        font-weight: 900;
+        line-height: 100%;
+      }
     }
 
     > img {
       width: 100%;
       max-width: 30rem;
-      padding: 2rem;
+      /* padding: 2rem; */
       pointer-events: none;
       user-select: none;
     }
   }
 
   .slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     width: 100vw;
-    background: var(--black);
-    color: var(--white);
-    font-weight: bold;
-    font-size: 1.25rem;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 2rem 0;
+    background: var(--white-dark);
+    color: var(--black);
+
+    padding: 3rem 1rem;
+    margin: 0 1rem;
+    gap: 1rem;
+
+    > div {
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      align-items: center;
+
+      > span {
+        width: 100%;
+        font-weight: bold;
+        font-size: 2rem;
+        text-transform: uppercase;
+        line-height: 100%;
+        @media (max-width: 768px) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      max-width: 450px;
+      height: 350px;
+
+      object-fit: cover;
+      object-position: bottom;
+      pointer-events: none;
+      user-select: none;
+
+      @media (max-width: 768px) {
+        height: 100%;
+        max-height: 350px;
+        object-position: 25% 75%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      gap: unset;
+    }
   }
 `;

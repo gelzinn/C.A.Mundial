@@ -34,11 +34,10 @@ export default function AboutUS() {
                 fora do campo.
               </p>
               <p>
-                Estamos no mercado desde 2003 - fazem{" "}
-                {ageEnterprise("2003/12/03")} anos - com eventos esportivos:
-                captação e formação de atletas. Sempre trabalhando com o maior
-                comprometimento e focando em dar visibilidade aos nossos
-                clientes e atletas.
+                Estamos no mercado desde há {ageEnterprise("2003/12/03")} anos
+                com eventos esportivos: captação e formação de atletas. Sempre
+                trabalhando com o maior comprometimento e focando em dar
+                visibilidade aos nossos clientes e atletas.
               </p>
               <p>
                 A C.A.Mundial sempre visa tratar e organizar os eventos e as
@@ -46,7 +45,7 @@ export default function AboutUS() {
               </p>
             </div>
             <img
-              src="../../illustrations/undraw_stand_out_-1-oag.svg"
+              src="../../illustrations/team-spirit-pana.svg"
               alt="C. A. Mundial"
             />
           </div>
@@ -72,23 +71,20 @@ export default function AboutUS() {
               </p>
             </div>
             <img
-              src="../../illustrations/undraw_fans_re_cri3.svg"
+              src="../../illustrations/good-team-pana.svg"
               alt="C. A. Mundial"
             />
           </div>
-          <div className="container container-vertical">
-            <p style={{ textAlign: "center" }}>
-              Esperamos te encontrar aqui em nossos eventos, futuro craque. Até
-              breve.
-            </p>
+          <div className="slogan">
+            <div>
+              <span>Venha ser um craque!</span>
+              <p>Não perca essa chance, te esperamos aqui. Até breve.</p>
+            </div>
             <img
-              src="../../illustrations/undraw_goal_-0-v5v.svg"
+              src="../../illustrations/missed-chances-bro.svg"
               alt="C. A. Mundial"
             />
           </div>
-          <p className="slogan">
-            <p>Venha ser um craque você também!</p>
-          </p>
         </AboutUsContainer>
       </main>
       <Footer />

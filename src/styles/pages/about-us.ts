@@ -99,7 +99,7 @@ export const AboutUsContainer = styled.div`
           width: 100%;
           max-width: 350px;
           padding: 1rem 0;
-          /* border-radius: 0 0 4px 4px; */
+          border-radius: 0 0 4px 4px;
 
           > span {
             font-weight: bold;
@@ -117,7 +117,7 @@ export const AboutUsContainer = styled.div`
           min-height: 350px;
           height: 100%;
           max-height: 350px;
-          /* border-radius: 4px 4px 0 0; */
+          border-radius: 4px 4px 0 0;
 
           overflow: hidden;
 
@@ -154,16 +154,15 @@ export const AboutUsContainer = styled.div`
           }
         }
 
-        &:hover {
-          > picture > img {
-            transform: scale(1.05);
-
-            @media (min-width: 768px) {
+        @media (min-width: 768px) {
+          &:hover {
+            > picture > img {
+              transform: scale(1.05);
               filter: unset;
-            }
 
-            &.zoom-image {
-              transform: scale(1.2);
+              &.zoom-image {
+                transform: scale(1.2);
+              }
             }
           }
         }

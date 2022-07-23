@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ArrowLeft, MapPin } from "phosphor-react";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LoadingScreen from "~/components/LoadingScreen";
 import { db } from "~/services/firebase";
 import { format } from "date-fns";
@@ -11,8 +11,11 @@ import Header from "~/components/Header";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { EventContainer } from "~/styles/pages/event-page";
 import LoadingCircle from "~/components/LoadingCircle";
+import AuthContext from "~/contexts/AuthContext";
 
 export default function Home({ aboutEvent }) {
+  const { user } = useContext(AuthContext);
+
   const { query } = useRouter();
   const [counter, setCounter] = useState<any>([]);
 
@@ -281,17 +284,21 @@ export default function Home({ aboutEvent }) {
                   </div>
                 )}
                 {event.date.startAt != today && (
-                  <div className="subscribe">
-                    <div className="invite">
-                      <span>Inscrições abertas</span>
-                      <p>
-                        Aproveite e traga sua equipe ou organização para
-                        brilhar.
-                      </p>
-                    </div>
-                    <button>Inscrever minha equipe</button>
-                    <p>Informações legais e sobre a participação abaixo.</p>
-                  </div>
+                  <>
+                    {user && (
+                      <div className="subscribe">
+                        <div className="invite">
+                          <span>Inscrições abertas</span>
+                          <p>
+                            Aproveite e traga sua equipe ou organização para
+                            brilhar.
+                          </p>
+                        </div>
+                        <button>Inscrever minha equipe</button>
+                        <p>Informações legais e sobre a participação abaixo.</p>
+                      </div>
+                    )}
+                  </>
                 )}
                 <div className="event-rules">
                   <span>Regulamento Geral</span>

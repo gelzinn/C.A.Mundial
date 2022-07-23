@@ -223,11 +223,58 @@ export const HeaderContainer = styled.header`
 
             gap: 1rem;
 
+            width: 100%;
             height: 100%;
             max-height: 8rem;
 
             a:not(.subscribe):hover {
               color: var(--white);
+            }
+
+            .user {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              width: 100%;
+              max-width: 150px;
+
+              .user-icon {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                width: 100%;
+                height: 100%;
+                padding: 0.5rem;
+                gap: 0.5rem;
+
+                border: 1px solid var(--white);
+                border-radius: 4px;
+
+                text-transform: uppercase;
+                font-size: 0.85rem;
+
+                > svg {
+                  width: 100%;
+                  max-width: 1.5rem;
+                  height: 100%;
+                  max-height: 1.5rem;
+
+                  color: var(--text);
+                  border-radius: 50%;
+                }
+
+                &:hover {
+                  background: var(--primary);
+                  border: 1px solid transparent;
+
+                  > svg {
+                    color: var(--white);
+                  }
+                }
+              }
             }
 
             @media (min-height: 480px) {
@@ -273,6 +320,104 @@ export const HeaderContainer = styled.header`
 
         &:not(.subscribe):hover {
           color: var(--white);
+        }
+      }
+
+      .user {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.5rem;
+        position: relative;
+
+        .user-icon {
+          width: 2.25rem;
+          height: 100%;
+          padding: 0.5rem;
+
+          border: 1px solid var(--white);
+          border-radius: 50%;
+
+          > svg {
+            width: 100%;
+            height: 100%;
+            color: var(--white);
+            border-radius: 50%;
+          }
+
+          &:hover {
+            background: var(--primary);
+            border: 1px solid transparent;
+          }
+        }
+
+        > ul {
+          position: absolute;
+          top: 100%;
+          right: 0;
+
+          margin: 0.5rem 0;
+
+          background: var(--primary);
+          width: 200px;
+          border-radius: 4px;
+
+          overflow: hidden;
+          list-style-type: none;
+
+          > li {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            align-items: center;
+
+            gap: 0.5rem;
+
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+
+            transition: var(--transition);
+
+            > svg {
+              width: 100%;
+              max-width: 1.25rem;
+              height: 100%;
+            }
+
+            &:hover {
+              background: var(--primary-hover);
+            }
+          }
+
+          > footer {
+            display: flex;
+            flex-direction: column;
+
+            gap: 0.5rem;
+
+            width: 100%;
+            max-width: 300px;
+
+            background: var(--black);
+            padding: 0.5rem;
+
+            cursor: default;
+
+            pointer-events: none;
+            user-select: none;
+
+            > p {
+              width: 100%;
+
+              text-align: right;
+              font-size: 0.65rem;
+
+              color: var(--text);
+              opacity: 0.5;
+            }
+          }
         }
       }
 

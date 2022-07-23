@@ -30,6 +30,34 @@ export const GlobalStyles = createGlobalStyle`
       overflow: hidden hidden;
     }
   }
+  main {
+    > .title {
+      margin: 1.5rem 1rem;
+      > span {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        gap:.25rem;
+      }
+      @media (max-width: 500px) {
+        text-align: center;
+        > span {
+          justify-content: center;
+        }
+      }
+      > h1 {
+        text-transform: uppercase;
+        line-height: 100%;
+      }
+      &.center {
+        text-align: center;
+      }
+    }
+    &.space {
+      margin: 2rem auto 0;
+    }
+  }
   html {
     scroll-behavior: smooth;
     box-sizing: inherit;

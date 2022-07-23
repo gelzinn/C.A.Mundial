@@ -7,19 +7,22 @@ import "firebase/compat/storage";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC350FgZ5eHd8klQy6aO5Z6EN6yrVhckio",
-  authDomain: "camundial-4faa1.firebaseapp.com",
-  databaseURL: "https://camundial-4faa1-default-rtdb.firebaseio.com",
-  projectId: "camundial-4faa1",
-  storageBucket: "camundial-4faa1.appspot.com",
-  messagingSenderId: "546762496336",
-  appId: "1:546762496336:web:e3dc46fbaf39e0f3adb455",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGE_SENDER_ID,
+  appId: process.env.APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
+
 const db = firebase.firestore();
+const timestamp = firebase.firestore.Timestamp;
+
 const storage = firebase.storage();
 
-export { firebase, auth, db, storage };
+export { firebase, auth, db, timestamp, storage };

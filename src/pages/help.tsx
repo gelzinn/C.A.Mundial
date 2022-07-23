@@ -100,10 +100,7 @@ export default function HelpCenter() {
                         Dados sigilosos, comprometedores e pessoais para que
                         sejam alterados, é necessário que o proprietário da
                         conta faça uma requisição no{" "}
-                        <a href="https://app.camundial.com.br/">
-                          painel de controle
-                        </a>
-                        .
+                        <a href="/dashboard/account">painel de controle</a>.
                       </p>
                       <p>
                         Após analisada, caso aprovada por algum administrador da
@@ -114,10 +111,7 @@ export default function HelpCenter() {
                       <span>Onde gerencio minha conta?</span>
                       <p>
                         Você pode gerenciar sua conta C.A.Mundial diretamente no{" "}
-                        <a href="https://app.camundial.com.br/">
-                          painel de controle
-                        </a>
-                        .
+                        <a href="/dashboard/account">painel de controle</a>.
                       </p>
                     </li>
                     <li>
@@ -222,10 +216,8 @@ export default function HelpCenter() {
                       <p>
                         Incrível que está conosco! A C.A.Mundial agradece muito
                         a sua preferência. Após cadastrado, acesse o{" "}
-                        <a href="https://app.camundial.com.br/">
-                          painel de controle
-                        </a>{" "}
-                        para efetuar estas ações.
+                        <a href="/dashboard/">painel de controle</a> para
+                        efetuar estas ações.
                       </p>
                     </li>
                   </ul>

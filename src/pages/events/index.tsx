@@ -343,7 +343,7 @@ export default function Competitions() {
           <ul className="container">
             <li>
               <img
-                src="https://scontent.fbau3-2.fna.fbcdn.net/v/t39.30808-6/258148177_270359125106781_1071932251158902448_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGhqbMf1qg1zGGOj2VQMCgfLHxK1nTrUhgsfErWdOtSGGmsklh44yUHkZKvpS0Bon99RK6qAPGwxNNhNPhCaltt&_nc_ohc=vDZiUI_30eMAX-Vsz8n&_nc_ht=scontent.fbau3-2.fna&oh=00_AT_QtiGCMyzJ_TBo3oXIp9IEfwHHPb97nLT7xXT558QDGA&oe=62DA1014"
+                src="https://www.setpar.com.br/app/uploads/2019/01/xcidade-mineiros-do-tiete.jpg.pagespeed.ic.qNzblwOevl.webp"
                 alt="Mineiros do Tietê"
               />
               <div className="info">

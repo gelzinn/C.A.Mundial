@@ -1,11 +1,13 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import { db, storage } from "~/services/firebase";
+import { useContext, useEffect, useState } from "react";
+import { auth, db, storage } from "~/services/firebase";
 import { SubscribeContainer } from "~/styles/pages/subscribe";
 import filesize from "filesize";
 
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import AuthContext from "~/contexts/AuthContext";
+import router from "next/router";
 
 const formInitialValues = {
   teamName: "",
@@ -33,6 +35,8 @@ const formInitialValues = {
 };
 
 export default function Subscribe() {
+  const { user } = useContext(AuthContext);
+
   const [formPage, setFormPage] = useState(1);
   const [formData, setFormData] = useState(formInitialValues);
   const [teamLogoSize, setTeamLogoSize] = useState(0);
@@ -240,6 +244,31 @@ export default function Subscribe() {
     return null;
   };
 
+  async function createUserFirebase(email: string, password: string) {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .catch(function (error) {
+        if (error.code == "auth/email-already-in-use") {
+          alert("Este e-mail já está registrado.");
+        } else if (error.code == "auth/invalid-email") {
+          alert("O e-mail é invalido.");
+        } else if (error.code == "auth/operation-not-allowed") {
+          alert("Operação não permitida.");
+        } else if (error.code == "auth/weak-password") {
+          alert("A senha é muito fraca. Preencha novamente.");
+        }
+      })
+      .then(async () => {
+        await auth
+          .signInWithEmailAndPassword(email, password)
+          .catch(function (error) {
+            if (error.code == "auth/wrong-password") {
+              alert("E-mail ou senha incorretos.");
+            }
+          });
+      });
+  }
+
   function handleSubmitForm(e) {
     e.preventDefault();
 
@@ -261,21 +290,53 @@ export default function Subscribe() {
     ) {
       const checkExistsTeam = db.collection("teams").doc(formData.slug);
 
-      checkExistsTeam.get().then((docSnapshot) => {
+      checkExistsTeam.get().then(async (docSnapshot) => {
         if (!docSnapshot.exists) {
-          setDeleteImageExecutable(false);
+          await createUserFirebase(
+            formData.director.email,
+            formData.director.cpf
+          );
 
-          db.collection("teams")
-            .doc(formData.slug)
-            .set(formData)
-            .then((docRef) => {
-              alert("Time adicionado com sucesso.");
-              window.location.href = "/teams";
-            })
-            .catch((error) => {
-              alert("Erro. Tente novamente mais tarde.");
-              console.error(error);
-            });
+          auth.onAuthStateChanged((user) => {
+            if (user) {
+              const { displayName, photoURL, uid, email } = user;
+              console.log(displayName, photoURL, uid, email);
+
+              db.collection("users")
+                .doc(user.uid)
+                .set({
+                  name: formData.director.name,
+                  rg: formData.director.rg,
+                  cpf: formData.director.cpf,
+                  location: {
+                    city: formData.director.location.city,
+                    state: formData.director.location.state,
+                  },
+                  address: formData.director.address,
+                  phone: formData.director.phone,
+                  email: formData.director.email,
+                  directorOf: formData.slug,
+                  id: user.uid,
+                  admin: false,
+                })
+                .then((userRef) => {
+                  setDeleteImageExecutable(false);
+
+                  db.collection("teams")
+                    .doc(formData.slug)
+                    .set(formData)
+                    .then((docRef) => {
+                      alert("Time adicionado com sucesso.");
+                    })
+                    .catch((error) => {
+                      alert("Erro. Tente novamente mais tarde.");
+                      console.error(error);
+                    });
+
+                  router.push("/dashboard");
+                });
+            }
+          });
         } else {
           alert("Time já existente nos registros.");
           window.location.href = `/teams#:~:text=${formData.teamName}`;

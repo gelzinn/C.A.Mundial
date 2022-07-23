@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
+import { AuthContextProvider } from "~/contexts/AuthContext";
 import { GlobalStyles } from "../styles/global";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -13,8 +14,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       {!isSSR && (
         <>
-          <Component {...pageProps} />
-          <GlobalStyles />
+          <AuthContextProvider>
+            <Component {...pageProps} />
+            <GlobalStyles />
+          </AuthContextProvider>
         </>
       )}
     </>

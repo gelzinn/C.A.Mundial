@@ -216,7 +216,7 @@ export default function HelpCenter() {
                       <p>
                         Incrível que está conosco! A C.A.Mundial agradece muito
                         a sua preferência. Após cadastrado, acesse o{" "}
-                        <a href="/dashboard/">painel de controle</a> para
+                        <Link href="/dashboard/">painel de controle</Link> para
                         efetuar estas ações.
                       </p>
                     </li>

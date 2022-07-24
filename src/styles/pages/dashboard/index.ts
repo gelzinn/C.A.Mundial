@@ -20,9 +20,9 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  margin: 1rem auto;
-  /* max-width: 1120px; */
+  margin: 1rem;
   gap: 1rem;
+
   @media (max-width: 768px) {
     height: unset;
     align-items: flex-start;
@@ -33,11 +33,11 @@ export const CardContainer = styled.div`
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: calc(1000px / 2);
+  flex-basis: 600px;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  margin: 0 1rem;
+  /* margin: 0 1rem; */
   padding: 2rem;
   gap: 1rem;
   width: 100%;

@@ -21,6 +21,9 @@ export const AsideContainer = styled.aside`
     background-color: var(--shape);
     border-radius: 1rem;
   }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--shape-light);
+  }
   &::-webkit-scrollbar-track {
     background-color: transparent;
   }

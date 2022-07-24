@@ -1,15 +1,17 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 import { ArrowLeft, MapPin } from "phosphor-react";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Aside from "~/components/Dashboard/Aside";
 import LoadingScreen from "~/components/LoadingScreen";
-import { db } from "~/services/firebase";
+import { auth, db } from "~/services/firebase";
 import { GridAppContainer } from "~/styles/pages/dashboard";
 import { EventContainer } from "~/styles/pages/dashboard/event-page";
 import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import AuthContext from "~/contexts/AuthContext";
+import { UserInfo } from "~/models/importUserInfo";
 
 export default function Home() {
   const { query } = useRouter();
@@ -19,6 +21,8 @@ export default function Home() {
   const actualYear = new Date().getFullYear();
 
   const idParam = query.id;
+  const { user } = useContext(AuthContext);
+  const [userInfo, setUserInfo] = useState<UserInfo | any>([]);
 
   useEffect(() => {
     const checkExistsEvent = db.collection("events").doc(`${idParam}`);
@@ -34,6 +38,31 @@ export default function Home() {
     });
   }, [idParam]);
 
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const { displayName, photoURL, uid, email } = user;
+      } else {
+        router.push("/");
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      db.collection("users")
+        .doc(user.id)
+        .get()
+        .then((response) => {
+          setUserInfo(response.data());
+        });
+    }
+  }, [user]);
+
   const handleDeleteEvent = () => {
     if (confirm("Você tem certeza que deseja excluir este evento?")) {
       db.collection("events")
@@ -41,7 +70,7 @@ export default function Home() {
         .delete()
         .then((docRef) => {
           alert(`${event.name} foi removido com sucesso.`);
-          window.location.href = "/events";
+          window.location.href = "/dashboard/events";
         })
         .catch((error) => {
           alert("Ocorreu um erro. Tente novamente mais tarde.");
@@ -66,7 +95,7 @@ export default function Home() {
             <Aside />
             <main>
               <EventContainer>
-                <Link href="/events">
+                <Link href="/dashboard/events">
                   <div
                     className={
                       event.image ? "back-arrow" : "back-arrow without-image"
@@ -177,7 +206,11 @@ export default function Home() {
                         </ul>
                       </>
                     )}
-                    <button onClick={handleDeleteEvent}>Remover evento</button>
+                    {userInfo.admin && (
+                      <button onClick={handleDeleteEvent}>
+                        Remover evento
+                      </button>
+                    )}
                   </div>
                 </div>
               </EventContainer>

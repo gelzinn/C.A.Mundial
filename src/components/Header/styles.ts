@@ -311,6 +311,7 @@ export const HeaderContainer = styled.header`
       align-items: center;
       position: relative;
 
+      height: 100%;
       gap: 1rem;
 
       > a {
@@ -331,10 +332,11 @@ export const HeaderContainer = styled.header`
 
         gap: 0.5rem;
         position: relative;
+        height: 100%;
 
         .user-icon {
           width: 2.25rem;
-          height: 100%;
+          height: 2.25rem;
           padding: 0.5rem;
 
           border: 1px solid var(--white);
@@ -353,14 +355,19 @@ export const HeaderContainer = styled.header`
           }
         }
 
+        > svg {
+          height: 100%;
+        }
+
         > ul {
           position: absolute;
-          top: 100%;
+          top: 75%;
           right: 0;
 
           margin: 0.5rem 0;
 
           background: var(--primary);
+          color: var(--white);
           width: 200px;
           border-radius: 4px;
 
@@ -498,6 +505,7 @@ export const Warnings = styled.div`
   text-align: center;
 
   /* filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2)); */
+  user-select: none;
 
   z-index: 2;
   overflow: hidden;

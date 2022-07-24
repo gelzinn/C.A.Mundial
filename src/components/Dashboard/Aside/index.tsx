@@ -13,8 +13,10 @@ import {
   Receipt,
   Scroll,
   Shield,
+  ShieldCheck,
   SignOut,
   SoccerBall,
+  User,
   Users,
   Warning,
 } from "phosphor-react";
@@ -228,14 +230,16 @@ export default function Aside() {
               <div>
                 <span>Sistema</span>
                 <ul>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/users" ? "active" : ""
-                    } soon`}
-                  >
-                    <Users />
-                    <p>Usuários</p>
-                  </li>
+                  <Link href="/dashboard/users">
+                    <li
+                      className={`${
+                        location.pathname === "/dashboard/users" ? "active" : ""
+                      }`}
+                    >
+                      <Users />
+                      <p>Usuários</p>
+                    </li>
+                  </Link>
                 </ul>
               </div>
               <div>
@@ -326,6 +330,14 @@ export default function Aside() {
               <div>
                 <span>Equipes</span>
                 <ul>
+                  <li
+                    className={`${
+                      location.pathname === "/dashboard/team" ? "active" : ""
+                    } soon`}
+                  >
+                    <ShieldCheck />
+                    <p>Minha equipe</p>
+                  </li>
                   <Link href="/dashboard/teams">
                     <li
                       className={`${
@@ -362,6 +374,18 @@ export default function Aside() {
               <div>
                 <span>Conta</span>
                 <ul>
+                  <Link href="/dashboard/profile">
+                    <li
+                      className={`${
+                        location.pathname === "/dashboard/profile"
+                          ? "active"
+                          : ""
+                      }`}
+                    >
+                      <User />
+                      <p>Minha conta</p>
+                    </li>
+                  </Link>
                   <li onClick={() => logOutFirebase()}>
                     <SignOut />
                     <p>Sair</p>

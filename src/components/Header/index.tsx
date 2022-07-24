@@ -174,23 +174,22 @@ export default function Header() {
                     <ul ref={ref}>
                       <Link href="/dashboard">
                         <li>
-                          <Gauge weight="bold" />
+                          <Gauge />
                           Painel de Controle
                         </li>
                       </Link>
-                      <Link href="/account">
+                      <Link href="/dashboard/profile">
                         <li>
-                          <UserCircle weight="bold" />
+                          <UserCircle />
                           Perfil
                         </li>
                       </Link>
                       <li onClick={logOutFirebase}>
-                        <SignOut weight="bold" />
+                        <SignOut />
                         Sair
                       </li>
                       <footer>
-                        <p>Logado como: {user.email}.</p>
-                        <p>Seu ID: {user.id}.</p>
+                        <p>Logado como: {user.email}</p>
                       </footer>
                     </ul>
                   )}

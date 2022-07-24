@@ -1,18 +1,49 @@
 import LoadingCircle from "~/components/LoadingCircle";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import { db } from "~/services/firebase";
+import { useContext, useEffect, useState } from "react";
+import { auth, db } from "~/services/firebase";
 import { TeamsContainer } from "~/styles/pages/teams";
 import { GridAppContainer } from "~/styles/pages/dashboard";
 import Aside from "~/components/Dashboard/Aside";
 import { GetStaticProps } from "next";
+import AuthContext from "~/contexts/AuthContext";
+import { UserInfo } from "~/models/importUserInfo";
+import router from "next/router";
 
 export default function Home(teamsList) {
   const [teams, setTeams] = useState([]);
 
+  const { user } = useContext(AuthContext);
+  const [userInfo, setUserInfo] = useState<UserInfo | any>([]);
+
   useEffect(() => {
     setTeams(teamsList.teams[0]);
   }, [teamsList]);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const { displayName, photoURL, uid, email } = user;
+      } else {
+        router.push("/");
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      db.collection("users")
+        .doc(user.id)
+        .get()
+        .then((response) => {
+          setUserInfo(response.data());
+        });
+    }
+  }, [user]);
 
   return (
     <>
@@ -31,44 +62,90 @@ export default function Home(teamsList) {
           {teams ? (
             <TeamsContainer>
               <>
-                {teams.map((team) => {
-                  return (
-                    <a
-                      key={team.id}
-                      href={`dashboard/team/${team.slug}`}
-                      id={team.slug}
-                    >
-                      <div>
-                        {team.logo ? (
-                          <div className="logo">
-                            <img
-                              src={team.logo}
-                              alt={team.teamName}
-                              loading="lazy"
-                            />
+                {userInfo.admin ? (
+                  <>
+                    {teams.map((team) => {
+                      return (
+                        <a
+                          key={team.id}
+                          href={`dashboard/team/${team.slug}`}
+                          id={team.slug}
+                          style={{ maxWidth: "unset" }}
+                        >
+                          <div>
+                            {team.logo ? (
+                              <div className="logo">
+                                <img
+                                  src={team.logo}
+                                  alt={team.teamName}
+                                  loading="lazy"
+                                />
+                              </div>
+                            ) : (
+                              <LoadingCircle />
+                            )}
+                            <div className="info">
+                              <b>{team.teamName}</b>
+                              <p>{team.director.name}</p>
+                            </div>
                           </div>
-                        ) : (
-                          <LoadingCircle />
-                        )}
-                        <div className="info">
-                          <b>{team.teamName}</b>
-                          <p>{team.director.name}</p>
-                        </div>
-                      </div>
 
-                      {team.location &&
-                        team.location.city &&
-                        team.location.state && (
-                          <div className="location">
-                            <span>Localidade</span>
-                            <p>
-                              {team.location.city} - {team.location.state}
-                            </p>
+                          {team.location &&
+                            team.location.city &&
+                            team.location.state && (
+                              <div className="location">
+                                <span>Localidade</span>
+                                <p>
+                                  {team.location.city} - {team.location.state}
+                                </p>
+                              </div>
+                            )}
+                        </a>
+                      );
+                    })}
+                  </>
+                ) : (
+                  <>
+                    {teams.map((team) => {
+                      return (
+                        <a
+                          key={team.id}
+                          id={team.slug}
+                          style={{ maxWidth: "unset" }}
+                        >
+                          <div>
+                            {team.logo ? (
+                              <div className="logo">
+                                <img
+                                  src={team.logo}
+                                  alt={team.teamName}
+                                  loading="lazy"
+                                />
+                              </div>
+                            ) : (
+                              <LoadingCircle />
+                            )}
+                            <div className="info">
+                              <b>{team.teamName}</b>
+                              <p>{team.director.name}</p>
+                            </div>
                           </div>
-                        )}
-                    </a>
-                  );
-                })}
+
+                          {team.location &&
+                            team.location.city &&
+                            team.location.state && (
+                              <div className="location">
+                                <span>Localidade</span>
+                                <p>
+                                  {team.location.city} - {team.location.state}
+                                </p>
+                              </div>
+                            )}
+                        </a>
+                      );
+                    })}
+                  </>
+                )}
               </>
             </TeamsContainer>
           ) : (

@@ -1,20 +1,26 @@
 import Head from "next/head";
 import Link from "next/link";
 import { PlusCircle } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Aside from "~/components/Dashboard/Aside";
 import LoadingCircle from "~/components/LoadingCircle";
-import { db } from "~/services/firebase";
+import { auth, db } from "~/services/firebase";
 import { GridAppContainer } from "~/styles/pages/dashboard";
 import { EventsContainer } from "~/styles/pages/dashboard/events";
 import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import AuthContext from "~/contexts/AuthContext";
+import { UserInfo } from "~/models/importUserInfo";
+import router from "next/router";
 
 export default function Home() {
   const [events, setEvents] = useState([]);
 
   const today = new Date().toISOString().split("T")[0];
   const actualYear = new Date().getFullYear();
+
+  const { user } = useContext(AuthContext);
+  const [userInfo, setUserInfo] = useState<UserInfo | any>([]);
 
   useEffect(() => {
     db.collection("events")
@@ -24,6 +30,31 @@ export default function Home() {
         setEvents(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       );
   }, []);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const { displayName, photoURL, uid, email } = user;
+      } else {
+        router.push("/");
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      db.collection("users")
+        .doc(user.id)
+        .get()
+        .then((response) => {
+          setUserInfo(response.data());
+        });
+    }
+  }, [user]);
 
   return (
     <>
@@ -36,16 +67,22 @@ export default function Home() {
         <Aside />
         <main>
           <div className="title">
-            <span>Controle todos os</span>
+            {userInfo.admin ? (
+              <span>Controle todos os</span>
+            ) : (
+              <span>Veja todos os</span>
+            )}
             <h1>Eventos existentes</h1>
           </div>
           <EventsContainer>
             <ul>
-              <Link href="/dashboard/event/create">
-                <button>
-                  <PlusCircle />
-                </button>
-              </Link>
+              {userInfo.admin && (
+                <Link href="/dashboard/event/create">
+                  <button>
+                    <PlusCircle />
+                  </button>
+                </Link>
+              )}
               {events ? (
                 <>
                   {events

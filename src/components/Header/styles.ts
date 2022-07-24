@@ -225,7 +225,12 @@ export const HeaderContainer = styled.header`
 
             width: 100%;
             height: 100%;
+            max-width: 200px;
             max-height: 8rem;
+
+            > svg {
+              max-width: 1rem;
+            }
 
             a:not(.subscribe):hover {
               color: var(--white);
@@ -456,6 +461,8 @@ export const HeaderContainer = styled.header`
         transform: translateX(100%);
 
         width: 100%;
+        max-width: 0;
+
         height: 100%;
         max-height: 0;
 
@@ -469,6 +476,7 @@ export const HeaderContainer = styled.header`
 
         > svg {
           margin-left: 0.5rem;
+          max-width: 12px;
           max-height: 12px;
           opacity: 1;
           visibility: visible;

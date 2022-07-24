@@ -24,8 +24,6 @@ export default function Users({ users }) {
             {users ? (
               <>
                 {users[0].map((user, i) => {
-                  console.log(user);
-
                   return (
                     <li key={i}>
                       <p>{user.name}</p>
@@ -49,20 +47,16 @@ export default function Users({ users }) {
 export const getStaticProps: GetStaticProps = async () => {
   let users = [];
 
-  try {
-    await db
-      .collection("users")
-      .get()
-      .then((response) => {
-        users.push(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      });
-  } catch (e) {
-    console.log(e);
-  }
+  await db
+    .collection("users")
+    .get()
+    .then((response) => {
+      users.push(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    });
 
   return {
     props: {
-      users: users[0],
+      users: users,
     },
     revalidate: 10,
   };

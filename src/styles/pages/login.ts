@@ -26,8 +26,8 @@ export const LoginPage = styled.div`
       filter: grayscale(1);
 
       &#side {
-        left: -50%;
-        opacity: 0.05;
+        left: -25%;
+        opacity: 0.025;
       }
     }
 
@@ -148,7 +148,7 @@ export const LoginPage = styled.div`
                 display: none;
 
                 left: 6px;
-                top: 2.5px;
+                top: 2px;
                 width: 5px;
                 height: 10px;
 

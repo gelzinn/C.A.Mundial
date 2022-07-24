@@ -2306,6 +2306,11 @@ punycode@^2.1.0:
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
+quantize@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/quantize/-/quantize-1.0.2.tgz#d25ac200a77b6d70f40127ca171a10e33c8546de"
+  integrity sha512-25P7wI2UoDbIQsQp50ARkt+5pwPsOq7G/BqvT5xAbapnRoNWMN8/p55H9TXd5MuENiJnm5XICB2H2aDZGwts7w==
+
 queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
@@ -2687,6 +2692,13 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+use-image-color@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/use-image-color/-/use-image-color-0.0.9.tgz#6abc75c98bb5ba6655430d95ef4a1f3baeed7780"
+  integrity sha512-wEoBM61IbWzNxfcAyln2PcJwpCxgBmAvMdXrixXPNDQ8Ms8aMGXaxIGyzrtqOkc/OJGLXDUcGk/GLmxS5BOGDQ==
+  dependencies:
+    quantize "^1.0.2"
 
 util-deprecate@~1.0.1:
   version "1.0.2"

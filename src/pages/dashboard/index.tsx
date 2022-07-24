@@ -101,16 +101,19 @@ export default function Home() {
                         </p>
                       </Card>
                     </Link>
-                    <Link href="/dashboard/team">
-                      <Card>
-                        <span>Minha equipe</span>
-                        <Shield />
-                        <p>
-                          Gerencie todos os membros de sua equipe. Jogadores e
-                          comissão técnica.
-                        </p>
-                      </Card>
-                    </Link>
+                    {userInfo.directorOf != null &&
+                      userInfo.directorOf != undefined && (
+                        <Link href={`/dashboard/team/${userInfo.directorOf}`}>
+                          <Card>
+                            <span>Minha equipe</span>
+                            <Shield />
+                            <p>
+                              Gerencie todos os membros de sua equipe. Jogadores
+                              e comissão técnica.
+                            </p>
+                          </Card>
+                        </Link>
+                      )}
                     <Link href="/dashboard/profile">
                       <Card>
                         <span>Meu perfil</span>

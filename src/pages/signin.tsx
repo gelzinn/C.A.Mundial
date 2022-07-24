@@ -5,6 +5,8 @@ import { useContext, useEffect, useState } from "react";
 import { auth } from "~/services/firebase";
 import router from "next/router";
 import AuthContext from "~/contexts/AuthContext";
+import { LoginPage } from "~/styles/pages/login";
+import Link from "next/link";
 
 export default function SignIn() {
   const { user } = useContext(AuthContext);
@@ -48,23 +50,55 @@ export default function SignIn() {
             />
           </Head>
 
-          <main>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="text"
-                placeholder="E-mail"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
+          <LoginPage>
+            <div className="illustration">
+              <img
+                id="side"
+                src="../../assets/images/logo-camundial.png"
+                alt="C. A. Mundial"
               />
-              <input
-                type="password"
-                placeholder="Senha"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-              />
-              <button onClick={() => loginWithEmail()}>Entrar</button>
-            </form>
-          </main>
+              {/* <img
+                src="../../illustrations/password-pana.svg"
+                alt="C. A. Mundial"
+              /> */}
+              <div className="bg left" />
+            </div>
+            <div className="form">
+              <form onSubmit={(e) => e.preventDefault()}>
+                <h3>Bem-vindo de volta!</h3>
+                <h1>Entre na sua conta</h1>
+                <input
+                  type="text"
+                  placeholder="E-mail"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+                <input
+                  type="password"
+                  placeholder="Senha"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+                <div className="actions">
+                  <label className="checkbox-container">
+                    Lembrar de mim
+                    <input type="checkbox" />
+                    <span className="checkmark"></span>
+                  </label>
+                  <Link href="/">
+                    <p>Esqueceu a senha?</p>
+                  </Link>
+                </div>
+                <button onClick={() => loginWithEmail()}>Entrar</button>
+                <p>
+                  Novo aqui?
+                  <Link href="/subscribe">
+                    <b>Crie uma conta.</b>
+                  </Link>
+                </p>
+              </form>
+            </div>
+          </LoginPage>
         </>
       )}
     </>

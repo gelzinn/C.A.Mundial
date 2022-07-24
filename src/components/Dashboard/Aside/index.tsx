@@ -54,16 +54,18 @@ export default function Aside() {
   });
 
   async function logOutFirebase() {
-    firebase
-      .auth()
-      .signOut()
-      .then(function () {
-        alert("Você saiu da conta.");
-        location.reload();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    if (confirm("Você tem certeza que deseja sair?")) {
+      firebase
+        .auth()
+        .signOut()
+        .then(function () {
+          alert("Você saiu da conta.");
+          location.reload();
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   }
 
   useEffect(() => {

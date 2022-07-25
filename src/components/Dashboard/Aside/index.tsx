@@ -96,12 +96,15 @@ export default function Aside() {
 
   return (
     <AsideContainer className={openMenu && "opened"}>
-      <div className="logo">
-        <Link href="/">
+      <Link href="/">
+        <div className="logo">
           <ArrowLeft />
-        </Link>
-        <img src="../../assets/images/logo-camundial.png" alt="C. A. Mundial" />
-      </div>
+          <img
+            src="../../assets/images/logo-camundial.png"
+            alt="C. A. Mundial"
+          />
+        </div>
+      </Link>
       <nav className={openMenu ? "opened" : ""}>
         <LinksContainer>
           {userInfo ? (
@@ -283,6 +286,18 @@ export default function Aside() {
                   <div>
                     <span>Conta</span>
                     <ul>
+                      <Link href="/dashboard/profile">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/profile"
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <User />
+                          <p>Minha conta</p>
+                        </li>
+                      </Link>
                       <li onClick={() => logOutFirebase()}>
                         <SignOut />
                         <p>Sair</p>

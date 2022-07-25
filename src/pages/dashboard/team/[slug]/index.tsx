@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { db, storage } from "~/services/firebase";
-import { useEffect, useState } from "react";
+import router, { useRouter } from "next/router";
+import { auth, db, storage } from "~/services/firebase";
+import { useContext, useEffect, useState } from "react";
 import LoadingScreen from "~/components/LoadingScreen";
 import {
   AboutTeamContainer,
@@ -15,6 +15,8 @@ import Link from "next/link";
 import { GridAppContainer } from "~/styles/pages/dashboard";
 import Aside from "~/components/Dashboard/Aside";
 import Modal from "~/components/Dashboard/Modal";
+import AuthContext from "~/contexts/AuthContext";
+import { UserInfo } from "~/models/importUserInfo";
 
 export default function Teams() {
   const [teamInfo, setTeamInfo] = useState<any>();
@@ -25,6 +27,8 @@ export default function Teams() {
   const [playerInfo, setPlayerInfo] = useState<any>([]);
 
   const slugParam = query.slug;
+  const { user } = useContext(AuthContext);
+  const [userInfo, setUserInfo] = useState<UserInfo | any>([]);
 
   useEffect(() => {
     const checkExistsTeam = db.collection("teams").doc(`${slugParam}`);
@@ -90,6 +94,31 @@ export default function Teams() {
     setModalVisible(false);
     location.reload();
   };
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const { displayName, photoURL, uid, email } = user;
+      } else {
+        router.push("/");
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      db.collection("users")
+        .doc(user.id)
+        .get()
+        .then((response) => {
+          setUserInfo(response.data());
+        });
+    }
+  }, [user]);
 
   return (
     <>

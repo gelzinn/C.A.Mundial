@@ -21,6 +21,7 @@ import {
   Warning,
 } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
+import LoadingCircle from "~/components/LoadingCircle";
 import AuthContext from "~/contexts/AuthContext";
 import { UserInfo } from "~/models/importUserInfo";
 import { auth, db } from "~/services/firebase";
@@ -103,298 +104,326 @@ export default function Aside() {
       </div>
       <nav className={openMenu ? "opened" : ""}>
         <LinksContainer>
-          {userInfo.admin ? (
+          {userInfo ? (
             <>
-              <div>
-                <span>Geral</span>
-                <ul>
-                  <Link href="/dashboard">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard" ? "active" : ""
-                      }`}
-                    >
-                      <Gauge />
-                      <p>Painel de controle</p>
-                    </li>
-                  </Link>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/stats" ? "active" : ""
-                    } soon`}
-                  >
-                    <ChartLineUp />
-                    <p>Estatísticas</p>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <span>Eventos</span>
-                <ul>
-                  <Link href="/dashboard/events">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard/events"
-                          ? "active"
-                          : ""
-                      }`}
-                    >
-                      <SoccerBall />
-                      <p>Todos eventos</p>
-                    </li>
-                  </Link>
-                  <Link href="/dashboard/event/create">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard/event/create"
-                          ? "active"
-                          : ""
-                      }`}
-                    >
-                      <CalendarPlus />
-                      <p>Novo evento</p>
-                    </li>
-                  </Link>
-                  <Link href="/dashboard/event/highlight">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard/event/highlight"
-                          ? "active"
-                          : ""
-                      }`}
-                    >
-                      <ClockClockwise />
-                      <p>Destacar evento</p>
-                    </li>
-                  </Link>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/event/rules"
-                        ? "active"
-                        : ""
-                    } soon`}
-                  >
-                    <Scroll />
-                    <p>Regulamento geral</p>
-                  </li>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/event/rules"
-                        ? "active"
-                        : ""
-                    } soon`}
-                  >
-                    <CircleWavyWarning />
-                    <p>Informativo</p>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <span>Equipes</span>
-                <ul>
-                  <Link href="/dashboard/teams">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard/teams" ? "active" : ""
-                      }`}
-                    >
-                      <Shield />
-                      <p>Todas equipes</p>
-                    </li>
-                  </Link>
-                </ul>
-              </div>
-              <div>
-                <span>Finanças</span>
-                <ul>
-                  <Link href="/dashboard/sponsors">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard/sponsors"
-                          ? "active"
-                          : ""
-                      } new`}
-                    >
-                      <CurrencyCircleDollar />
-                      <p>Patrocinadores</p>
-                    </li>
-                  </Link>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/receipt" ? "active" : ""
-                    } soon`}
-                  >
-                    <Receipt />
-                    <p>Receita</p>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <span>Sistema</span>
-                <ul>
-                  <Link href="/dashboard/users">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard/users" ? "active" : ""
-                      }`}
-                    >
-                      <Users />
-                      <p>Usuários</p>
-                    </li>
-                  </Link>
-                </ul>
-              </div>
-              <div>
-                <span>Suporte</span>
-                <ul>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/help" ? "active" : ""
-                    } soon`}
-                  >
-                    <Info />
-                    <p>Dúvidas</p>
-                  </li>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/report" ? "active" : ""
-                    } soon`}
-                  >
-                    <Warning />
-                    <p>Reportar</p>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <span>Conta</span>
-                <ul>
-                  <li onClick={() => logOutFirebase()}>
-                    <SignOut />
-                    <p>Sair</p>
-                  </li>
-                </ul>
-              </div>
+              {userInfo.admin ? (
+                <>
+                  <div>
+                    <span>Geral</span>
+                    <ul>
+                      <Link href="/dashboard">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard" ? "active" : ""
+                          }`}
+                        >
+                          <Gauge />
+                          <p>Painel de controle</p>
+                        </li>
+                      </Link>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/stats"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <ChartLineUp />
+                        <p>Estatísticas</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Eventos</span>
+                    <ul>
+                      <Link href="/dashboard/events">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/events"
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <SoccerBall />
+                          <p>Todos eventos</p>
+                        </li>
+                      </Link>
+                      <Link href="/dashboard/event/create">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/event/create"
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <CalendarPlus />
+                          <p>Novo evento</p>
+                        </li>
+                      </Link>
+                      <Link href="/dashboard/event/highlight">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/event/highlight"
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <ClockClockwise />
+                          <p>Destacar evento</p>
+                        </li>
+                      </Link>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/event/rules"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <Scroll />
+                        <p>Regulamento geral</p>
+                      </li>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/event/rules"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <CircleWavyWarning />
+                        <p>Informativo</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Equipes</span>
+                    <ul>
+                      <Link href="/dashboard/teams">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/teams"
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <Shield />
+                          <p>Todas equipes</p>
+                        </li>
+                      </Link>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Finanças</span>
+                    <ul>
+                      <Link href="/dashboard/sponsors">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/sponsors"
+                              ? "active"
+                              : ""
+                          } new`}
+                        >
+                          <CurrencyCircleDollar />
+                          <p>Patrocinadores</p>
+                        </li>
+                      </Link>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/receipt"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <Receipt />
+                        <p>Receita</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Sistema</span>
+                    <ul>
+                      <Link href="/dashboard/users">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/users"
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <Users />
+                          <p>Usuários</p>
+                        </li>
+                      </Link>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Suporte</span>
+                    <ul>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/help"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <Info />
+                        <p>Dúvidas</p>
+                      </li>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/report"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <Warning />
+                        <p>Reportar</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Conta</span>
+                    <ul>
+                      <li onClick={() => logOutFirebase()}>
+                        <SignOut />
+                        <p>Sair</p>
+                      </li>
+                    </ul>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <span>Geral</span>
+                    <ul>
+                      <Link href="/dashboard">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard" ? "active" : ""
+                          }`}
+                        >
+                          <Gauge />
+                          <p>Painel de controle</p>
+                        </li>
+                      </Link>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Eventos</span>
+                    <ul>
+                      <Link href="/dashboard/events">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/events"
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <SoccerBall />
+                          <p>Todos eventos</p>
+                        </li>
+                      </Link>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/event/rules"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <Scroll />
+                        <p>Regulamento geral</p>
+                      </li>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/event/rules"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <CircleWavyWarning />
+                        <p>Informativo</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Equipes</span>
+                    <ul>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/team"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <ShieldCheck />
+                        <p>Minha equipe</p>
+                      </li>
+                      <Link href="/dashboard/teams">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/teams"
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <Shield />
+                          <p>Todas equipes</p>
+                        </li>
+                      </Link>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Suporte</span>
+                    <ul>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/help"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <Info />
+                        <p>Dúvidas</p>
+                      </li>
+                      <li
+                        className={`${
+                          location.pathname === "/dashboard/report"
+                            ? "active"
+                            : ""
+                        } soon`}
+                      >
+                        <Warning />
+                        <p>Reportar</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <span>Conta</span>
+                    <ul>
+                      <Link href="/dashboard/profile">
+                        <li
+                          className={`${
+                            location.pathname === "/dashboard/profile"
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <User />
+                          <p>Minha conta</p>
+                        </li>
+                      </Link>
+                      <li onClick={() => logOutFirebase()}>
+                        <SignOut />
+                        <p>Sair</p>
+                      </li>
+                    </ul>
+                  </div>
+                </>
+              )}
             </>
           ) : (
-            <>
-              <div>
-                <span>Geral</span>
-                <ul>
-                  <Link href="/dashboard">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard" ? "active" : ""
-                      }`}
-                    >
-                      <Gauge />
-                      <p>Painel de controle</p>
-                    </li>
-                  </Link>
-                </ul>
-              </div>
-              <div>
-                <span>Eventos</span>
-                <ul>
-                  <Link href="/dashboard/events">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard/events"
-                          ? "active"
-                          : ""
-                      }`}
-                    >
-                      <SoccerBall />
-                      <p>Todos eventos</p>
-                    </li>
-                  </Link>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/event/rules"
-                        ? "active"
-                        : ""
-                    } soon`}
-                  >
-                    <Scroll />
-                    <p>Regulamento geral</p>
-                  </li>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/event/rules"
-                        ? "active"
-                        : ""
-                    } soon`}
-                  >
-                    <CircleWavyWarning />
-                    <p>Informativo</p>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <span>Equipes</span>
-                <ul>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/team" ? "active" : ""
-                    } soon`}
-                  >
-                    <ShieldCheck />
-                    <p>Minha equipe</p>
-                  </li>
-                  <Link href="/dashboard/teams">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard/teams" ? "active" : ""
-                      }`}
-                    >
-                      <Shield />
-                      <p>Todas equipes</p>
-                    </li>
-                  </Link>
-                </ul>
-              </div>
-              <div>
-                <span>Suporte</span>
-                <ul>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/help" ? "active" : ""
-                    } soon`}
-                  >
-                    <Info />
-                    <p>Dúvidas</p>
-                  </li>
-                  <li
-                    className={`${
-                      location.pathname === "/dashboard/report" ? "active" : ""
-                    } soon`}
-                  >
-                    <Warning />
-                    <p>Reportar</p>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <span>Conta</span>
-                <ul>
-                  <Link href="/dashboard/profile">
-                    <li
-                      className={`${
-                        location.pathname === "/dashboard/profile"
-                          ? "active"
-                          : ""
-                      }`}
-                    >
-                      <User />
-                      <p>Minha conta</p>
-                    </li>
-                  </Link>
-                  <li onClick={() => logOutFirebase()}>
-                    <SignOut />
-                    <p>Sair</p>
-                  </li>
-                </ul>
-              </div>
-            </>
+            <div className="loading">
+              <LoadingCircle />
+            </div>
           )}
         </LinksContainer>
       </nav>

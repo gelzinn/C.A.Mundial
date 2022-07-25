@@ -16,7 +16,7 @@ export const ProfileContainer = styled.div`
 
   @media (min-width: 768px) {
     > section {
-      margin-top: calc(450px + 1rem);
+      margin-top: calc(400px + 1rem);
     }
   }
 
@@ -28,7 +28,7 @@ export const ProfileContainer = styled.div`
 
   @media (max-width: 500px) {
     > section {
-      margin-top: calc(230px + 1rem);
+      margin-top: calc(220px + 1rem);
     }
   }
 
@@ -36,8 +36,9 @@ export const ProfileContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 
+    width: 100%;
     gap: 1rem;
 
     > h1 {
@@ -49,14 +50,10 @@ export const ProfileContainer = styled.div`
       justify-content: center;
       align-items: center;
 
-      gap: 1rem;
+      gap: 0.5rem;
 
       > span {
         font-weight: bold;
-      }
-
-      @media (max-width: 500px) {
-        gap: 0.5rem;
       }
     }
   }
@@ -89,7 +86,7 @@ export const ProfileImage = styled.div<ProfileProps>`
   }
 
   @media (min-width: 768px) {
-    padding: 3rem 1rem;
+    padding: 3rem 1rem 0;
   }
 
   @media (max-width: 768px) {

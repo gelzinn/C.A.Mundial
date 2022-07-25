@@ -42,7 +42,7 @@ export const AsideContainer = styled.aside`
       width: 100%;
       height: 100%;
       padding-left: 0.75rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
   }
   > .logo {
@@ -187,7 +187,7 @@ export const LinksContainer = styled.div`
   gap: 1.5rem;
   width: 100%;
   height: 100%;
-  > div {
+  > div:not(.loading) {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -290,6 +290,15 @@ export const LinksContainer = styled.div`
         }
       }
     }
+  }
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    margin-left: -0.75rem;
   }
   @media (max-width: 768px) {
     margin: unset;
